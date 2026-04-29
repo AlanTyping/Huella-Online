@@ -26,7 +26,7 @@ export function Services() {
   ];
 
   return (
-    <section id="servicios" className="bg-[#040d23] py-24 lg:py-32">
+    <section id="servicios" className="bg-brand-primary py-24 lg:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center mb-20">
           <motion.h2 
@@ -35,7 +35,7 @@ export function Services() {
             viewport={{ once: true }}
             className="text-4xl font-black tracking-tighter text-white sm:text-6xl uppercase"
           >
-            INGENIERÍA DE <span className="text-[#ffa500]">VALOR</span>
+            INGENIERÍA DE <span className="text-brand-secondary">VALOR</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -57,15 +57,15 @@ export function Services() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="group relative flex flex-col gap-4 overflow-hidden rounded-[2rem] border border-white/5 bg-[#010409] p-10 transition-all hover:border-[#ffa500]/30 shadow-2xl"
+              className="group relative flex flex-col gap-4 overflow-hidden rounded-[2rem] border border-white/5 bg-brand-dark p-10 transition-all hover:border-brand-secondary/30 shadow-2xl"
             >
               <div className="absolute top-0 right-0 p-8">
-                <span className="text-[10px] font-black tracking-[0.3em] text-white/10 uppercase group-hover:text-[#ffa500]/50 transition-colors">
+                <span className="text-[10px] font-black tracking-[0.3em] text-white/10 uppercase group-hover:text-brand-secondary/50 transition-colors">
                   {service.tag}
                 </span>
               </div>
               
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#040d23] text-[#ffa500] group-hover:bg-[#ffa500] group-hover:text-[#040d23] transition-all duration-300 shadow-inner">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-primary text-brand-secondary group-hover:bg-brand-secondary group-hover:text-brand-primary transition-all duration-300 shadow-inner">
                 {service.icon}
               </div>
               
@@ -83,7 +83,7 @@ export function Services() {
                   initial={{ x: "-100%" }}
                   whileInView={{ x: "100%" }}
                   transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-0 w-1/3 bg-gradient-to-r from-transparent via-[#ffa500] to-transparent"
+                  className="absolute inset-0 w-1/3 bg-gradient-to-r from-transparent via-brand-secondary to-transparent"
                 />
               </div>
             </motion.div>

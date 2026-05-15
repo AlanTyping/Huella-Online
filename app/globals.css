@@ -3,13 +3,17 @@
 :root {
   --brand-navy: #040d23;
   --brand-navy-light: #0a1931;
+  --brand-navy-deep: #020617;
+  /* Slate-950 equivalent */
   --brand-orange: #ffa500;
   --brand-orange-hover: #ffb733;
   --brand-black: #010409;
-  
+  --brand-zinc-400: #a1a1aa;
+  --brand-zinc-500: #71717a;
+
   --background: #ffffff;
   --foreground: var(--brand-navy);
-  
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -18,10 +22,11 @@
   /* Mapping my custom variables to Tailwind classes */
   --color-brand-primary: var(--brand-navy);
   --color-brand-primary-light: var(--brand-navy-light);
+  --color-brand-primary-deep: var(--brand-navy-deep);
   --color-brand-secondary: var(--brand-orange);
   --color-brand-accent: var(--brand-orange-hover);
   --color-brand-dark: var(--brand-black);
-  
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -48,6 +53,6 @@ body {
 }
 
 ::selection {
-  background-color: var(--brand-orange);
-  color: var(--brand-navy);
+  background-color: #ffffff;
+  color: var(--brand-navy-deep);
 }

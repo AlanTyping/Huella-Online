@@ -16,113 +16,77 @@ const projects: Project[] = [
     client: "Vicky Aphalo",
     industry: "Educación & Bienestar",
     summary:
-      "Diseño y desarrollo de una presencia digital enfocada en transmitir confianza, profesionalismo y claridad de mensaje para profesionales de la educación.",
+      "Desarrollamos un ecosistema digital diseñado para transmitir confianza, claridad y autoridad, optimizado para convertir presencia en impacto real.",
     image: "/images/sitiovicky2.webp",
     link: "https://vickyaphalo.site",
   },
 ];
 
-function FloatingOrbs() {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-
-      {/* ORB 1 */}
-      <motion.div
-        animate={{
-          y: [0, -40, 0],
-          x: [0, 20, 0],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute top-20 left-10 h-72 w-72 rounded-full bg-brand-secondary/10 blur-[120px]"
-      />
-
-      {/* ORB 2 */}
-      <motion.div
-        animate={{
-          y: [0, 50, 0],
-          x: [0, -30, 0],
-          scale: [1, 1.15, 1],
-        }}
-        transition={{
-          duration: 14,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute top-1/2 right-10 h-96 w-96 rounded-full bg-brand-secondary/5 blur-[140px]"
-      />
-
-      {/* ORB 3 (más intenso) */}
-      <motion.div
-        animate={{
-          y: [0, -60, 0],
-          x: [0, -20, 0],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 18,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute bottom-10 left-1/3 h-80 w-80 rounded-full bg-brand-secondary/15 blur-[160px]"
-      />
-    </div>
-  );
-}
-
 export function Portfolio() {
   return (
-    <section
-      id="portfolio"
-      className="relative bg-brand-dark py-28 text-white overflow-hidden"
-    >
+    <section className="relative overflow-hidden bg-brand-primary-deep py-32 text-white">
 
-      {/* BACKGROUND EFFECT */}
-      <FloatingOrbs />
+      {/* 🌌 BACKGROUND DARK SYSTEM */}
+      <div className="pointer-events-none absolute inset-0">
 
-      {/* CONTENT */}
+        {/* blue glow main */}
+        <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[160px]" />
+
+        {/* secondary glow */}
+        <div className="absolute bottom-0 right-[-120px] h-[600px] w-[600px] rounded-full bg-blue-400/5 blur-[200px]" />
+
+        {/* subtle orange accent */}
+        <div className="absolute bottom-10 left-[-100px] h-[500px] w-[500px] rounded-full bg-orange-400/5 blur-[180px]" />
+
+        {/* grid */}
+        <div
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgba(59,130,246,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(59,130,246,0.15) 1px, transparent 1px)",
+            backgroundSize: "44px 44px",
+          }}
+        />
+      </div>
+
       <div className="relative mx-auto max-w-7xl px-6">
 
         {/* HEADER */}
-        <div className="mb-20 max-w-3xl">
+        <div className="mb-28 flex flex-col items-center text-center">
+
           <motion.span
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-4 inline-block text-sm uppercase tracking-[0.25em] text-brand-secondary"
+            className="mb-4 text-[11px] font-black uppercase tracking-[0.35em] text-white/50"
           >
-            Proyectos reales
+            Casos de estudio <span className="text-blue-500">reales</span>
           </motion.span>
 
           <motion.h2
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.05 }}
             viewport={{ once: true }}
-            className="text-4xl font-semibold leading-tight tracking-tight text-white md:text-6xl"
+            transition={{ delay: 0.1 }}
+            className="max-w-3xl text-4xl font-black uppercase tracking-tighter sm:text-6xl text-white"
           >
-            Resultados construidos junto a clientes reales.
+            RESULTADOS{" "}
+            <span className="text-brand-secondary">TANGIBLES</span>
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             viewport={{ once: true }}
-            className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400"
+            className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400 font-medium"
           >
-            Cada proyecto está diseñado para comunicar mejor,
-            transmitir más confianza y fortalecer la presencia online
-            de la marca.
+            Cada proyecto es una pieza de sistema: identidad, conversión y confianza diseñadas con intención.
           </motion.p>
         </div>
 
         {/* PROJECTS */}
-        <div className="space-y-24">
+        <div className="space-y-40">
           {projects.map((project, index) => (
             <motion.a
               key={project.client}
@@ -131,53 +95,61 @@ export function Portfolio() {
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               className="group block"
             >
-              <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
+
+              <div className="grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
 
                 {/* IMAGE */}
-                <div className="overflow-hidden rounded-3xl border border-white/5 bg-brand-primary-light">
+                <div className="relative overflow-hidden rounded-[2.2rem] border border-white/10 bg-brand-primary-light/10 shadow-2xl transition-all duration-500 group-hover:border-blue-500/40 group-hover:shadow-[0_0_50px_rgba(59,130,246,0.15)]">
+
                   <motion.img
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.5 }}
+                    whileHover={{ scale: 1.04 }}
+                    transition={{ duration: 0.7 }}
                     src={project.image}
                     alt={project.client}
-                    className="aspect-[16/10] w-full object-cover object-top"
+                    className="aspect-[16/10] w-full object-cover object-top opacity-80 transition duration-700 group-hover:opacity-100"
                   />
+
+                  <div className="absolute inset-0 rounded-[2.2rem] ring-1 ring-inset ring-white/10 group-hover:ring-blue-500/20" />
                 </div>
 
                 {/* CONTENT */}
                 <div className="max-w-xl">
-                  <div className="mb-4">
-                    <span className="text-xs uppercase tracking-[0.25em] text-brand-secondary">
+
+                  <div className="mb-5">
+                    <span className="text-[10px] font-black uppercase tracking-[0.35em] text-blue-500">
                       {project.industry}
                     </span>
                   </div>
 
-                  <h3 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+                  <h3 className="text-4xl font-black uppercase tracking-tighter transition-colors  md:text-5xl text-white">
                     {project.client}
                   </h3>
 
-                  <p className="mt-6 text-lg leading-relaxed text-zinc-400">
+                  <p className="mt-6 text-lg leading-relaxed text-zinc-400 font-medium">
                     {project.summary}
                   </p>
 
                   {/* TRUST BLOCK */}
-                  <div className="mt-10 border-l border-brand-secondary pl-6">
-                    <p className="text-base leading-relaxed text-zinc-300">
-                      “El objetivo no fue solamente crear una web,
-                      sino desarrollar una presencia digital alineada
-                      con la calidad y profesionalismo de la marca.”
+                  <div className="mt-12 border-l-2 border-blue-500/20 pl-8 transition-colors group-hover:border-blue-500/50">
+                    <p className="text-lg italic leading-relaxed text-zinc-300">
+                      &quot;No se trató de crear una web, sino de construir un activo digital real.&quot;
                     </p>
+
+                    <div className="mt-4 text-[10px] font-black tracking-[0.3em] text-zinc-500 uppercase">
+                      Arquitectura digital <span className="text-blue-500">estratégica</span>
+                    </div>
                   </div>
 
                   {/* CTA */}
-                  <div className="mt-10 flex items-center gap-2 text-sm font-medium text-white transition-transform duration-300 group-hover:translate-x-1">
-                    Ver proyecto
+                  <div className="mt-14 flex items-center gap-3 text-xs font-black tracking-[0.4em] text-blue-500 uppercase transition-transform duration-300 group-hover:translate-x-2">
+                    EXPLORAR CASO
                     <ArrowUpRight className="h-4 w-4" />
                   </div>
+
                 </div>
               </div>
             </motion.a>

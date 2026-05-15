@@ -50,7 +50,7 @@ export function Transformation() {
   };
 
   return (
-    <section className="bg-brand-dark py-24 lg:py-32 overflow-hidden border-y border-white/5">
+    <section className="bg-brand-primary py-24 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="relative mx-auto max-w-5xl">
           {/* Section Labels - SIN SITIO WEB / CON SITIO WEB */}
@@ -58,30 +58,30 @@ export function Transformation() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 gap-4 md:gap-8 mb-12 px-2"
+            className="grid grid-cols-2 gap-4 md:gap-8 mb-16 px-2"
           >
             <div className="flex flex-col items-center justify-center py-2 text-center">
-              <span className="text-lg md:text-3xl font-black tracking-[0.1em] md:tracking-[0.2em] uppercase text-white">
+              <span className="text-lg md:text-3xl font-black tracking-tighter uppercase text-white/40">
                 Sin sitio web
               </span>
               <motion.div
                 initial={{ width: 0 }}
-                whileInView={{ width: "80px" }}
+                whileInView={{ width: "40px" }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="mt-4 h-1.5 bg-red-600 rounded-full shadow-[0_0_15px_rgba(220,38,38,0.5)]"
+                className="mt-4 h-1 bg-zinc-700 rounded-full"
               />
             </div>
             <div className="flex flex-col items-center justify-center py-2 text-center">
-              <span className="text-lg md:text-3xl font-black tracking-[0.1em] md:tracking-[0.2em] uppercase text-white">
-                Con sitio web
+              <span className="text-lg md:text-3xl font-black tracking-tighter uppercase text-white">
+                Con <span className="text-brand-secondary">Huella Online</span>
               </span>
               <motion.div
                 initial={{ width: 0 }}
-                whileInView={{ width: "80px" }}
+                whileInView={{ width: "40px" }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="mt-4 h-1.5 bg-emerald-500 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.5)]"
+                className="mt-4 h-1 bg-blue-500 rounded-full"
               />
             </div>
           </motion.div>
@@ -97,27 +97,27 @@ export function Transformation() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group relative grid grid-cols-2 gap-8 md:gap-16"
+                className="group relative grid grid-cols-2 gap-4 md:gap-12"
               >
-                {/* SIN SITIO WEB - Dark with Red accent */}
-                <div className="flex items-center gap-3 rounded-xl bg-brand-dark/50 p-5 shadow-2xl border border-white/5 transition-all group-hover:border-red-500/30">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-500/10 text-red-500">
-                    <X className="h-4 w-4" />
+                {/* SIN SITIO WEB - Low contrast glass */}
+                <div className="flex items-center gap-3 rounded-xl bg-white/5 p-6 border border-white/5 backdrop-blur-sm opacity-50 transition-opacity group-hover:opacity-70">
+                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-zinc-500">
+                    <X className="h-3 w-3" />
                   </div>
-                  <span className="text-xs font-semibold text-zinc-400 md:text-base leading-tight">
+                  <span className="text-xs font-medium text-zinc-400 md:text-base leading-tight">
                     {item.pain}
                   </span>
                 </div>
 
-                {/* Arrow Icon in the middle (Desktop only) - Subtle Grey */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center text-zinc-700 group-hover:text-brand-secondary transition-colors">
-                  <ArrowRight className="h-6 w-6" />
+                {/* Arrow Icon in the middle (Desktop only) */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center text-zinc-800 group-hover:text-brand-secondary transition-colors">
+                  <ArrowRight className="h-5 w-5" />
                 </div>
 
-                {/* CON SITIO WEB - Dark with Emerald accent */}
-                <div className="flex items-center gap-3 rounded-xl bg-brand-primary-light p-5 shadow-2xl border border-emerald-500/20 transition-all group-hover:border-emerald-500/50">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500">
-                    <Check className="h-4 w-4" />
+                {/* CON SITIO WEB - Premium Glass with Glow */}
+                <div className="flex items-center gap-3 rounded-xl bg-brand-primary-light/40 p-6 border border-white/10 backdrop-blur-md shadow-2xl transition-all group-hover:border-brand-secondary/30">
+                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-secondary/20 text-brand-secondary">
+                    <Check className="h-3 w-3" />
                   </div>
                   <span className="text-sm font-bold text-white md:text-lg leading-tight">
                     {item.gain}
@@ -135,8 +135,8 @@ export function Transformation() {
           viewport={{ once: true }}
           className="mt-20 flex flex-col items-center gap-4"
         >
-          <div className="h-1 w-24 bg-gradient-to-r from-red-500 to-emerald-500 rounded-full" />
-          <p className="text-zinc-400 text-[10px] font-bold tracking-[0.4em] uppercase text-center">Transformación Estructural</p>
+          <div className="h-[1px] w-24 bg-white/10 rounded-full" />
+          <p className="text-zinc-500 text-[10px] font-bold tracking-[0.4em] uppercase text-center">Transformación Estructural</p>
         </motion.div>
       </div>
     </section>

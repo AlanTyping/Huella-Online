@@ -1,37 +1,56 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-mono",
+  subsets: ["latin"],
+});
+
+// 🔥 font de identidad (esto cambia TODO)
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-display",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Huella Online | Identidad y Valor Digital",
-  description: "Ayudamos a emprendedores y empresas a dejar una huella auténtica con automatizaciones y páginas web modernas.",
+  description:
+    "Ayudamos a emprendedores y empresas a dejar una huella auténtica con automatizaciones y páginas web modernas.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} h-full scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-300">
+      <body
+        className="
+          min-h-full 
+          flex flex-col 
+          bg-white 
+          text-slate-900 
+          antialiased 
+          selection:bg-blue-100 
+          selection:text-blue-900
+        "
+      >
         <Navbar />
-        <main className="flex-1">{children}</main>
+
+        <main className="flex-1 font-[var(--font-sans)]">
+          {children}
+        </main>
+
         <Footer />
       </body>
     </html>

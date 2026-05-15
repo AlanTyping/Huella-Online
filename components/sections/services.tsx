@@ -57,7 +57,7 @@ export function Services() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="group relative flex flex-col gap-4 overflow-hidden rounded-[2rem] border border-white/5 bg-brand-dark p-10 transition-all hover:border-brand-secondary/30 shadow-2xl"
+              className="group relative flex flex-col gap-4 overflow-hidden rounded-xl border border-white/5 bg-brand-dark p-10 transition-all hover:border-brand-secondary/30 shadow-2xl"
             >
               <div className="absolute top-0 right-0 p-8">
                 <span className="text-[10px] font-black tracking-[0.3em] text-white/10 uppercase group-hover:text-brand-secondary/50 transition-colors">
@@ -65,7 +65,7 @@ export function Services() {
                 </span>
               </div>
               
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-primary text-brand-secondary group-hover:bg-brand-secondary group-hover:text-brand-primary transition-all duration-300 shadow-inner">
+              <div className="flex h-16 w-16 items-center justify-center rounded-md bg-brand-primary text-brand-secondary group-hover:bg-brand-secondary group-hover:text-brand-primary transition-all duration-300 shadow-inner">
                 {service.icon}
               </div>
               

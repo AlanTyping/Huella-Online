@@ -4,20 +4,20 @@ import { Logo } from "@/components/ui/logo";
 export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-brand-primary/80 backdrop-blur-xl">
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-8">
         <Link href="/" className="transition-opacity hover:opacity-90">
           <Logo />
         </Link>
         <nav className="hidden md:flex items-center gap-10">
-          <Link href="#servicios" className="text-sm font-bold tracking-widest text-white/70 hover:text-brand-secondary transition-colors uppercase">
-            Servicios
+          <Link href="#portfolio" className="text-[12px] font-bold tracking-[0.15em] text-white/70 hover:text-brand-secondary transition-colors uppercase">
+            Proyectos
           </Link>
-          <Link href="#filosofia" className="text-sm font-bold tracking-widest text-white/70 hover:text-brand-secondary transition-colors uppercase">
-            Filosofía
+          <Link href="#faq" className="text-[12px] font-bold tracking-[0.15em] text-white/70 hover:text-brand-secondary transition-colors uppercase">
+            FAQ
           </Link>
           <Link 
             href="#contacto" 
-            className="rounded-full bg-brand-secondary px-6 py-2.5 text-sm font-black text-brand-primary hover:bg-white hover:scale-105 transition-all uppercase tracking-tighter"
+            className="rounded-md bg-brand-secondary px-6 py-2.5 text-[12px] font-black text-brand-primary hover:bg-white hover:scale-105 transition-all uppercase tracking-tighter"
           >
             Empezar
           </Link>

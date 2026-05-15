@@ -24,7 +24,7 @@ export function Philosophy() {
             
             <div className="mt-12 space-y-10">
               <div className="group flex gap-6">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-brand-primary text-brand-secondary transition-transform group-hover:scale-110">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-md bg-brand-primary text-brand-secondary transition-transform group-hover:scale-110">
                   <Fingerprint className="h-8 w-8" />
                 </div>
                 <div>
@@ -36,7 +36,7 @@ export function Philosophy() {
               </div>
               
               <div className="group flex gap-6">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-brand-primary text-brand-secondary transition-transform group-hover:scale-110">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-md bg-brand-primary text-brand-secondary transition-transform group-hover:scale-110">
                   <Rocket className="h-8 w-8" />
                 </div>
                 <div>
@@ -49,7 +49,7 @@ export function Philosophy() {
             </div>
           </motion.div>
 
-          <div className="relative aspect-square overflow-hidden rounded-[3rem] bg-brand-primary shadow-2xl">
+          <div className="relative aspect-square overflow-hidden rounded-xl bg-brand-primary shadow-2xl">
             <div className="absolute inset-0 flex items-center justify-center overflow-hidden opacity-20">
               <div className="h-full w-full" 
                    style={{ backgroundImage: 'linear-gradient(var(--brand-orange) 1px, transparent 1px), linear-gradient(90deg, var(--brand-orange) 1px, transparent 1px)', backgroundSize: '50px 50px' }}>

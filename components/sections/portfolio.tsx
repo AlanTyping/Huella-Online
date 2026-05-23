@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
@@ -24,7 +25,7 @@ const projects: Project[] = [
 
 export function Portfolio() {
   return (
-    <section className="relative overflow-hidden bg-brand-primary-deep py-32 text-white">
+    <section id="portfolio" className="relative overflow-hidden bg-brand-primary-deep py-32 text-white">
 
       {/* 🌌 BACKGROUND DARK SYSTEM */}
       <div className="pointer-events-none absolute inset-0">
@@ -92,13 +93,15 @@ export function Portfolio() {
               <div className="grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
                 {/* IMAGE */}
                 <div className="relative overflow-hidden rounded-[2.2rem] border border-white/10 bg-brand-primary-light/10 shadow-2xl transition-all duration-500 group-hover:border-blue-500/40 group-hover:shadow-[0_0_50px_rgba(59,130,246,0.15)]">
-                  <motion.img
-                    whileHover={{ scale: 1.04 }}
-                    transition={{ duration: 0.7 }}
-                    src={project.image}
-                    alt={`Proyecto de identidad digital para ${project.client} - ${project.industry}`}
-                    className="aspect-[16/10] w-full object-cover object-top opacity-80 transition duration-700 group-hover:opacity-100"
-                  />
+                  <div className="relative aspect-[16/10] w-full overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={`Proyecto de identidad digital para ${project.client} - ${project.industry}`}
+                      fill
+                      className="object-cover object-top opacity-80 transition duration-700 group-hover:opacity-100 group-hover:scale-105"
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                    />
+                  </div>
                   <div className="absolute inset-0 rounded-[2.2rem] ring-1 ring-inset ring-white/10 group-hover:ring-blue-500/20" />
                 </div>
 

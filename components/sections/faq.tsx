@@ -42,7 +42,7 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative overflow-hidden py-28 text-white bg-[#05060a]">
+    <section id="faq" className="relative overflow-hidden py-28 text-white bg-[#05060a]">
 
       {/* 🌈 FONDO NUEVO: AURORA + COLOR */}
       <div className="absolute inset-0 z-0">

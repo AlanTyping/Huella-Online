@@ -27,7 +27,7 @@ export function Logo({ className }: LogoProps) {
           <circle cx="26" cy="12" r="1.5" fill="var(--brand-orange)" opacity="0.8" />
         </svg>
       </div>
-      <span className="text-2xl font-black tracking-tighter text-brand-primary dark:text-white uppercase">
+      <span className="text-2xl font-black tracking-tighter text-white uppercase">
         Huella<span className="text-brand-secondary">Online</span>
       </span>
     </div>

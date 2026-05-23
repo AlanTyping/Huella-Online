@@ -42,12 +42,12 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="relative overflow-hidden py-28 text-white bg-[#05060a]">
+    <section id="faq" className="relative overflow-hidden py-28 text-white bg-brand-primary-deep">
 
       {/* 🌈 FONDO NUEVO: AURORA + COLOR */}
       <div className="absolute inset-0 z-0">
         {/* base oscura más profunda */}
-        <div className="absolute inset-0 bg-[#05060a]" />
+        <div className="absolute inset-0 bg-brand-primary-deep" />
         <div className="absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(255,140,0,0.35),transparent_60%)] blur-3xl" />
         <div className="absolute top-1/3 -right-40 h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(0,140,255,0.25),transparent_60%)] blur-3xl" />
         <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(255,165,0,0.18),transparent_65%)] blur-3xl" />

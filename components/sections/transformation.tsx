@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { X, Check, ArrowRight } from "lucide-react";
 
 export function Transformation() {
@@ -27,7 +27,7 @@ export function Transformation() {
     },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -37,7 +37,7 @@ export function Transformation() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -50,7 +50,7 @@ export function Transformation() {
   };
 
   return (
-    <section className="bg-brand-primary py-24 lg:py-32 overflow-hidden">
+    <section className="bg-brand-primary-deep py-24 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="relative mx-auto max-w-5xl">
           {/* Section Labels - SIN SITIO WEB / CON SITIO WEB */}
@@ -102,7 +102,7 @@ export function Transformation() {
               >
                 {/* SIN SITIO WEB - Low contrast glass */}
                 <div className="flex items-center gap-3 rounded-xl bg-white/5 p-6 border border-white/5 backdrop-blur-sm opacity-50 transition-opacity group-hover:opacity-70">
-                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-zinc-500">
+                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-500/20 text-zinc-400">
                     <X className="h-3 w-3" />
                   </div>
                   <span className="text-xs font-medium text-zinc-400 md:text-base leading-tight">
@@ -111,7 +111,7 @@ export function Transformation() {
                 </div>
 
                 {/* Arrow Icon in the middle (Desktop only) */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center text-zinc-800 group-hover:text-brand-secondary transition-colors">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center text-blue-500/40 group-hover:text-brand-secondary transition-colors">
                   <ArrowRight className="h-5 w-5" />
                 </div>
 

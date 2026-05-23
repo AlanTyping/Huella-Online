@@ -8,8 +8,8 @@ import { GraffitiBackground } from "@/components/ui/GraffitiBackground";
 export function Hero() {
   return (
     <section className="relative flex min-h-[90vh] items-center overflow-hidden bg-brand-primary-deep pt-32 pb-20 text-white lg:pt-40">
-      {/* Blue-tinted Background Elements */}
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.1)_0%,rgba(2,6,23,1)_70%)]" />
+      {/* Deep Blue Background Elements */}
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.15)_0%,rgba(2,6,23,1)_70%)]" />
 
       <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
         <svg className="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -61,7 +61,7 @@ export function Hero() {
                 href="#contacto"
                 className="
                   group relative flex items-center gap-3
-                  rounded-full bg-blue-500 px-10 py-5
+                  rounded-full bg-blue-600 px-10 py-5
                   text-lg font-bold text-white
                   transition-all duration-300 hover:bg-white hover:text-blue-600 hover:shadow-2xl hover:shadow-blue-500/20
                   active:scale-95

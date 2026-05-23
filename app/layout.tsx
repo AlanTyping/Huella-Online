@@ -51,8 +51,8 @@ export default function RootLayout({
         className="
           min-h-full 
           flex flex-col 
-          bg-white 
-          text-slate-900 
+          bg-brand-primary-deep 
+          text-white 
           antialiased 
           selection:bg-white 
           selection:text-brand-navy-deep

@@ -26,7 +26,7 @@ export function Services() {
   ];
 
   return (
-    <section id="servicios" className="bg-brand-primary py-24 lg:py-32">
+    <section id="servicios" className="bg-brand-primary-deep py-24 lg:py-32 border-t border-white/[0.03]">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center mb-20">
           <motion.h2 
@@ -57,7 +57,7 @@ export function Services() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="group relative flex flex-col gap-4 overflow-hidden rounded-xl border border-white/5 bg-brand-dark p-10 transition-all hover:border-brand-secondary/30 shadow-2xl"
+              className="group relative flex flex-col gap-4 overflow-hidden rounded-xl border border-white/5 bg-white/[0.02] backdrop-blur-sm p-10 transition-all hover:border-brand-secondary/30 shadow-2xl"
             >
               <div className="absolute top-0 right-0 p-8">
                 <span className="text-[10px] font-black tracking-[0.3em] text-white/10 uppercase group-hover:text-brand-secondary/50 transition-colors">
@@ -65,7 +65,7 @@ export function Services() {
                 </span>
               </div>
               
-              <div className="flex h-16 w-16 items-center justify-center rounded-md bg-brand-primary text-brand-secondary group-hover:bg-brand-secondary group-hover:text-brand-primary transition-all duration-300 shadow-inner">
+              <div className="flex h-16 w-16 items-center justify-center rounded-md bg-blue-500/20 text-brand-secondary group-hover:bg-brand-secondary group-hover:text-brand-primary-deep transition-all duration-300 shadow-inner">
                 {service.icon}
               </div>
               

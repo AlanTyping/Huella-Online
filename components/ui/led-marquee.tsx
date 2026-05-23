@@ -4,7 +4,7 @@ export function LEDMarquee() {
   const text = "HUELLA ONLINE";
 
   return (
-    <div className="relative w-full overflow-hidden bg-black py-6 border-y border-white/[0.05] select-none">
+    <div className="relative w-full overflow-hidden bg-brand-primary-deep py-6 border-y border-white/[0.05] select-none">
 
       {/* 🎛️ soft LED grid (sutil) */}
       <div
@@ -17,8 +17,8 @@ export function LEDMarquee() {
       />
 
       {/* 🌫️ vignette edges (profundidad real) */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-20" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-20" />
+      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-primary-deep to-transparent z-20" />
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand-primary-deep to-transparent z-20" />
 
       {/* 🟠 MARQUEE REAL INFINITO */}
       <div className="flex w-max animate-[scroll_100s_linear_infinite]">

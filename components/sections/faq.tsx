@@ -46,20 +46,11 @@ export function FAQ() {
 
       {/* 🌈 FONDO NUEVO: AURORA + COLOR */}
       <div className="absolute inset-0 z-0">
-
         {/* base oscura más profunda */}
         <div className="absolute inset-0 bg-[#05060a]" />
-
-        {/* aurora principal naranja */}
         <div className="absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(255,140,0,0.35),transparent_60%)] blur-3xl" />
-
-        {/* aurora azul contraste */}
         <div className="absolute top-1/3 -right-40 h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(0,140,255,0.25),transparent_60%)] blur-3xl" />
-
-        {/* luz inferior cálida */}
         <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(255,165,0,0.18),transparent_65%)] blur-3xl" />
-
-        {/* noise sutil */}
         <div className="absolute inset-0 opacity-[0.06] bg-[url('https://www.transparenttextures.com/patterns/noise.png')]" />
       </div>
 
@@ -159,7 +150,7 @@ export function FAQ() {
         {/* CTA */}
         <div className="mt-20 text-center text-zinc-500 font-medium">
           ¿Otra duda?{" "}
-          <span className="text-white font-bold">
+          <span className="text-blue-500 font-bold">
             la resolvemos en llamada.
           </span>
         </div>

@@ -1,5 +1,4 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -14,16 +13,29 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// 🔥 font de identidad (esto cambia TODO)
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-display",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Huella Online | Identidad y Valor Digital",
+  title: "Huella Online | Identidad, Valor Digital y Automatización",
   description:
-    "Ayudamos a emprendedores y empresas a dejar una huella auténtica con automatizaciones y páginas web modernas.",
+    "Transformamos tu presencia digital con ingeniería de precisión. Expertos en páginas web modernas con Next.js y automatizaciones que escalan tu negocio.",
+  keywords: ["Desarrollo Web", "Next.js", "Automatización", "Identidad Digital", "Sistemas de Alto Rendimiento", "Boutique Digital"],
+  authors: [{ name: "Huella Online" }],
+  openGraph: {
+    title: "Huella Online | Identidad y Valor Digital",
+    description: "Dejá una huella auténtica con ecosistemas digitales de alto rendimiento.",
+    url: "https://huellaonline.com",
+    siteName: "Huella Online",
+    locale: "es_ES",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Huella Online | Identidad y Valor Digital",
+    description: "Sistemas digitales diseñados para transmitir confianza y conversión.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -32,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} h-full scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth`}
     >
       <body
         className="
@@ -41,8 +53,8 @@ export default function RootLayout({
           bg-white 
           text-slate-900 
           antialiased 
-          selection:bg-blue-100 
-          selection:text-blue-900
+          selection:bg-white 
+          selection:text-brand-navy-deep
         "
       >
         <Navbar />

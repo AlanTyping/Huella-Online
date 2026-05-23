@@ -26,7 +26,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="max-w-5xl text-4xl font-black leading-[1.1] tracking-tighter sm:text-7xl lg:text-8xl uppercase"
+            className="max-w-5xl text-5xl font-black leading-[1.1] tracking-tighter sm:text-7xl lg:text-8xl uppercase"
           >
             TU IDENTIDAD <br />
             <span className="text-brand-secondary">EVOLUCIONADA</span>

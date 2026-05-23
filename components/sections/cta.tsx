@@ -56,10 +56,10 @@ export function FinalCTA() {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-6 text-3xl font-black uppercase leading-none tracking-tighter text-white sm:text-6xl lg:text-7xl"
+            className="mb-6 text-4xl font-black uppercase leading-none tracking-tighter text-white sm:text-6xl lg:text-7xl"
           >
-            ¿Listo para <br />
-            <span className="text-orange-300">evolucionar?</span>
+            ¿LISTO PARA <br />
+            <span className="text-brand-secondary">EVOLUCIONAR?</span>
           </motion.h2>
 
           {/* TEXT */}
@@ -85,7 +85,7 @@ export function FinalCTA() {
           >
             <Link
               href="mailto:hola@huellaonline.com"
-              className="group flex w-full items-center justify-center gap-2 rounded-md bg-blue-500 px-10 py-4 text-lg font-black text-white transition-all hover:bg-white hover:text-blue-500 active:scale-95 sm:w-auto shadow-[0_0_30px_rgba(59,130,246,0.3)]"
+              className="group flex w-full items-center justify-center gap-2 rounded-md bg-blue-500 px-10 py-4 text-lg font-bold text-white transition-all hover:bg-white hover:text-blue-500 active:scale-95 sm:w-auto"
             >
               INICIAR PROYECTO
               <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -93,7 +93,7 @@ export function FinalCTA() {
 
             <Link
               href="https://wa.me/tu-numero"
-              className="flex w-full items-center justify-center gap-2 rounded-md border border-white/10 bg-white/5 px-10 py-4 text-lg font-black text-white transition-all hover:bg-white/10 sm:w-auto group"
+              className="flex w-full items-center justify-center gap-2 rounded-md border border-white/10 bg-white/5 px-10 py-4 text-lg font-bold text-white transition-all hover:bg-white/10 sm:w-auto group"
             >
               WHATSAPP
               <ArrowUpRight className="h-5 w-5 text-blue-500 transition-colors" />

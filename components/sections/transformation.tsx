@@ -54,6 +54,7 @@ export function Transformation() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="relative mx-auto max-w-5xl">
           {/* Section Labels - SIN SITIO WEB / CON SITIO WEB */}
+          <h2 className="sr-only">Transformación Digital: De un negocio convencional a una marca de alto impacto</h2>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}

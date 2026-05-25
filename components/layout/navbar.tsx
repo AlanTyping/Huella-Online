@@ -11,6 +11,7 @@ export function Navbar() {
 
   const navLinks = [
     { href: "#portfolio", label: "Proyectos" },
+    { href: "#sobre-mi", label: "Sobre mí" },
     { href: "#faq", label: "FAQ" },
   ];
 

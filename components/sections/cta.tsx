@@ -83,7 +83,7 @@ export function FinalCTA() {
             className="mt-14 flex flex-col items-center justify-center gap-5 sm:flex-row"
           >
             <Link
-              href="mailto:alantyping.dev@gmail.com?subject=Interés en potenciar mi presencia digital - Huella Online&body=Hola Huella Online 👋,%0D%0A%0D%0AQuiero potenciar mi presencia digital y me gustaría coordinar la charla de 15 minutos.%0D%0A%0D%0A── SOBRE MÍ / PROYECTO ──%0D%0A%0D%0A▌ Nombre: %0D%0A▌ Contacto: %0D%0A▌ Mi idea: %0D%0A%0D%0A── CHARLA ──%0D%0A%0D%0A▌ Fecha y hora preferida: "
+              href="mailto:alantyping.dev@gmail.com?subject=Interés en crear una página web profesional - Huella Online&body=Hola Huella Online 👋,%0D%0A%0D%0AQuiero una página web profesional para mi negocio y me gustaría coordinar la charla de 15 minutos.%0D%0A%0D%0A── SOBRE MÍ / PROYECTO ──%0D%0A%0D%0A▌ Nombre: %0D%0A▌ Contacto: %0D%0A▌ Mi idea: %0D%0A%0D%0A── CHARLA ──%0D%0A%0D%0A▌ Fecha y hora preferida: "
               target="_blank"
               rel="noopener noreferrer"
               className="group flex w-full items-center justify-center gap-2 rounded-md bg-blue-500 px-10 py-4 text-lg font-bold text-white transition-all hover:bg-white hover:text-blue-500 active:scale-95 sm:w-auto"

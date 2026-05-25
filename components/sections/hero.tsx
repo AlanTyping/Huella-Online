@@ -8,7 +8,7 @@ import { GraffitiBackground } from "@/components/ui/GraffitiBackground";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[90vh] items-center overflow-hidden bg-brand-primary-deep pt-32 pb-20 text-white lg:pt-40">
+    <section className="relative flex min-h-[85vh] items-center overflow-hidden bg-brand-primary-deep pt-24 pb-20 text-white lg:pt-32">
       {/* Deep Blue Background Elements */}
       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.15)_0%,rgba(2,6,23,1)_70%)]" />
 
@@ -32,19 +32,7 @@ export function Hero() {
       <div className="container relative z-10 mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           {/* Content Left */}
-          <div className="flex flex-col items-start text-left lg:pl-12">
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mb-6 flex items-center gap-2 rounded-full border border-brand-secondary/20 bg-brand-secondary/5 px-4 py-1.5"
-            >
-              <Image src="/icon.svg" alt="Huella" width={16} height={16} className="h-4 w-4" />
-              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-secondary">
-                Agencia de Ingeniería Digital
-              </span>
-            </motion.div>
-
+          <div className="flex flex-col items-start text-left lg:pl-12 -mt-6 lg:-mt-10">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -80,7 +68,7 @@ export function Hero() {
                   active:scale-95
                 "
               >
-                EMPEZAR AHORA
+                QUIERO MI PÁGINA WEB
                 <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </motion.div>

@@ -62,7 +62,7 @@ export function Portfolio() {
             transition={{ delay: 0.1 }}
             className="max-w-3xl text-4xl font-black uppercase tracking-tighter sm:text-6xl text-white"
           >
-            RESULTADOS <span className="text-brand-secondary">TANGIBLES</span>
+            NUESTROS <span className="text-brand-secondary">CLIENTES</span>
           </motion.h2>
 
           <motion.p
@@ -113,7 +113,7 @@ export function Portfolio() {
                     </span>
                   </div>
 
-                  <h3 className="text-4xl font-black uppercase tracking-tighter transition-colors group-hover:text-brand-secondary md:text-5xl text-white">
+                  <h3 className="text-4xl font-black uppercase tracking-tighter transition-colors  md:text-5xl text-white">
                     {project.client}
                   </h3>
 

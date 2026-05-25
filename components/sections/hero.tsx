@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { GraffitiBackground } from "@/components/ui/GraffitiBackground";
@@ -32,6 +33,18 @@ export function Hero() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           {/* Content Left */}
           <div className="flex flex-col items-start text-left lg:pl-12">
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mb-6 flex items-center gap-2 rounded-full border border-brand-secondary/20 bg-brand-secondary/5 px-4 py-1.5"
+            >
+              <Image src="/icon.svg" alt="Huella" width={16} height={16} className="h-4 w-4" />
+              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-secondary">
+                Agencia de Ingeniería Digital
+              </span>
+            </motion.div>
+
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -130,19 +143,26 @@ export function Hero() {
                   </motion.div>
                 ))}
 
-                {/* Central Focus */}
+                {/* Central Focus - Now with brand icon */}
                 <motion.div
                   animate={{
-                    scale: [1, 1.05, 1],
+                    scale: [1, 1.1, 1],
+                    rotate: [0, 5, 0, -5, 0],
                   }}
                   transition={{
-                    duration: 3,
+                    duration: 4,
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="z-10 h-32 w-32 rounded-3xl bg-blue-600 flex items-center justify-center shadow-2xl shadow-blue-500/40"
+                  className="z-10 h-32 w-32 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-2xl shadow-brand-secondary/10"
                 >
-                  <div className="h-12 w-12 rounded-full border-4 border-brand-secondary" />
+                  <Image
+                    src="/icon.svg"
+                    alt="Brand Icon"
+                    width={80}
+                    height={80}
+                    className="h-20 w-20 object-contain drop-shadow-[0_0_15px_rgba(255,165,0,0.3)]"
+                  />
                 </motion.div>
               </div>
             </motion.div>

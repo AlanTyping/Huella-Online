@@ -83,7 +83,7 @@ export function FinalCTA() {
             className="mt-14 flex flex-col items-center justify-center gap-5 sm:flex-row"
           >
             <Link
-              href="mailto:alantyping.dev@gmail.com?subject=Interés en crear una página web profesional - Huella Online&body=Hola Huella Online 👋,%0D%0A%0D%0AQuiero una página web profesional para mi negocio y me gustaría coordinar la charla de 15 minutos.%0D%0A%0D%0A── SOBRE MÍ / PROYECTO ──%0D%0A%0D%0A▌ Nombre: %0D%0A▌ Contacto: %0D%0A▌ Mi idea: %0D%0A%0D%0A── CHARLA ──%0D%0A%0D%0A▌ Fecha y hora preferida: "
+              href="mailto:alantyping.dev@gmail.com?subject=Inter%C3%A9s%20en%20crear%20una%20p%C3%A1gina%20web%20profesional%20-%20Huella%20Online&body=Hola%20Huella%20Online!%0D%0A%0D%0AQuiero%20una%20p%C3%A1gina%20web%20profesional%20para%20mi%20negocio%20y%20me%20gustar%C3%ADa%20coordinar%20la%20charla%20de%2015%20minutos.%0D%0A%0D%0A%E2%94%80%E2%94%80%20SOBRE%20M%C3%8D%20%2F%20PROYECTO%20%E2%94%80%E2%94%80%0D%0A%0D%0A%E2%96%8C%20Nombre%3A%20%0D%0A%E2%96%8C%20Contacto%3A%20%0D%0A%E2%96%8C%20Mi%20idea%3A%20%0D%0A%0D%0A%E2%94%80%E2%94%80%20CHARLA%20%E2%94%80%E2%94%80%0D%0A%0D%0A%E2%96%8C%20Fecha%20y%20hora%20preferida%3A%20"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex w-full items-center justify-center gap-2 rounded-md bg-blue-500 px-10 py-4 text-lg font-bold text-white transition-all hover:bg-white hover:text-blue-500 active:scale-95 sm:w-auto"
@@ -93,7 +93,7 @@ export function FinalCTA() {
             </Link>
 
             <Link
-              href="https://wa.me/541138235395"
+              href="https://wa.me/541138235395?text=Hola%20Huella%20Online!%0A%0AQuiero%20una%20p%C3%A1gina%20web%20profesional%20para%20mi%20negocio%20y%20me%20gustaría%20coordinar%20la%20charla%20de%2015%20minutos.%0A%0A%E2%94%80%E2%94%80%20SOBRE%20M%C3%8D%20%2F%20PROYECTO%20%E2%94%80%E2%94%80%0A%0A%E2%96%8C%20Nombre%3A%20%0A%E2%96%8C%20Contacto%3A%20%0A%E2%96%8C%20Mi%20idea%3A%20%0A%0A%E2%94%80%E2%94%80%20CHARLA%20%E2%94%80%E2%94%80%0A%0A%E2%96%8C%20Fecha%20y%20hora%20preferida%3A%20"
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-full items-center justify-center gap-2 rounded-md bg-[#25D366] px-10 py-4 text-lg font-bold text-white transition-all hover:bg-[#20ba5a] active:scale-95 sm:w-auto group"

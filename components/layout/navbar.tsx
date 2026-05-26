@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Menu } from "lucide-react";
@@ -15,86 +15,123 @@ export function Navbar() {
     { href: "#faq", label: "FAQ" },
   ];
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+  }, [isOpen]);
+
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-white/[0.05] bg-brand-navy-deep/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-8">
-        <Link href="/" className="transition-opacity hover:opacity-90">
-          <Logo />
+    <header className="fixed top-0 z-50 w-full">
+
+      {/* SOLO glass en navbar (sin degradado agresivo) */}
+      <div className="absolute inset-0 backdrop-blur-xl border-b border-white/[0.06]" />
+
+      <div className="relative mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-8">
+
+        <Link href="/" className="group flex items-center">
+          <div className="transition-transform duration-300 group-hover:scale-[1.02]">
+            <Logo />
+          </div>
         </Link>
-        
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-10">
+
+        {/* Desktop */}
+        <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-[11px] font-bold tracking-[0.2em] text-zinc-400 hover:text-brand-secondary transition-colors uppercase"
+              className="relative text-[11px] font-bold tracking-[0.22em] text-zinc-400 uppercase transition-colors hover:text-[#ffa500] group"
             >
               {link.label}
+              <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-[#ffa500] transition-all group-hover:w-full" />
             </Link>
           ))}
+
           <Link
             href="#contacto"
-            className="rounded-full bg-white px-6 py-2.5 text-[11px] font-black text-brand-primary hover:bg-brand-secondary hover:text-white transition-all uppercase tracking-tighter"
+            className="rounded-full bg-white px-6 py-2.5 text-[11px] font-black text-black hover:text-white uppercase tracking-tighter transition-all hover:scale-[1.03] hover:bg-[#ffa500]"
           >
             Empezar
           </Link>
         </nav>
 
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden p-2 text-white outline-none"
+        {/* Mobile button */}
+        <button
           onClick={() => setIsOpen(true)}
+          className="md:hidden rounded-full p-2 text-white hover:bg-white/10 transition"
+          aria-label="Open menu"
         >
           <Menu className="h-6 w-6" />
         </button>
       </div>
 
-      {/* Mobile Navigation Overlay */}
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[60] flex flex-col bg-brand-primary-deep p-8 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[9999] md:hidden"
           >
-            <div className="flex items-center justify-between mb-16">
-              <Logo />
-              <button 
-                onClick={() => setIsOpen(false)}
-                className="p-2 text-white"
-              >
-                <X className="h-8 w-8" />
-              </button>
-            </div>
+            {/* fondo limpio sólido */}
+            <div className="absolute inset-0 bg-[var(--brand-navy-deep)]" />
 
-            <nav className="flex flex-col gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
+            {/* panel */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 240 }}
+              className="relative flex h-full flex-col p-8"
+            >
+              {/* top */}
+              <div className="flex items-center justify-between mb-14">
+                <Logo />
+
+                <button
                   onClick={() => setIsOpen(false)}
-                  className="text-4xl font-black tracking-tighter text-white hover:text-brand-secondary transition-colors uppercase"
+                  className="rounded-full p-2 text-white hover:bg-white/10 transition"
+                  aria-label="Close menu"
                 >
-                  {link.label}
-                </Link>
-              ))}
-              <Link
-                href="#contacto"
-                onClick={() => setIsOpen(false)}
-                className="mt-4 inline-block w-fit rounded-full bg-blue-500 px-8 py-4 text-xl font-black text-white hover:bg-brand-secondary transition-all uppercase tracking-tighter"
-              >
-                Empezar Proyecto
-              </Link>
-            </nav>
+                  <X className="h-7 w-7" />
+                </button>
+              </div>
 
-            <div className="mt-auto">
-              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-600">
-                © {new Date().getFullYear()} Huella Online
-              </p>
-            </div>
+              {/* links */}
+              <nav className="flex flex-col gap-6">
+                {navLinks.map((link, i) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className="text-4xl font-black tracking-tight text-white hover:text-[#ffa500] transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                ))}
+
+                <Link
+                  href="#contacto"
+                  onClick={() => setIsOpen(false)}
+                  className="mt-6 inline-flex w-fit rounded-full bg-[#ffa500] px-7 py-4 text-lg font-black text-black uppercase tracking-tighter transition hover:bg-white hover:scale-[1.02]"
+                >
+                  Empezar Proyecto
+                </Link>
+              </nav>
+
+              {/* footer */}
+              <div className="mt-auto pt-10">
+                <p className="text-[10px] tracking-[0.35em] font-black text-zinc-400 uppercase">
+                  © {new Date().getFullYear()} Huella Online
+                </p>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

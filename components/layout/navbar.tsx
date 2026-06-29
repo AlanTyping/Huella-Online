@@ -48,7 +48,7 @@ export function Navbar() {
 
           <Link
             href="#contacto"
-            className="rounded-full bg-white px-6 py-2.5 text-[11px] font-black text-black hover:text-white uppercase tracking-tighter transition-all hover:scale-[1.03] hover:bg-[#ffa500]"
+            className="rounded bg-white px-6 py-2.5 text-[11px] font-black text-black hover:text-white uppercase tracking-tighter transition-all hover:scale-[1.03] hover:bg-[#ffa500]"
           >
             Empezar
           </Link>

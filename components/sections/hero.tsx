@@ -12,11 +12,25 @@ export function Hero() {
       {/* Deep Blue Background Elements */}
       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.15)_0%,rgba(2,6,23,1)_70%)]" />
 
-      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
-        <svg className="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.03]">
+        <svg
+          className="h-full w-full"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
           <defs>
-            <pattern id="grid-blue" width="10" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5" />
+            <pattern
+              id="grid-blue"
+              width="10"
+              height="10"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 10 0 L 0 0 0 10"
+                fill="none"
+                stroke="white"
+                strokeWidth="0.5"
+              />
             </pattern>
           </defs>
           <rect width="100" height="100" fill="url(#grid-blue)" />
@@ -27,19 +41,19 @@ export function Hero() {
       <GraffitiBackground />
 
       {/* Decorative Blue Glow */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="pointer-events-none absolute left-0 top-1/2 z-0 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-blue-500/5 blur-[120px]" />
 
       <div className="container relative z-10 mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           {/* Content Left */}
-          <div className="flex flex-col items-start text-left lg:pl-12 -mt-6 lg:-mt-10">
+          <div className="-mt-6 flex flex-col items-start text-left lg:-mt-10 lg:pl-12">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="max-w-2xl text-6xl font-black leading-[1.05] tracking-tighter sm:text-7xl lg:text-8xl uppercase text-white"
+              className="max-w-2xl text-6xl font-black uppercase leading-[1.05] tracking-tighter text-white sm:text-7xl lg:text-8xl"
             >
-              TU WEB. <br />
+              TU WEB <br />
               <span className="text-brand-secondary">SIN LÍMITES.</span>
             </motion.h1>
 
@@ -47,9 +61,11 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-8 max-w-lg text-lg font-medium text-zinc-400 sm:text-xl leading-relaxed"
+              className="mt-8 max-w-lg text-lg font-medium leading-relaxed text-zinc-400 sm:text-xl"
             >
-              Construimos ecosistemas digitales transparentes y potentes. Diseño de alto impacto con automatización inteligente para escalar tu visión.
+              Construimos ecosistemas digitales transparentes y potentes.
+              Diseño de alto impacto con automatización inteligente para
+              escalar tu visión.
             </motion.p>
 
             <motion.div
@@ -62,9 +78,10 @@ export function Hero() {
                 href="#contacto"
                 className="
                   group relative flex items-center gap-3
-                  rounded-full bg-blue-600 px-10 py-5
+                  rounded bg-blue-600 px-10 py-5
                   text-lg font-bold text-white
-                  transition-all duration-300 hover:bg-white hover:text-blue-600 hover:shadow-2xl hover:shadow-blue-500/20
+                  transition-all duration-300
+                  hover:bg-white hover:text-blue-600 hover:shadow-2xl hover:shadow-blue-500/20
                   active:scale-95
                 "
               >
@@ -80,7 +97,7 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="relative aspect-square w-full max-w-[500px] mx-auto"
+              className="relative mx-auto aspect-square w-full max-w-[500px]"
             >
               {/* Abstract Animation Elements */}
               <div className="absolute inset-0 flex items-center justify-center">
@@ -95,6 +112,7 @@ export function Hero() {
                   }}
                   className="h-full w-full rounded-[40px] border-2 border-dashed border-brand-secondary/20"
                 />
+
                 <motion.div
                   animate={{
                     rotate: -360,
@@ -121,13 +139,16 @@ export function Hero() {
                       ease: "easeInOut",
                       delay: i,
                     }}
-                    className={`absolute h-16 w-16 rounded-2xl bg-brand-primary-light/20 shadow-xl flex items-center justify-center border border-white/10 backdrop-blur-sm`}
+                    className="absolute flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-brand-primary-light/20 shadow-xl backdrop-blur-sm"
                     style={{
                       top: `${20 + i * 25}%`,
                       left: `${20 + i * 20}%`,
                     }}
                   >
-                    <div className={`h-2 w-8 rounded-full ${i === 1 ? 'bg-brand-secondary' : 'bg-blue-500'}`} />
+                    <div
+                      className={`h-2 w-8 rounded-full ${i === 1 ? "bg-brand-secondary" : "bg-blue-500"
+                        }`}
+                    />
                   </motion.div>
                 ))}
 
@@ -142,7 +163,7 @@ export function Hero() {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="z-10 h-32 w-32 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center shadow-2xl shadow-brand-secondary/10"
+                  className="z-10 flex h-32 w-32 items-center justify-center rounded-3xl border border-white/10 bg-white/5 shadow-2xl shadow-brand-secondary/10 backdrop-blur-md"
                 >
                   <Image
                     src="/icon.svg"
@@ -160,4 +181,3 @@ export function Hero() {
     </section>
   );
 }
-

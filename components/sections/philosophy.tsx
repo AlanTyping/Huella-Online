@@ -19,7 +19,7 @@ export function Philosophy() {
               DIGITAL
             </h2>
             <p className="mt-8 text-xl font-medium text-zinc-400">
-              Fusionamos la esencia humana con la potencia de la automatización para crear resultados exponenciales.
+              Fusionamos identidad, diseño y tecnología para crear sitios web que transmiten confianza desde el primer vistazo.
             </p>
             
             <div className="mt-12 space-y-10">
@@ -42,7 +42,7 @@ export function Philosophy() {
                 <div>
                   <h3 className="text-2xl font-black tracking-tight text-white uppercase">Impacto Real</h3>
                   <p className="mt-2 text-zinc-500 font-medium leading-relaxed">
-                    Ingeniería de procesos que libera tu potencial creativo. Si es repetitivo, es automatizable.
+                    Ingeniería visual y técnica para que tu marca se perciba clara, sólida y preparada para crecer en Buenos Aires.
                   </p>
                 </div>
               </div>

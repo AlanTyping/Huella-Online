@@ -63,9 +63,9 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-8 max-w-lg text-lg font-medium leading-relaxed text-zinc-400 sm:text-xl"
             >
-              Construimos ecosistemas digitales transparentes y potentes.
-              Diseño de alto impacto con automatización inteligente para
-              escalar tu visión.
+              Páginas web modernas para negocios de Buenos Aires. Diseño claro,
+              carga rápida y una presencia digital que transmite confianza desde
+              el primer vistazo.
             </motion.p>
 
             <motion.div

@@ -28,9 +28,9 @@ export const faqs = [
       "El sitio no vende solo, pero cambia cómo te perciben. Y eso cambia todo.",
   },
   {
-    question: "¿Qué tipo de automatizaciones puedo incluir?",
+    question: "¿Qué incluye una página web profesional?",
     answer:
-      "Desde captación de leads hasta CRM y pagos. Tu web trabajando 24/7.",
+      "Estructura clara, diseño responsive, carga rápida, SEO base y una experiencia pensada para convertir visitas en consultas.",
   },
   {
     question: "¿Dónde se aloja mi sitio web y quién lo mantiene?",

@@ -12,14 +12,14 @@ export function Services() {
       tag: "FRONTEND"
     },
     {
-      title: "Automatización Inteligente",
-      description: "Diseñamos ecosistemas que trabajan por ti, eliminando la fricción operativa.",
+      title: "Performance & SEO Base",
+      description: "Construimos sitios rápidos, claros y preparados para que Google entienda tu propuesta.",
       icon: <Cpu className="h-6 w-6" />,
-      tag: "SISTEMAS"
+      tag: "VISIBILIDAD"
     },
     {
-      title: "Fintech & Pagos",
-      description: "Integración de pasarelas globales para una experiencia de usuario fluida y segura.",
+      title: "Presencia Comercial",
+      description: "Diseño orientado a presentar tu negocio con claridad y facilitar el primer contacto.",
       icon: <CreditCard className="h-6 w-6" />,
       tag: "NEGOCIO"
     },
@@ -44,7 +44,7 @@ export function Services() {
             transition={{ delay: 0.1 }}
             className="mt-4 max-w-2xl text-zinc-500 font-bold tracking-widest uppercase text-xs"
           >
-            Precisión técnica aplicada a la visión de tu negocio.
+            Precisión técnica aplicada a páginas web para negocios de Buenos Aires.
           </motion.p>
         </div>
         

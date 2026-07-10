@@ -11,7 +11,7 @@ export function Transformation() {
     },
     {
       pain: "Perdés clientes fuera de horario",
-      gain: "Tu negocio trabaja 24/7",
+      gain: "Tu sitio recibe consultas 24/7",
     },
     {
       pain: "Generás dudas",
@@ -137,7 +137,7 @@ export function Transformation() {
           className="mt-20 flex flex-col items-center gap-4"
         >
           <div className="h-[1px] w-24 bg-white/10 rounded-full" />
-          <p className="text-zinc-500 text-[10px] font-bold tracking-[0.4em] uppercase text-center">Transformación Estructural</p>
+          <p className="text-zinc-500 text-[10px] font-bold tracking-[0.4em] uppercase text-center">Presencia digital para Buenos Aires</p>
         </motion.div>
       </div>
     </section>

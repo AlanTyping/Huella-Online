@@ -112,7 +112,8 @@ export function About() {
 
               <p>
                 Creo sitios web modernos, rápidos y estratégicos para
-                emprendedores, freelancers y marcas personales que quieren
+                negocios de Buenos Aires, para emprendedores, freelancers y
+                marcas personales que quieren
                 transmitir una imagen más profesional y generar resultados reales.
               </p>
 

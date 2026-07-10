@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mail, ArrowUpRight, ChevronRight } from "lucide-react";
+import { Mail, ChevronRight } from "lucide-react";
 
 export function FinalCTA() {
   return (
@@ -71,7 +71,7 @@ export function FinalCTA() {
             className="mx-auto max-w-2xl text-lg leading-relaxed text-zinc-400 md:text-xl font-medium"
           >
             Reservemos una <span className="text-white">charla gratuita de 15 minutos</span>.
-            Puede ser por Meet, WhatsApp o chat. Quiero conocer lo que estás construyendo y pensar juntos cómo hacerlo destacar en digital.
+            Puede ser por Meet, WhatsApp o chat. Quiero conocer tu negocio en Buenos Aires y pensar juntos cómo hacerlo destacar en digital.
           </motion.p>
 
           {/* CTA */}
@@ -117,7 +117,7 @@ export function FinalCTA() {
             transition={{ delay: 0.4 }}
             className="mt-12 text-[11px] font-bold tracking-[0.35em] text-zinc-600 uppercase"
           >
-            Respuesta en menos de 24 horas
+            Desde Merlo para Buenos Aires · Respuesta en menos de 24 horas
           </motion.p>
         </div>
       </div>

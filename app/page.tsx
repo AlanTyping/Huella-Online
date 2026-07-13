@@ -5,6 +5,10 @@ import { Portfolio } from "@/components/sections/portfolio";
 import { About } from "@/components/sections/about";
 import { FAQ } from "@/components/sections/faq";
 import { FinalCTA } from "@/components/sections/cta";
+import {
+  MobileInstagramLink,
+  SocialLinks,
+} from "@/components/ui/social-links";
 
 export const faqs = [
   {
@@ -43,6 +47,8 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <Hero />
+      <SocialLinks />
+      <MobileInstagramLink />
       <Transformation />
       <About />
       <Portfolio />

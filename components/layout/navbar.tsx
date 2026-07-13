@@ -5,6 +5,11 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Menu } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
+import {
+  InstagramIcon,
+  whatsappHref,
+  WhatsAppIcon,
+} from "@/components/ui/social-links";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -127,6 +132,26 @@ export function Navbar() {
 
               {/* footer */}
               <div className="mt-auto pt-10">
+                <div className="mb-8 flex items-center gap-3">
+                  <Link
+                    href={whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Abrir WhatsApp"
+                    className="flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white transition hover:scale-105 hover:bg-[#20ba5a]"
+                  >
+                    <WhatsAppIcon />
+                  </Link>
+                  <Link
+                    href="https://www.instagram.com/huellaonline/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Abrir Instagram"
+                    className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#feda75] via-[#d62976] to-[#4f5bd5] text-white transition hover:scale-105 hover:brightness-110"
+                  >
+                    <InstagramIcon />
+                  </Link>
+                </div>
                 <p className="text-[10px] tracking-[0.35em] font-black text-zinc-400 uppercase">
                   © {new Date().getFullYear()} Huella Online
                 </p>

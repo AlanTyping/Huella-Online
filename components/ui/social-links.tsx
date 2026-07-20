@@ -56,7 +56,7 @@ export function SocialLinks() {
   return (
     <div
       aria-label="Redes sociales"
-      className="fixed bottom-6 right-6 z-40 hidden flex-row gap-3 md:flex"
+      className="fixed right-8 bottom-6 z-40 hidden flex-row gap-3 md:flex xl:right-[max(2rem,calc((100vw-80rem)/2+2rem))]"
     >
       {socialLinks.map((social) => (
         <Link
@@ -66,7 +66,7 @@ export function SocialLinks() {
           rel="noopener noreferrer"
           aria-label={`Abrir ${social.label}`}
           title={social.label}
-          className={`flex h-14 w-14 items-center justify-center rounded-full shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-1 hover:shadow-xl ${social.className}`}
+          className={`flex h-12 w-12 items-center justify-center rounded-full shadow-lg shadow-black/30 transition duration-300 [&>svg]:h-6 [&>svg]:w-6 hover:-translate-y-1 hover:shadow-xl ${social.className}`}
         >
           {social.icon}
         </Link>

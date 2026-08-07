@@ -101,78 +101,44 @@ export function Hero() {
             >
               {/* Abstract Animation Elements */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div
-                  animate={{
-                    rotate: 360,
-                  }}
-                  transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="h-full w-full rounded-[40px] border-2 border-dashed border-brand-secondary/20"
+                <div
+                  className="h-full w-full rounded-[40px] border-2 border-dashed border-brand-secondary/20 animate-[spin-slow_25s_linear_infinite]"
                 />
 
-                <motion.div
-                  animate={{
-                    rotate: -360,
-                  }}
-                  transition={{
-                    duration: 15,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute h-3/4 w-3/4 rounded-[30px] border-2 border-white/10"
+                <div
+                  className="absolute h-3/4 w-3/4 rounded-[30px] border-2 border-white/10 animate-[spin-slow-reverse_18s_linear_infinite]"
                 />
 
                 {/* Floating "Data" Orbs */}
                 {[...Array(3)].map((_, i) => (
-                  <motion.div
+                  <div
                     key={i}
-                    animate={{
-                      y: [0, -20, 0],
-                      x: [0, 10, 0],
-                    }}
-                    transition={{
-                      duration: 4 + i,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: i,
-                    }}
-                    className="absolute flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-brand-primary-light/20 shadow-xl backdrop-blur-sm"
+                    className="absolute flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-brand-primary-light/20 shadow-xl backdrop-blur-sm animate-[float_5s_ease-in-out_infinite]"
                     style={{
                       top: `${20 + i * 25}%`,
                       left: `${20 + i * 20}%`,
+                      animationDelay: `${i * 0.7}s`
                     }}
                   >
                     <div
                       className={`h-2 w-8 rounded-full ${i === 1 ? "bg-brand-secondary" : "bg-blue-500"
                         }`}
                     />
-                  </motion.div>
+                  </div>
                 ))}
 
                 {/* Central Focus - Now with brand icon */}
-                <motion.div
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    rotate: [0, 5, 0, -5, 0],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="z-10 flex h-32 w-32 items-center justify-center rounded-3xl border border-white/10 bg-white/5 shadow-2xl shadow-brand-secondary/10 backdrop-blur-md"
+                <div
+                  className="z-10 flex h-32 w-32 items-center justify-center rounded-3xl border border-white/10 bg-white/5 shadow-2xl shadow-brand-secondary/10 backdrop-blur-md animate-[float-delayed_6s_ease-in-out_infinite]"
                 >
                   <Image
                     src="/icon.svg"
                     alt="Brand Icon"
                     width={80}
                     height={80}
-                    className="h-20 w-20 object-contain drop-shadow-[0_0_15px_rgba(255,165,0,0.3)]"
+                    className="h-20 w-20 object-contain drop-shadow-[0_0_15px_rgba(255,165,0,0.3)] animate-[float_4s_ease-in-out_infinite]"
                   />
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           </div>

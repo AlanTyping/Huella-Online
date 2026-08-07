@@ -16,7 +16,7 @@ export function Navbar() {
 
   const navLinks = [
     { href: "#portfolio", label: "Proyectos" },
-    { href: "#sobre-mi", label: "Sobre mí" },
+    { href: "#sobre-mi", label: "Desarrollador" },
     { href: "#faq", label: "FAQ" },
   ];
 
@@ -78,8 +78,8 @@ export function Navbar() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[9999] md:hidden"
           >
-            {/* fondo limpio sólido */}
-            <div className="absolute inset-0 bg-[var(--brand-navy-deep)]" />
+            {/* overlay transparente opcional por si acaso */}
+            <div className="absolute inset-0 bg-black/20" onClick={() => setIsOpen(false)} />
 
             {/* panel */}
             <motion.div
@@ -87,7 +87,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 240 }}
-              className="relative flex h-full flex-col p-8"
+              className="absolute inset-0 flex h-full flex-col bg-blue-950 p-8"
             >
               {/* top */}
               <div className="flex items-center justify-between mb-14">
@@ -121,12 +121,14 @@ export function Navbar() {
                   </motion.div>
                 ))}
 
+                <div className="my-6 h-[1px] w-full bg-white/10" />
+
                 <Link
                   href="#contacto"
                   onClick={() => setIsOpen(false)}
-                  className="mt-6 inline-flex w-fit rounded-full bg-[#ffa500] px-7 py-4 text-lg font-black text-black uppercase tracking-tighter transition hover:bg-white hover:scale-[1.02]"
+                  className="inline-flex w-fit rounded-xl bg-blue-600 px-7 py-4 text-lg font-black text-white uppercase tracking-tighter transition-all duration-300 hover:bg-blue-500 hover:scale-[1.03] active:scale-95 shadow-[0_0_20px_rgba(37,99,235,0.2)]"
                 >
-                  Empezar Proyecto
+                  Quiero mi web
                 </Link>
               </nav>
 

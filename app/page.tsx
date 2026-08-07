@@ -12,34 +12,34 @@ import {
 
 export const faqs = [
   {
-    question: "¿Por qué Next.js y no WordPress o una plantilla prefabricada?",
+    question: "¿Cuánto tiempo tardás en tener mi página lista?",
     answer:
-      "WordPress es excelente para blogs de cocina. Nosotros construimos activos de alta ingeniería. Next.js nos da velocidad, SEO y seguridad de nivel producto.",
+      "Depende de la complejidad, pero generalmente tardo entre 1 y 2 meses desde que definimos la idea hasta que tu sitio está online y listo para recibir clientes.",
   },
   {
-    question: "Mi negocio es pequeño, ¿esto no es 'demasiado' para mí?",
+    question: "Mi negocio es pequeño, ¿realmente necesito una web profesional?",
     answer:
-      "Si planeas quedarte pequeño, sí. Si quieres proyectar autoridad y crecer, es exactamente lo que necesitas.",
+      "Si quieres atraer mejores clientes y destacar frente a tu competencia, sí. Una web bien hecha te da la autoridad que las redes sociales por sí solas no pueden lograr.",
+  },
+  {
+    question: "¿Me ayudás con los textos y las imágenes de la página?",
+    answer:
+      "¡Totalmente! Te guío en todo el proceso. Entiendo que tu foco está en tu negocio, así que yo me encargo de darle forma a tu mensaje para que conecte con tu público.",
   },
   {
     question: "¿Cuál es la inversión necesaria para mi proyecto?",
     answer:
-      "Definimos alcance, estrategia y te damos un número claro. Sin paquetes rígidos.",
+      "Cada negocio es único. Primero nos reunimos para entender exactamente qué necesitas y luego te armo un presupuesto claro, a medida y sin sorpresas ocultas.",
   },
   {
-    question: "¿Realmente voy a vender más con este sitio?",
+    question: "¿Qué pasa con el dominio y el hosting de la web?",
     answer:
-      "El sitio no vende solo, pero cambia cómo te perciben. Y eso cambia todo.",
+      "Te capacito paso a paso para que registres tu propio dominio y seas el único dueño. Respecto al hosting, trabajo con Vercel, que cuenta con una capa gratuita que es más que suficiente para la mayoría de los sitios. Solo en el caso de que tu web supere ese gran límite de visitas, evaluaríamos pasar a un plan pago.",
   },
   {
-    question: "¿Qué incluye una página web profesional?",
+    question: "¿Realmente voy a conseguir más clientes con este sitio?",
     answer:
-      "Estructura clara, diseño responsive, carga rápida, SEO base y una experiencia pensada para convertir visitas en consultas.",
-  },
-  {
-    question: "¿Dónde se aloja mi sitio web y quién lo mantiene?",
-    answer:
-      "Vercel. Infraestructura global, rápida y sin mantenimiento manual.",
+      "Una web profesional es como tu mejor vendedor trabajando 24/7. Responde dudas, muestra la calidad de tus servicios y genera la confianza necesaria para que decidan comprarte a vos.",
   },
 ];
 

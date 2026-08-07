@@ -29,6 +29,21 @@
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  @keyframes float-delayed {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(15px); }
+  }
+  @keyframes spin-slow {
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes spin-slow-reverse {
+    100% { transform: rotate(-360deg); }
+  }
 }
 
 @media (prefers-color-scheme: dark) {

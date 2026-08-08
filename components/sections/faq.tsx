@@ -38,7 +38,7 @@ export function FAQ({ faqs }: FAQProps) {
           viewport={{ once: true }}
           className="mb-20 flex flex-col items-center text-center"
         >
-          <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/5 border border-white/10">
+          <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg bg-white/5 border border-white/10">
             <HelpCircle className="h-7 w-7 text-zinc-300" />
           </div>
 
@@ -64,7 +64,7 @@ export function FAQ({ faqs }: FAQProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.25, delay: index * 0.03 }}
                 className={cn(
-                  "relative overflow-hidden rounded-xl border transition-all duration-300",
+                  "relative overflow-hidden rounded-lg border transition-all duration-300",
                   isOpen
                     ? "border-blue-500/40 bg-white/[0.06]"
                     : "border-white/10 bg-white/[0.03] hover:bg-white/[0.05]"

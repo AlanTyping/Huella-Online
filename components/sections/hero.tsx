@@ -111,18 +111,18 @@ export function Hero() {
               {/* Abstract Animation Elements */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div
-                  className="h-full w-full rounded-[40px] border-2 border-dashed border-brand-secondary/20 animate-[spin-slow_25s_linear_infinite]"
+                  className="h-full w-full rounded-lg border-2 border-dashed border-brand-secondary/20 animate-[spin-slow_25s_linear_infinite]"
                 />
 
                 <div
-                  className="absolute h-3/4 w-3/4 rounded-[30px] border-2 border-white/10 animate-[spin-slow-reverse_18s_linear_infinite]"
+                  className="absolute h-3/4 w-3/4 rounded-lg border-2 border-white/10 animate-[spin-slow-reverse_18s_linear_infinite]"
                 />
 
                 {/* Floating "Data" Orbs */}
                 {[...Array(3)].map((_, i) => (
                   <div
                     key={i}
-                    className="absolute flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-brand-primary-light/20 shadow-xl backdrop-blur-sm animate-[float_5s_ease-in-out_infinite]"
+                    className="absolute flex h-16 w-16 items-center justify-center rounded-lg border border-white/10 bg-brand-primary-light/20 shadow-xl backdrop-blur-sm animate-[float_5s_ease-in-out_infinite]"
                     style={{
                       top: `${20 + i * 25}%`,
                       left: `${20 + i * 20}%`,
@@ -138,7 +138,7 @@ export function Hero() {
 
                 {/* Central Focus - Now with brand icon */}
                 <div
-                  className="z-10 flex h-32 w-32 items-center justify-center rounded-3xl border border-white/10 bg-white/5 shadow-2xl shadow-brand-secondary/10 backdrop-blur-md animate-[float-delayed_6s_ease-in-out_infinite]"
+                  className="z-10 flex h-32 w-32 items-center justify-center rounded-lg border border-white/10 bg-white/5 shadow-2xl shadow-brand-secondary/10 backdrop-blur-md animate-[float-delayed_6s_ease-in-out_infinite]"
                 >
                   <Image
                     src="/icon.svg"
@@ -156,3 +156,4 @@ export function Hero() {
     </section>
   );
 }
+

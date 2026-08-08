@@ -37,7 +37,7 @@ export function FinalCTA() {
       {/* CONTENT */}
       <div className="relative z-10 mx-auto max-w-4xl px-6">
 
-        <div className="rounded-[2.5rem] border border-white/5 bg-white/[0.02] p-8 md:p-20 text-center backdrop-blur-2xl">
+        <div className="rounded-lg border border-white/5 bg-white/[0.02] p-8 md:p-20 text-center backdrop-blur-2xl">
 
           {/* ICON */}
           <motion.div
@@ -46,7 +46,7 @@ export function FinalCTA() {
             viewport={{ once: true }}
             className="mb-10 flex justify-center"
           >
-            <div className="flex h-20 w-20 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] text-blue-500 shadow-[0_0_30px_rgba(59,130,246,0.15)] backdrop-blur-sm">
+            <div className="flex h-20 w-20 items-center justify-center rounded-lg border border-white/10 bg-white/[0.05] text-blue-500 shadow-[0_0_30px_rgba(59,130,246,0.15)] backdrop-blur-sm">
               <Mail className="h-9 w-9" />
             </div>
           </motion.div>
@@ -124,3 +124,4 @@ export function FinalCTA() {
     </section>
   );
 }
+

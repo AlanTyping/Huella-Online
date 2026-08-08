@@ -48,7 +48,7 @@ export function About() {
                   duration: 4,
                   repeat: Infinity,
                 }}
-                className="absolute -right-5 top-6 z-20 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-xl"
+                className="absolute -right-5 top-6 z-20 rounded-lg border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-xl"
               >
                 <span className="text-lg">
                   💻
@@ -63,15 +63,15 @@ export function About() {
                   repeat: Infinity,
                   ease: "linear",
                 }}
-                className="absolute -inset-4 rounded-[38px] border border-dashed border-[#ffa500]/20"
+                className="absolute -inset-4 rounded-lg border border-dashed border-[#ffa500]/20"
               />
 
               {/* subtle border */}
-              <div className="absolute inset-0 rounded-[32px] border border-white/10" />
+              <div className="absolute inset-0 rounded-lg border border-white/10" />
 
               {/* image */}
-              <div className="relative h-[280px] w-[280px] overflow-hidden rounded-[32px] bg-white/5 p-2 backdrop-blur-xl">
-                <div className="relative h-full w-full overflow-hidden rounded-[24px]">
+              <div className="relative h-[280px] w-[280px] overflow-hidden rounded-lg bg-white/5 p-2 backdrop-blur-xl">
+                <div className="relative h-full w-full overflow-hidden rounded-lg">
                   <Image
                     src="/images/alan.webp"
                     alt="Alan Rosales"
@@ -137,9 +137,9 @@ export function About() {
                 return (
                   <div
                     key={index}
-                    className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-3 transition-all duration-300 hover:border-[#ffa500]/30 hover:bg-white/[0.05]"
+                    className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-5 py-3 transition-all duration-300 hover:border-[#ffa500]/30 hover:bg-white/[0.05]"
                   >
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#0040FF]/10 text-[#ffffff]">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#0040FF]/10 text-[#ffffff]">
                       <Icon className="h-4 w-4" />
                     </div>
 
@@ -156,3 +156,4 @@ export function About() {
     </section >
   );
 }
+

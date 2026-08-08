@@ -23,7 +23,7 @@ const clientProjects: Project[] = [
       "Un diseño enfocado en convertir una propuesta educativa en una experiencia clara y cercana, ayudando a que cada visitante comprenda rápidamente qué se ofrece y cómo dar el primer paso.",
     image: "/images/sitiovicky.webp",
     link: "https://vickyaphalo.site",
-    services: ["Estrategia digital", "Diseño responsive", "Desarrollo web"],
+    services: [],
   }
 ];
 
@@ -47,7 +47,7 @@ function DemoProjectCard({ project }: { project: Project }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="group flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] transition-all hover:bg-white/[0.04] hover:border-white/20"
+      className="group flex flex-col overflow-hidden rounded-lg border border-white/10 bg-white/[0.06] transition-all hover:bg-white/[0.08] hover:border-white/20"
     >
       <a
         href={project.link}
@@ -107,7 +107,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true, margin: "-100px" }}
-      className={`flex flex-col gap-10 lg:items-center lg:gap-16 rounded-[2.5rem] border border-white/10 bg-white/[0.04] p-6 sm:p-10 lg:p-12 transition-colors hover:bg-white/[0.06] hover:border-white/20 ${
+      className={`flex flex-col gap-10 lg:items-center lg:gap-16 rounded-lg border border-white/10 bg-white/[0.05] p-6 sm:p-10 lg:p-12 transition-colors hover:bg-white/[0.07] hover:border-white/20 ${
         isEven ? "lg:flex-row" : "lg:flex-row-reverse"
       }`}
     >
@@ -116,7 +116,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         href={project.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="group/img relative w-full overflow-hidden rounded-[2rem] border border-white/10 bg-brand-primary-light/10 shadow-2xl transition-all duration-500 hover:border-blue-500/40 hover:shadow-[0_0_50px_rgba(59,130,246,0.15)] block cursor-pointer lg:w-[55%]"
+        className="group/img relative w-full overflow-hidden rounded-lg border border-white/10 bg-brand-primary-light/10 shadow-2xl transition-all duration-500 hover:border-blue-500/40 hover:shadow-[0_0_50px_rgba(59,130,246,0.15)] block cursor-pointer lg:w-[55%]"
       >
         <div className="relative aspect-video w-full overflow-hidden">
           <Image
@@ -128,7 +128,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             priority={index === 0}
           />
         </div>
-        <div className="absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-white/10 pointer-events-none" />
+        <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-white/10 pointer-events-none" />
       </a>
 
       {/* CONTENT */}
@@ -152,16 +152,18 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </p>
 
         {/* SERVICES */}
-        <div className="mt-8 flex flex-wrap gap-2.5">
-          {project.services.map((service) => (
-            <span
-              key={service}
-              className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-zinc-300"
-            >
-              {service}
-            </span>
-          ))}
-        </div>
+        {project.services.length > 0 && (
+          <div className="mt-8 flex flex-wrap gap-2.5">
+            {project.services.map((service) => (
+              <span
+                key={service}
+                className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-zinc-300"
+              >
+                {service}
+              </span>
+            ))}
+          </div>
+        )}
 
         {/* CTA */}
         <div className="mt-10">
@@ -169,7 +171,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex w-full justify-center md:w-auto items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-xs font-black tracking-[0.35em] text-white uppercase transition-all duration-300 hover:scale-[1.02] hover:bg-white/10 hover:border-white/20"
+            className="inline-flex w-full justify-center md:w-auto items-center gap-4 rounded-lg border border-white/10 bg-white/5 px-6 py-4 text-xs font-black tracking-[0.35em] text-white uppercase transition-all duration-300 hover:scale-[1.02] hover:bg-white/10 hover:border-white/20"
           >
             VISITAR SITIO
             <ArrowUpRight className="h-4 w-4 text-brand-secondary" />
@@ -255,3 +257,4 @@ export function Portfolio() {
     </section>
   );
 }
+

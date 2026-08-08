@@ -88,7 +88,7 @@ export function Transformation() {
                 className="group relative flex flex-col md:grid md:grid-cols-2 gap-3 md:gap-12"
               >
                 {/* SIN SITIO WEB - Low contrast glass */}
-                <div className="flex items-center gap-3 rounded-xl bg-white/[0.03] p-5 md:p-6 border border-white/5 backdrop-blur-sm transition-colors group-hover:bg-white/10">
+                <div className="flex items-center gap-3 rounded-lg bg-white/[0.03] p-5 md:p-6 border border-white/5 backdrop-blur-sm transition-colors group-hover:bg-white/10">
                   <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/5 text-zinc-500">
                     <X className="h-4 w-4" />
                   </div>
@@ -103,7 +103,7 @@ export function Transformation() {
                 </div>
 
                 {/* CON SITIO WEB - Premium Glass with Glow */}
-                <div className="flex items-center gap-3 rounded-xl bg-brand-primary-light/40 p-6 border border-white/10 backdrop-blur-md shadow-2xl transition-all group-hover:border-brand-secondary/30">
+                <div className="flex items-center gap-3 rounded-lg bg-[#051939] p-6 border border-white/10 backdrop-blur-md shadow-2xl transition-all group-hover:border-brand-secondary/30">
                   <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-500/20 text-blue-400">
                     <Check className="h-4 w-4" />
                   </div>
@@ -120,6 +120,7 @@ export function Transformation() {
     </section>
   );
 }
+
 
 
 

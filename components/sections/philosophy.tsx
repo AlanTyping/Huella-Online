@@ -49,7 +49,7 @@ export function Philosophy() {
             </div>
           </motion.div>
 
-          <div className="relative aspect-square overflow-hidden rounded-xl bg-brand-primary border border-white/10 shadow-2xl">
+          <div className="relative aspect-square overflow-hidden rounded-lg bg-brand-primary border border-white/10 shadow-2xl">
             <div className="absolute inset-0 flex items-center justify-center overflow-hidden opacity-20">
               <div className="h-full w-full" 
                    style={{ backgroundImage: 'linear-gradient(var(--brand-orange) 1px, transparent 1px), linear-gradient(90deg, var(--brand-orange) 1px, transparent 1px)', backgroundSize: '50px 50px' }}>
@@ -69,3 +69,4 @@ export function Philosophy() {
     </section>
   );
 }
+

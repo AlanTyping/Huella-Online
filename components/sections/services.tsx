@@ -57,7 +57,7 @@ export function Services() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="group relative flex flex-col gap-4 overflow-hidden rounded-xl border border-white/5 bg-white/[0.02] backdrop-blur-sm p-10 transition-all hover:border-brand-secondary/30 shadow-2xl"
+              className="group relative flex flex-col gap-4 overflow-hidden rounded-lg border border-white/5 bg-white/[0.02] backdrop-blur-sm p-10 transition-all hover:border-brand-secondary/30 shadow-2xl"
             >
               <div className="absolute top-0 right-0 p-8">
                 <span className="text-[10px] font-black tracking-[0.3em] text-white/10 uppercase group-hover:text-brand-secondary/50 transition-colors">
@@ -93,3 +93,4 @@ export function Services() {
     </section>
   );
 }
+

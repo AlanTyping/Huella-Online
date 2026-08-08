@@ -50,14 +50,16 @@ export function Transformation() {
   };
 
   return (
-    <section className="bg-brand-primary-deep py-24 lg:py-32 overflow-hidden">
+    <section className="bg-brand-primary-deep py-20 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="relative mx-auto max-w-5xl">
           {/* Mobile Section Title */}
           <div className="mb-10 text-center md:hidden">
             <h2 className="text-3xl font-black uppercase tracking-tighter text-white">
               TU NEGOCIO <br />
-              <span className="text-brand-secondary">ANTES Y DESPUÉS</span>
+              <span className="text-zinc-500">ANTES</span>{" "}
+              <span className="text-white">Y</span>{" "}
+              <span className="text-brand-secondary">DESPUÉS</span>
             </h2>
           </div>
 

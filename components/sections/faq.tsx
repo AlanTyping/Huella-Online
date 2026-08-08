@@ -18,7 +18,7 @@ export function FAQ({ faqs }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative overflow-hidden py-28 text-white bg-brand-primary-deep">
+    <section className="relative overflow-hidden py-20 lg:py-28 text-white bg-brand-primary-deep">
 
       {/* 🌈 BACKGROUND (optimizado) */}
       <div className="absolute inset-0 z-0">

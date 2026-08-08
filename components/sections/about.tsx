@@ -23,7 +23,7 @@ export function About() {
   return (
     <section
       id="sobre-mi"
-      className="relative overflow-hidden bg-[#050816] py-28"
+      className="relative overflow-hidden bg-[#050816] py-20 lg:py-28"
     >
       {/* Ambient Glow */}
       <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#ffa500]/10 blur-[140px]" />

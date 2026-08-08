@@ -107,7 +107,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true, margin: "-100px" }}
-      className={`flex flex-col gap-10 lg:items-center lg:gap-16 ${
+      className={`flex flex-col gap-10 lg:items-center lg:gap-16 rounded-[2.5rem] border border-white/10 bg-white/[0.04] p-6 sm:p-10 lg:p-12 transition-colors hover:bg-white/[0.06] hover:border-white/20 ${
         isEven ? "lg:flex-row" : "lg:flex-row-reverse"
       }`}
     >
@@ -169,7 +169,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-xs font-black tracking-[0.35em] text-white uppercase transition-all duration-300 hover:scale-[1.02] hover:bg-white/10 hover:border-white/20"
+            className="inline-flex w-full justify-center md:w-auto items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-xs font-black tracking-[0.35em] text-white uppercase transition-all duration-300 hover:scale-[1.02] hover:bg-white/10 hover:border-white/20"
           >
             VISITAR SITIO
             <ArrowUpRight className="h-4 w-4 text-brand-secondary" />
@@ -182,7 +182,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="relative overflow-hidden bg-brand-primary-deep py-24 text-white md:py-28">
+    <section id="portfolio" className="relative overflow-hidden bg-brand-primary-deep py-20 text-white md:py-28">
 
       {/* 🌌 BACKGROUND DARK SYSTEM */}
       <div className="pointer-events-none absolute inset-0">

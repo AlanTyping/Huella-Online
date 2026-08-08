@@ -8,7 +8,7 @@ export function FinalCTA() {
   return (
     <section
       id="contacto"
-      className="relative overflow-hidden bg-brand-primary-deep py-28 lg:py-36 border-t border-white/[0.03]"
+      className="relative overflow-hidden bg-brand-primary-deep py-20 lg:py-36 border-t border-white/[0.03]"
     >
       {/* 🌌 BACKGROUND SYSTEM (más controlado y profundo) */}
       <div className="pointer-events-none absolute inset-0">

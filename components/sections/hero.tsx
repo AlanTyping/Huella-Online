@@ -8,7 +8,7 @@ import { GraffitiBackground } from "@/components/ui/GraffitiBackground";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[85vh] items-center overflow-hidden bg-brand-primary-deep pt-24 pb-20 text-white lg:pt-32">
+    <section className="relative flex min-h-[85vh] items-center overflow-hidden bg-brand-primary-deep pt-24 pb-20 text-white lg:pt-32 lg:pb-24">
       {/* Deep Blue Background Elements */}
       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.15)_0%,rgba(2,6,23,1)_70%)]" />
 
@@ -79,13 +79,13 @@ export function Hero() {
                 className="
                   group relative flex items-center gap-3
                   rounded bg-blue-600 px-10 py-5
-                  text-lg font-bold text-white
+                  text-xl lg:text-lg font-bold text-white lg:uppercase
                   transition-all duration-300
                   hover:bg-white hover:text-blue-600 hover:shadow-2xl hover:shadow-blue-500/20
                   active:scale-95
                 "
               >
-                QUIERO MI PÁGINA WEB
+                Quiero mi página web
                 <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </motion.div>

@@ -27,27 +27,7 @@ export function Transformation() {
     },
   ];
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
 
   return (
     <section className="bg-brand-primary-deep py-20 lg:py-32 overflow-hidden">
@@ -97,17 +77,14 @@ export function Transformation() {
             </div>
           </motion.div>
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="space-y-8 md:space-y-4"
-          >
+          <div className="space-y-8 md:space-y-4">
             {comparisons.map((item, index) => (
               <motion.div
                 key={index}
-                variants={itemVariants}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
                 className="group relative flex flex-col md:grid md:grid-cols-2 gap-3 md:gap-12"
               >
                 {/* SIN SITIO WEB - Low contrast glass */}
@@ -136,7 +113,7 @@ export function Transformation() {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
       </div>

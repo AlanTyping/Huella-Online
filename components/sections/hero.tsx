@@ -47,20 +47,29 @@ export function Hero() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           {/* Content Left */}
           <div className="-mt-6 flex flex-col items-start text-left lg:-mt-10 lg:pl-12">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="max-w-2xl text-6xl font-black uppercase leading-[1.05] tracking-tighter text-white sm:text-7xl lg:text-8xl"
-            >
-              TU WEB <br />
-              <span className="text-brand-secondary">SIN LÍMITES.</span>
-            </motion.h1>
+            <h1 className="max-w-2xl text-6xl font-black uppercase leading-[1.05] tracking-tighter sm:text-7xl lg:text-8xl flex flex-col gap-1 lg:gap-2">
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-white"
+              >
+                TU WEB
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                className="w-fit text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-yellow-400 drop-shadow-[0_0_20px_rgba(255,165,0,0.35)] pb-1 italic pr-4"
+              >
+                SIN LÍMITES.
+              </motion.span>
+            </h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
               className="mt-8 max-w-lg text-lg font-medium leading-relaxed text-zinc-400 sm:text-xl"
             >
               Páginas web modernas para negocios de Buenos Aires. Diseño claro,
@@ -71,7 +80,7 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
               className="mt-12"
             >
               <Link

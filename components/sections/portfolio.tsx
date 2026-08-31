@@ -64,7 +64,7 @@ function ProjectCard({ project, index = 0 }: { project: Project; index?: number 
         href={project.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="group/img relative w-full overflow-hidden rounded-[2rem] border border-white/10 bg-brand-primary-light/10 shadow-2xl transition-all duration-500 hover:border-blue-500/40 hover:shadow-[0_0_50px_rgba(59,130,246,0.15)] block cursor-pointer lg:w-[55%]"
+        className="relative block w-full overflow-hidden rounded-3xl bg-white/[0.02] cursor-pointer"
       >
         <div className="relative aspect-video w-full overflow-hidden">
           <Image
@@ -76,7 +76,7 @@ function ProjectCard({ project, index = 0 }: { project: Project; index?: number 
             priority={index === 0}
           />
         </div>
-        <div className="absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-white/10 pointer-events-none" />
+        <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10 pointer-events-none transition-colors duration-500 group-hover:ring-white/20" />
       </a>
 
       {/* TEXT CONTAINER */}
@@ -196,4 +196,3 @@ export function Portfolio() {
     </section>
   );
 }
-

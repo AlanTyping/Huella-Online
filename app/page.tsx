@@ -46,8 +46,8 @@ export default function Home() {
       <Hero />
       <SocialLinks />
       <Transformation />
-      <About />
       <Portfolio />
+      <About />
 
       <FAQ faqs={faqs} />
       <FinalCTA />

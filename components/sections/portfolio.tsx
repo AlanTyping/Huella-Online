@@ -57,7 +57,7 @@ function ProjectCard({ project, index = 0 }: { project: Project; index?: number 
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       viewport={{ once: true, margin: "-100px" }}
-      className="group flex flex-col gap-8 w-full"
+      className="group flex flex-col gap-8 w-full rounded-[2.5rem] bg-white/10 border border-white/20 p-6 sm:p-8 lg:p-10 transition-colors hover:bg-white/15 hover:border-white/30"
     >
       {/* IMAGE CONTAINER */}
       <a
@@ -66,7 +66,7 @@ function ProjectCard({ project, index = 0 }: { project: Project; index?: number 
         rel="noopener noreferrer"
         className="relative block w-full overflow-hidden rounded-3xl bg-white/[0.02] cursor-pointer"
       >
-        <div className="relative aspect-[16/10] sm:aspect-[16/8] w-full overflow-hidden">
+        <div className="relative aspect-video w-full overflow-hidden">
           <Image
             src={project.image}
             alt={`Proyecto de identidad digital para ${project.client} - ${project.industry}`}
@@ -80,7 +80,7 @@ function ProjectCard({ project, index = 0 }: { project: Project; index?: number 
       </a>
 
       {/* TEXT CONTAINER */}
-      <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 md:gap-12 px-2">
+      <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 md:gap-12">
         <div className="flex flex-col gap-2 md:w-[45%]">
           <span className="text-xs font-semibold tracking-[0.2em] text-brand-secondary uppercase">
             {project.industry}

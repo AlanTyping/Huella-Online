@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Handshake } from "lucide-react";
 
 interface Project {
   client: string;
@@ -12,6 +12,40 @@ interface Project {
   link: string;
   services: string[];
   date: string;
+  metrics?: { value: string; label: string }[];
+  integrations?: { name: string; color: string; type: "mercadopago" | "gumroad" }[];
+}
+
+function MercadoPagoIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
+  return <Handshake className={className} strokeWidth={2.2} />;
+}
+
+function GumroadIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.132 15.656c-.98 1.127-2.373 1.748-4.025 1.748-3.364 0-5.74-2.396-5.74-5.808 0-3.411 2.376-5.807 5.74-5.807 1.796 0 3.197.697 4.093 1.854l-1.637 1.412c-.59-.751-1.41-1.162-2.456-1.162-2.022 0-3.363 1.502-3.363 3.703 0 2.202 1.341 3.704 3.363 3.704 1.25 0 2.136-.5 2.682-1.341h-2.932v-2.091h5.275v3.788z" />
+    </svg>
+  );
+}
+
+function BrushUnderline({ className = "w-full h-2 text-[#ffa500]" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 100 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M2 6C20 2.5 50 2 98 5.5C65 9 30 9.5 4 7"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 }
 
 const clientProjects: Project[] = [
@@ -24,6 +58,15 @@ const clientProjects: Project[] = [
     image: "/images/sitiovicky.webp",
     link: "https://vickyaphalo.site",
     services: ["Educación", "Bienestar docente"],
+    metrics: [
+      { value: "< 1s", label: "Carga rápida" },
+      { value: "100%", label: "SEO Optimizado" },
+      { value: "Full", label: "Adaptado a celulares" },
+    ],
+    integrations: [
+      { name: "Mercado Pago", color: "#009ee3", type: "mercadopago" },
+      { name: "Gumroad", color: "#7700c1", type: "gumroad" },
+    ],
   }
 ];
 
@@ -50,42 +93,51 @@ const demoProjects: Project[] = [
   }
 ];
 
-function ProjectCard({ project, index = 0 }: { project: Project; index?: number }) {
+function ProjectCard({
+  project,
+  index = 0,
+  isReal = false,
+}: {
+  project: Project;
+  index?: number;
+  isReal?: boolean;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      viewport={{ once: true, margin: "-100px" }}
-      className="group flex flex-col gap-8 w-full rounded-[2.5rem] bg-white/10 border border-white/20 p-6 sm:p-8 lg:p-10 transition-colors hover:bg-white/15 hover:border-white/30"
+      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, margin: "-50px" }}
+      className="group flex flex-col gap-6 sm:gap-8 w-full"
     >
       {/* IMAGE CONTAINER */}
       <a
         href={project.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative block w-full overflow-hidden rounded-3xl bg-white/[0.02] cursor-pointer"
+        className="relative block w-full overflow-hidden rounded-xl sm:rounded-2xl bg-white/[0.02] cursor-pointer"
       >
         <div className="relative aspect-video w-full overflow-hidden">
           <Image
             src={project.image}
             alt={`Proyecto de identidad digital para ${project.client} - ${project.industry}`}
             fill
-            className="object-cover object-top opacity-90 transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:opacity-100"
+            className="object-cover object-top opacity-90 transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04] group-hover:opacity-100"
             sizes="(max-width: 1024px) 100vw, 80vw"
             priority={index === 0}
           />
         </div>
-        <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10 pointer-events-none transition-colors duration-500 group-hover:ring-white/20" />
+
+        <div className="absolute inset-0 rounded-xl sm:rounded-2xl ring-1 ring-inset ring-white/10 pointer-events-none transition-colors duration-700 group-hover:ring-white/25" />
       </a>
 
       {/* TEXT CONTAINER */}
-      <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 md:gap-12">
+      <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 md:gap-12 pt-2">
         <div className="flex flex-col gap-2 md:w-[45%]">
-          <span className="text-xs font-semibold tracking-[0.2em] text-brand-secondary uppercase">
+          <span className="text-xs font-semibold tracking-[0.2em] text-blue-400 uppercase">
             {project.industry}
           </span>
-          <h3 className="text-4xl sm:text-5xl font-black uppercase tracking-tighter text-white">
+          <h3 className="text-3xl sm:text-5xl font-black uppercase tracking-tighter text-white">
             {project.client}
           </h3>
           <span className="mt-1 text-sm font-medium text-zinc-500">
@@ -95,7 +147,7 @@ function ProjectCard({ project, index = 0 }: { project: Project; index?: number 
             {project.services.map((service) => (
               <span
                 key={service}
-                className="rounded-full border border-white/10 bg-white/[0.02] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-zinc-400"
+                className="rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-zinc-400"
               >
                 {service}
               </span>
@@ -104,18 +156,67 @@ function ProjectCard({ project, index = 0 }: { project: Project; index?: number 
         </div>
 
         <div className="flex flex-col gap-6 md:w-[50%]">
-          <p className="text-lg leading-relaxed text-zinc-400">
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-400">
             {project.summary}
           </p>
+
+          {project.metrics && project.metrics.length > 0 && (
+            <div className="flex flex-wrap items-center gap-6 sm:gap-8 border-y border-white/[0.07] py-3.5">
+              {project.metrics.map((metric) => (
+                <div key={metric.label} className="flex flex-col">
+                  <span className="text-base sm:text-lg font-black tracking-tight text-white">
+                    {metric.value}
+                  </span>
+                  <span className="text-[10px] font-medium tracking-wider text-zinc-500 uppercase">
+                    {metric.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {project.integrations && project.integrations.length > 0 && (
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-2.5">
+              <span className="text-[11px] font-medium text-zinc-400">
+                Integración con pasarelas de pago:
+              </span>
+              <div className="flex items-center gap-2">
+                {project.integrations.map((item) => (
+                  <span
+                    key={item.name}
+                    style={{
+                      color: item.color,
+                      borderColor: `${item.color}35`,
+                      backgroundColor: `${item.color}15`,
+                    }}
+                    className="inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1 text-[11px] font-bold tracking-tight shrink-0"
+                  >
+                    {item.type === "mercadopago" ? (
+                      <MercadoPagoIcon className="h-3.5 w-3.5" />
+                    ) : item.type === "gumroad" ? (
+                      <GumroadIcon className="h-3.5 w-3.5" />
+                    ) : null}
+                    {item.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
           <a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex w-fit items-center gap-3 text-xs font-bold tracking-[0.2em] text-white uppercase transition-colors hover:text-brand-secondary relative group/link"
           >
-            Visitar Sitio
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 transition-colors group-hover/link:bg-brand-secondary/20 group-hover/link:text-brand-secondary">
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover/link:scale-110" />
+            <span className="relative pb-3.5">
+              Visitar Sitio
+              {isReal && (
+                <BrushUnderline className="absolute -bottom-1 left-0 w-full h-2.5 text-[#ffa500] pointer-events-none transition-transform duration-300 group-hover/link:scale-x-105" />
+              )}
+            </span>
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 transition-all duration-300 group-hover/link:bg-brand-secondary/20 group-hover/link:text-brand-secondary group-hover:scale-105">
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
             </span>
           </a>
         </div>
@@ -169,7 +270,7 @@ export function Portfolio() {
         {/* CLIENT PROJECTS LIST */}
         <div className="flex flex-col gap-32">
           {clientProjects.map((project, index) => (
-            <ProjectCard key={project.client} project={project} index={index} />
+            <ProjectCard key={project.client} project={project} index={index} isReal />
           ))}
         </div>
 
@@ -189,7 +290,7 @@ export function Portfolio() {
         {/* DEMO PROJECTS LIST */}
         <div className="flex flex-col gap-32">
           {demoProjects.map((project, index) => (
-            <ProjectCard key={project.client} project={project} index={index + clientProjects.length} />
+            <ProjectCard key={project.client} project={project} index={index + clientProjects.length} isReal={false} />
           ))}
         </div>
       </div>

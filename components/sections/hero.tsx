@@ -84,7 +84,7 @@ export function Hero() {
               className="mt-12"
             >
               <Link
-                href="#contacto"
+                href="/brief"
                 className="
                   group relative flex items-center gap-3
                   rounded bg-blue-600 px-10 py-5

@@ -17,7 +17,7 @@ export function GraciasContent() {
           <CheckCircle2 className="w-20 h-20 text-green-500" />
         </div>
         <h1 className="text-3xl md:text-4xl font-semibold text-zinc-900 mb-4">
-          ¡Listo! Recibimos tu proyecto
+          ¡Listo! Recibimos tu información
         </h1>
         <p className="text-lg text-zinc-600 mb-10 leading-relaxed">
           Gracias por contarnos lo que tenés en mente. Vamos a revisar tu información y nos pondremos en contacto con vos dentro de <span className="underline decoration-[#ffa500] decoration-[4px] underline-offset-4">1-2 días hábiles</span> para contarte los próximos pasos.

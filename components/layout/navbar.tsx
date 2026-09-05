@@ -52,7 +52,7 @@ export function Navbar() {
           ))}
 
           <Link
-            href="#contacto"
+            href="/brief"
             className="rounded bg-white px-6 py-2.5 text-[11px] font-black text-black hover:text-white uppercase tracking-tighter transition-all hover:scale-[1.03] hover:bg-[#ffa500]"
           >
             Empezar
@@ -124,7 +124,7 @@ export function Navbar() {
                 <div className="my-6 h-[1px] w-full bg-white/10" />
 
                 <Link
-                  href="#contacto"
+                  href="/brief"
                   onClick={() => setIsOpen(false)}
                   className="inline-flex w-fit rounded-lg bg-blue-600 px-7 py-4 text-lg font-black text-white uppercase tracking-tighter transition-all duration-300 hover:bg-blue-500 hover:scale-[1.03] active:scale-95 shadow-[0_0_20px_rgba(37,99,235,0.2)]"
                 >

@@ -3,6 +3,7 @@ import { LEDMarquee } from "@/components/ui/led-marquee";
 import { Transformation } from "@/components/sections/transformation";
 import { Portfolio } from "@/components/sections/portfolio";
 import { About } from "@/components/sections/about";
+import { Testimonials } from "@/components/sections/testimonials";
 import { FAQ } from "@/components/sections/faq";
 import { FinalCTA } from "@/components/sections/cta";
 import { SocialLinks } from "@/components/ui/social-links";
@@ -48,6 +49,7 @@ export default function Home() {
       <Transformation />
       <Portfolio />
       <About />
+      <Testimonials />
 
       <FAQ faqs={faqs} />
       <FinalCTA />

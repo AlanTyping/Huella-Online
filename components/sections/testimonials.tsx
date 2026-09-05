@@ -118,7 +118,7 @@ export function Testimonials() {
                           src={testimonial.image}
                           alt={testimonial.name}
                           fill
-                          className="object-cover"
+                          className="object-cover scale-110"
                           style={{ objectPosition: "center 80%" }}
                         />
                       </div>

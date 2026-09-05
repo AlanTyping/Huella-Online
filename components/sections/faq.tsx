@@ -64,7 +64,7 @@ export function FAQ({ faqs }: FAQProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.25, delay: index * 0.03 }}
                 className={cn(
-                  "relative overflow-hidden rounded-lg border transition-all duration-300",
+                  "relative overflow-hidden rounded-lg border transition-colors duration-300",
                   isOpen
                     ? "border-blue-500/40 bg-white/[0.06]"
                     : "border-white/10 bg-white/[0.03] hover:bg-white/[0.05]"

@@ -56,10 +56,6 @@ export function Testimonials() {
           viewport={{ once: true }}
           className="mb-16 flex flex-col items-center text-center"
         >
-          <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg bg-white/5 border border-white/10">
-            <Quote className="h-7 w-7 text-zinc-300" />
-          </div>
-
           <h2 className="text-4xl sm:text-6xl font-black uppercase tracking-tighter">
             TRABAJANDO <span className="text-brand-secondary">JUNTOS</span>
           </h2>

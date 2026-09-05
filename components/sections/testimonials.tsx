@@ -61,10 +61,10 @@ export function Testimonials() {
           </div>
 
           <h2 className="text-4xl sm:text-6xl font-black uppercase tracking-tighter">
-            LO QUE <span className="text-brand-secondary">DICEN</span>
+            TRABAJANDO <span className="text-brand-secondary">JUNTOS</span>
           </h2>
           <p className="mt-6 text-zinc-400 max-w-xl text-lg font-medium">
-            Experiencias de quienes ya transformaron su presencia online.
+            La experiencia de construir una presencia online profesional.
           </p>
         </motion.div>
 
@@ -80,8 +80,8 @@ export function Testimonials() {
               className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.03] p-8 md:p-12 transition-colors duration-300 hover:border-brand-secondary/40 hover:bg-white/[0.05]"
             >
               {/* Marca de agua (Comillas gigantes) */}
-              <Quote 
-                className="absolute -top-6 -left-6 h-48 w-48 rotate-6 text-white/5 pointer-events-none" 
+              <Quote
+                className="absolute -top-6 -left-6 h-48 w-48 rotate-6 text-white/5 pointer-events-none"
               />
               <Quote className="absolute top-8 right-8 h-8 w-8 text-white/10" />
 

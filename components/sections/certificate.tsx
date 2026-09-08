@@ -126,13 +126,13 @@ export function Certificate() {
                 <span className="hidden md:inline">Certificación profesional que valida competencias en metodologías de diseño centrado en el usuario (UCD), arquitectura de información, accesibilidad web e interfaces intuitivas optimizadas para la conversión.</span>
               </p>
 
-              {/* Skills tags with staggered animation & expand toggle (hidden on mobile) */}
+              {/* Skills tags with staggered animation */}
               <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="hidden md:flex flex-wrap items-center gap-2 justify-start"
+                className="flex flex-wrap items-center gap-2 justify-start"
               >
                 {mainSkills.map((skill) => (
                   <motion.span
@@ -164,7 +164,7 @@ export function Certificate() {
                   <button
                     type="button"
                     onClick={() => setShowAll(true)}
-                    className="group/btn inline-flex items-center gap-1.5 rounded border border-dashed border-white/20 bg-white/[0.02] px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-zinc-400 transition-all duration-300 hover:border-white/50 hover:bg-white/[0.08] hover:text-white cursor-pointer active:scale-95"
+                    className="hidden md:inline-flex group/btn items-center gap-1.5 rounded border border-dashed border-white/20 bg-white/[0.02] px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-zinc-400 transition-all duration-300 hover:border-white/50 hover:bg-white/[0.08] hover:text-white cursor-pointer active:scale-95"
                   >
                     <Plus className="h-3 w-3 text-zinc-400 transition-transform duration-300 group-hover/btn:rotate-90 group-hover/btn:text-white" />
                     <span>y {extraSkills.length} más</span>

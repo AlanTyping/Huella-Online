@@ -73,7 +73,7 @@ export function Testimonials() {
               whileHover={{ y: -8 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.03] p-8 md:p-12 transition-colors duration-300 hover:border-brand-secondary/40 hover:bg-white/[0.05]"
+              className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.03] p-8 md:p-12 transition-colors duration-300 hover:border-white/30 hover:bg-white/[0.05]"
             >
               {/* Marca de agua (Comillas gigantes) */}
               <Quote

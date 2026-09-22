@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleTagManager } from '@next/third-parties/google';
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
@@ -164,6 +165,7 @@ export default function RootLayout({
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth`}
     >
+      <GoogleTagManager gtmId="GTM-5788G68V" />
       <body
         className="
           min-h-full 

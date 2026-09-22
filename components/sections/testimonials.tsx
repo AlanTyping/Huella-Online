@@ -102,7 +102,7 @@ export function Testimonials() {
                 </div>
 
                 <p className="text-lg md:text-xl leading-relaxed text-zinc-300 italic mb-10">
-                  "{testimonial.content}"
+                  &quot;{testimonial.content}&quot;
                 </p>
 
                 <div className="flex items-center justify-between gap-4">

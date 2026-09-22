@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { X, Check, ArrowRight } from "lucide-react";
 
 export function Transformation() {

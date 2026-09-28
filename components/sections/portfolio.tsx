@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Handshake } from "lucide-react";
+import { ArrowUpRight, Handshake, MessageCircle, BarChart3 } from "lucide-react";
 
 interface Project {
   client: string;
@@ -13,7 +13,7 @@ interface Project {
   services: string[];
   date: string;
   metrics?: { value: string; label: string }[];
-  integrations?: { name: string; color: string; type: "mercadopago" | "gumroad" }[];
+  integrations?: { name: string; color: string; type: "mercadopago" | "gumroad" | "whatsapp" | "analytics" }[];
 }
 
 function MercadoPagoIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
@@ -49,6 +49,25 @@ function BrushUnderline({ className = "w-full h-2 text-[#ffa500]" }: { className
 }
 
 const clientProjects: Project[] = [
+  {
+    client: "Lumos Fotografía",
+    industry: "fotografía",
+    date: "Septiembre 2026",
+    summary:
+      "Un sitio web diseñado para capturar la esencia de cada momento. Portfolio digital de fotografía profesional con un diseño enfocado en la imagen y la experiencia visual.",
+    image: "/images/lumosfotografia.webp",
+    link: "#",
+    services: ["Portfolio", "Diseño Web"],
+    metrics: [
+      { value: "Galería", label: "Inmersiva (Lightbox)" },
+      { value: "< 1s", label: "Carga rápida" },
+      { value: "100%", label: "Imágenes optimizadas" },
+    ],
+    integrations: [
+      { name: "WhatsApp", color: "#25D366", type: "whatsapp" },
+      { name: "Analytics", color: "#000000", type: "analytics" },
+    ],
+  },
   {
     client: "Vicky Aphalo",
     industry: "educación & bienestar",
@@ -178,7 +197,7 @@ function ProjectCard({
           {project.integrations && project.integrations.length > 0 && (
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-2.5">
               <span className="text-[11px] font-medium text-zinc-400">
-                Integración con pasarelas de pago:
+                Integración con:
               </span>
               <div className="flex items-center gap-2">
                 {project.integrations.map((item) => (
@@ -195,6 +214,10 @@ function ProjectCard({
                       <MercadoPagoIcon className="h-3.5 w-3.5" />
                     ) : item.type === "gumroad" ? (
                       <GumroadIcon className="h-3.5 w-3.5" />
+                    ) : item.type === "whatsapp" ? (
+                      <MessageCircle className="h-3.5 w-3.5" />
+                    ) : item.type === "analytics" ? (
+                      <BarChart3 className="h-3.5 w-3.5" />
                     ) : null}
                     {item.name}
                   </span>

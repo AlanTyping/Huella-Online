@@ -2,8 +2,37 @@
 
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { Quote, Star, ExternalLink } from "lucide-react";
+import { Quote, Star, ExternalLink, BadgeCheck } from "lucide-react";
 import Image from "next/image";
+
+function InstagramVerifiedIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={className}>
+      <defs>
+        <mask id="check-mask">
+          <rect width="100%" height="100%" fill="white" />
+          <path 
+            stroke="black"
+            strokeWidth="3" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            d="m9 12 2 2 4-4"
+            fill="none"
+          />
+        </mask>
+      </defs>
+      <path 
+        fill="#0095F6"
+        stroke="#0095F6"
+        strokeWidth="2" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        mask="url(#check-mask)"
+        d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.76 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
+      />
+    </svg>
+  );
+}
 
 interface Testimonial {
   id: number;
@@ -12,9 +41,39 @@ interface Testimonial {
   content: ReactNode;
   image: string;
   link?: string;
+  verified?: boolean;
+  imageScale?: string;
+  imagePosition?: string;
 }
 
 const testimonialsData: Testimonial[] = [
+  {
+    id: 2,
+    name: "Cristian",
+    followers: "+1.4mil seguidores",
+    content: (
+      <>
+        Fue tremenda experiencia, al principio no voy a negar que desconfié pero con el paso del tiempo comprendí que realmente estaba{" "}
+        <strong className="text-white font-bold">
+          trabajando con un profesional
+        </strong>
+        , Alan es una persona que realmente está para ayudarte y{" "}
+        <strong className="text-white font-bold">
+          explicarte con toda la paciencia
+        </strong>{" "}
+        del mundo hasta que lo entiendas, finalmente te ayuda a lograr eso que tanto pensaste que querías,{" "}
+        <strong className="text-white font-bold">
+          tu propia página web
+        </strong>
+        . Súper recomendable Huella Online 😎
+      </>
+    ),
+    image: "/images/cristian.webp",
+    link: "https://www.instagram.com/lumos.fotografia_/",
+    verified: true,
+    imageScale: "scale-[1.5] origin-[65%_0%]",
+    imagePosition: "65% top",
+  },
   {
     id: 1,
     name: "Vicky Aphalo",
@@ -114,13 +173,18 @@ export function Testimonials() {
                           src={testimonial.image}
                           alt={testimonial.name}
                           fill
-                          className="object-cover scale-110"
-                          style={{ objectPosition: "center 80%" }}
+                          className={`object-cover ${testimonial.imageScale || "scale-110"}`}
+                          style={{ objectPosition: testimonial.imagePosition || "center 80%" }}
                         />
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-bold text-white text-lg">{testimonial.name}</h4>
+                      <h4 className="font-bold text-white text-lg flex items-center gap-1.5">
+                        {testimonial.name}
+                        {testimonial.verified && (
+                          <InstagramVerifiedIcon className="h-4 w-4 shrink-0" />
+                        )}
+                      </h4>
                       <p className="text-sm font-medium text-zinc-400">{testimonial.followers}</p>
                     </div>
                   </div>

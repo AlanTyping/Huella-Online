@@ -72,7 +72,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="mt-8 max-w-lg text-lg font-medium leading-relaxed text-zinc-400 sm:text-xl"
             >
-              Páginas web modernas para negocios de Buenos Aires. Diseño claro,
+              Páginas web modernas para negocios de Argentina. Diseño claro,
               carga rápida y una presencia digital que transmite confianza desde
               el primer vistazo.
             </motion.p>

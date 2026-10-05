@@ -20,9 +20,9 @@ const geistMono = Geist_Mono({
 const siteUrl = "https://huellaonline.com";
 const siteName = "Huella Online";
 const siteTitle =
-  "Huella Online | Páginas web modernas en Buenos Aires desde Merlo";
+  "Huella Online | Páginas web modernas | Argentina Buenos Aires";
 const siteDescription =
-  "Páginas web modernas para negocios de Buenos Aires. Trabajamos desde Merlo con diseño claro, carga rápida y presencia digital que transmite confianza.";
+  "Páginas web modernas para negocios de Argentina. Trabajamos desde Merlo con diseño claro, carga rápida y presencia digital que transmite confianza.";
 const businessPhone = "+541138235395";
 
 const localSeoMetadata: Metadata = {

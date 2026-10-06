@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Menu } from "lucide-react";
@@ -13,6 +14,10 @@ import {
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  // En /fotografos hay secciones claras: el navbar necesita fondo para no
+  // perder contraste. En el resto del sitio se mantiene el glass translúcido.
+  const needsSolidBackdrop = pathname?.startsWith("/fotografos") ?? false;
 
   const navLinks = [
     { href: "#portfolio", label: "Proyectos" },
@@ -28,7 +33,13 @@ export function Navbar() {
     <header className="fixed top-0 z-50 w-full">
 
       {/* SOLO glass en navbar (sin degradado agresivo) */}
-      <div className="absolute inset-0 backdrop-blur-xl border-b border-white/[0.06]" />
+      <div
+        className={`absolute inset-0 border-b backdrop-blur-xl transition-colors ${
+          needsSolidBackdrop
+            ? "border-white/[0.08] bg-ink/85"
+            : "border-white/[0.06]"
+        }`}
+      />
 
       <div className="relative mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-8">
 

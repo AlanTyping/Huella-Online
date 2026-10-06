@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { X, Check, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { X, Check } from "lucide-react";
+import { InstagramIcon } from "@/components/ui/social-links";
 
 const comparisons = [
   {
@@ -28,87 +29,72 @@ const comparisons = [
 
 export function FotografosProblem() {
   return (
-    <section className="overflow-hidden border-t border-white/[0.03] bg-brand-primary-deep py-20 lg:py-32">
+    <section className="bg-paper py-24 text-ink lg:py-32">
       <div className="mx-auto w-full max-w-7xl px-6 md:px-8">
-        <div className="relative mx-auto max-w-5xl">
-          <div className="mb-10 text-center md:hidden">
-            <h2 className="text-3xl font-black uppercase tracking-tighter text-white">
-              TU FOTOGRAFÍA <br />
-              <span className="text-zinc-500">ANTES</span>{" "}
-              <span className="text-white">Y</span>{" "}
-              <span className="text-brand-secondary">DESPUÉS</span>
-            </h2>
-          </div>
-
-          <h2 className="sr-only">
-            De depender de Instagram a tener un portafolio profesional propio
+        <div className="max-w-2xl">
+          <h2 className="font-display text-4xl leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            Una web propia cambia la conversación.
           </h2>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-graphite">
+            Instagram es tu vidriera del día a día. Tu sitio es tu estudio: el
+            lugar donde tu obra se muestra como querés y trabaja para vos las
+            24 horas.
+          </p>
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 hidden grid-cols-2 gap-8 px-2 md:grid"
-          >
-            <div className="flex flex-col items-center justify-center py-2 text-center">
-              <span className="text-3xl font-black uppercase tracking-tighter text-white/40">
-                Solo Instagram
+        <div className="mt-16 grid max-w-4xl gap-10 md:grid-cols-2 md:gap-x-16">
+          {/* Solo Instagram */}
+          <div>
+            <h3 className="flex items-center gap-3 border-b border-ink/15 pb-4 font-display text-2xl text-graphite">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink/40 [&>svg]:h-4 [&>svg]:w-4">
+                <InstagramIcon />
               </span>
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: "40px" }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                className="mt-4 h-1 rounded-full bg-zinc-700"
-              />
-            </div>
-            <div className="flex flex-col items-center justify-center py-2 text-center">
-              <span className="text-3xl font-black uppercase tracking-tighter text-white">
-                Con <span className="text-brand-secondary">Huella Online</span>
-              </span>
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: "40px" }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                className="mt-4 h-1 rounded-full bg-blue-500"
-              />
-            </div>
-          </motion.div>
-
-          <div className="space-y-8 md:space-y-4">
-            {comparisons.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                className="group relative flex flex-col gap-3 md:grid md:grid-cols-2 md:gap-12"
-              >
-                <div className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.03] p-5 backdrop-blur-sm transition-colors group-hover:bg-white/10 md:p-6">
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/5 text-zinc-500">
-                    <X className="h-4 w-4" />
-                  </div>
-                  <span className="text-sm font-medium leading-tight text-zinc-400 md:text-base">
+              Solo Instagram
+            </h3>
+            <ul>
+              {comparisons.map((item) => (
+                <li
+                  key={item.pain}
+                  className="flex items-start gap-4 border-b border-ink/10 py-5"
+                >
+                  <X className="mt-0.5 h-4 w-4 shrink-0 text-ink/30" />
+                  <span className="text-base leading-snug text-graphite">
                     {item.pain}
                   </span>
-                </div>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-                <div className="absolute left-1/2 top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center text-blue-500/40 transition-colors group-hover:text-brand-secondary md:flex">
-                  <ArrowRight className="h-5 w-5" />
-                </div>
-
-                <div className="flex items-center gap-3 rounded-lg border border-white/10 bg-[#051939] p-6 shadow-2xl backdrop-blur-md transition-all group-hover:border-brand-secondary/30">
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-500/20 text-blue-400">
-                    <Check className="h-4 w-4" />
-                  </div>
-                  <span className="text-base font-bold leading-tight text-white md:text-lg">
+          {/* Con Huella Online */}
+          <div>
+            <h3 className="flex items-center gap-3 border-b border-ink pb-4 font-display text-2xl text-ink">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ink">
+                <Image
+                  src="/icon.svg"
+                  alt="Huella Online"
+                  width={22}
+                  height={22}
+                  className="h-5 w-5 object-contain"
+                />
+              </span>
+              Con Huella Online
+            </h3>
+            <ul>
+              {comparisons.map((item) => (
+                <li
+                  key={item.gain}
+                  className="flex items-start gap-4 border-b border-ink/10 py-5"
+                >
+                  <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-ink text-paper">
+                    <Check className="h-3 w-3" />
+                  </span>
+                  <span className="text-base font-bold leading-snug text-ink">
                     {item.gain}
                   </span>
-                </div>
-              </motion.div>
-            ))}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

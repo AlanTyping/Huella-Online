@@ -28,7 +28,7 @@ export function FotografosStickyCta() {
               Tu web en pocas semanas
             </span>
             <span className="text-sm font-black text-white">
-              Desde $300.000
+              Desde $225.000
             </span>
           </div>
 
@@ -36,7 +36,7 @@ export function FotografosStickyCta() {
             href={fotografoWhatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-auto flex items-center gap-2 rounded-lg bg-[#25D366] px-5 py-3 text-sm font-black uppercase tracking-tight text-white transition-all active:scale-95 [&>svg]:h-5 [&>svg]:w-5"
+            className="ml-auto flex items-center gap-2 rounded-md bg-whatsapp px-5 py-3 text-sm font-black uppercase tracking-tight text-white transition-all active:scale-95 [&>svg]:h-5 [&>svg]:w-5"
           >
             <WhatsAppIcon />
             Hablar

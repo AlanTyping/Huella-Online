@@ -7,14 +7,14 @@ import { FotografosTour } from "@/components/sections/fotografos/tour";
 import { FotografosPricing } from "@/components/sections/fotografos/pricing";
 import { FotografosProcess } from "@/components/sections/fotografos/process";
 import { FotografosStickyCta } from "@/components/sections/fotografos/sticky-cta";
-import { FAQ } from "@/components/sections/faq";
-import { FinalCTA } from "@/components/sections/cta";
-import { LEDMarquee } from "@/components/ui/led-marquee";
+import { FotografosFaq } from "@/components/sections/fotografos/faq";
+import { FotografosCta } from "@/components/sections/fotografos/cta";
+import { FotografosMarquee } from "@/components/sections/fotografos/marquee";
 
 const siteUrl = "https://huellaonline.com";
 const pageTitle = "Páginas web para fotógrafos | Huella Online";
 const pageDescription =
-  "Diseñamos sitios web para fotógrafos: galerías inmersivas, carga ultrarrápida y una imagen profesional que convierte visitas en clientes. Desde $300.000. Caso real: Lumos Fotografía.";
+  "Diseñamos sitios web para fotógrafos: galerías inmersivas, carga ultrarrápida y una imagen profesional que convierte visitas en clientes. Desde $225.000. Caso real: Lumos Fotografía.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -41,7 +41,7 @@ const faqs = [
   {
     question: "¿Cuánto cuesta mi sitio?",
     answer:
-      "Los proyectos arrancan desde $300.000 y llegan hasta $600.000 según el alcance: cantidad de galerías, secciones e integraciones. En la primera reunión te armamos un presupuesto claro y sin sorpresas, y podés pagarlo en dos partes: 50% para empezar y 50% al publicar.",
+      "Los proyectos arrancan desde $225.000 y llegan hasta $500.000 según el alcance: cantidad de galerías, secciones e integraciones. En la primera reunión te armamos un presupuesto claro y sin sorpresas, y podés pagarlo en dos partes: 50% para empezar y 50% al publicar.",
   },
   {
     question: "¿Por qué necesito una web si ya tengo Instagram?",
@@ -98,8 +98,8 @@ const structuredData = {
       offers: {
         "@type": "AggregateOffer",
         priceCurrency: "ARS",
-        lowPrice: "300000",
-        highPrice: "600000",
+        lowPrice: "225000",
+        highPrice: "500000",
         offerCount: "3",
       },
       review: {
@@ -156,9 +156,9 @@ export default function FotografosPage() {
       <FotografosFeatures />
       <FotografosProcess />
       <FotografosPricing />
-      <FAQ faqs={faqs} />
-      <FinalCTA />
-      <LEDMarquee />
+      <FotografosFaq faqs={faqs} />
+      <FotografosCta />
+      <FotografosMarquee />
 
       <FotografosStickyCta />
     </div>

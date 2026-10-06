@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { WhatsAppIcon } from "@/components/ui/social-links";
 import { fotografoWhatsappHref } from "./contact";
 
@@ -28,15 +29,28 @@ export function FotografosInlineCta({
         {title}
       </p>
 
-      <a
-        href={fotografoWhatsappHref}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex shrink-0 items-center justify-center gap-3 rounded-md bg-whatsapp px-7 py-4 text-base font-semibold text-white transition-colors hover:bg-whatsapp-hover [&>svg]:h-5 [&>svg]:w-5"
-      >
-        <WhatsAppIcon />
-        Hablemos
-      </a>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <a
+          href={fotografoWhatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex shrink-0 items-center justify-center gap-3 rounded-md bg-whatsapp px-7 py-4 text-base font-semibold text-white transition-colors hover:bg-whatsapp-hover [&>svg]:h-5 [&>svg]:w-5"
+        >
+          <WhatsAppIcon />
+          Hablemos
+        </a>
+
+        <Link
+          href="#precios"
+          className={`inline-flex shrink-0 items-center justify-center gap-2 rounded-md border px-7 py-4 text-base font-medium transition-colors ${
+            isDark
+              ? "border-bone/25 text-bone/80 hover:border-bone/50 hover:text-bone"
+              : "border-ink/20 text-ink/80 hover:border-ink/40 hover:text-ink"
+          }`}
+        >
+          Ver precios
+        </Link>
+      </div>
     </div>
   );
 }

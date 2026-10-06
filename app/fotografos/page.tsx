@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { FotografosHero } from "@/components/sections/fotografos/hero";
 import { FotografosProblem } from "@/components/sections/fotografos/problem";
-import { FotografosFeatures } from "@/components/sections/fotografos/features";
 import { FotografosShowcase } from "@/components/sections/fotografos/showcase";
 import { FotografosTour } from "@/components/sections/fotografos/tour";
 import { FotografosPricing } from "@/components/sections/fotografos/pricing";
-import { FotografosProcess } from "@/components/sections/fotografos/process";
 import { FotografosStickyCta } from "@/components/sections/fotografos/sticky-cta";
 import { FotografosFaq } from "@/components/sections/fotografos/faq";
 import { FotografosCta } from "@/components/sections/fotografos/cta";
@@ -14,13 +12,39 @@ import { FotografosMarquee } from "@/components/sections/fotografos/marquee";
 const siteUrl = "https://huellaonline.com";
 const pageTitle = "Páginas web para fotógrafos | Huella Online";
 const pageDescription =
-  "Diseñamos sitios web para fotógrafos: galerías inmersivas, carga ultrarrápida y una imagen profesional que convierte visitas en clientes. Desde $225.000. Caso real: Lumos Fotografía.";
+  "Diseñamos webs para fotógrafos: galerías inmersivas, carga ultrarrápida y una imagen profesional que convierte visitas en clientes. Desde $225.000.";
+
+const ogImage = {
+  url: "/images/lumosfotografia.webp",
+  width: 1917,
+  height: 1078,
+  alt: "Sitio web para fotógrafos de Lumos Fotografía creado por Huella Online",
+};
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
+  keywords: [
+    "páginas web para fotógrafos",
+    "diseño web para fotógrafos",
+    "sitio web para fotógrafos",
+    "portfolio web para fotógrafos",
+    "web para fotógrafos Argentina",
+    "página web estudio de fotografía",
+  ],
   alternates: {
     canonical: "/fotografos",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   openGraph: {
     title: pageTitle,
@@ -84,45 +108,91 @@ const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/fotografos/#webpage`,
+      url: `${siteUrl}/fotografos`,
+      name: pageTitle,
+      description: pageDescription,
+      inLanguage: "es-AR",
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      about: { "@id": `${siteUrl}/fotografos/#service` },
+      mainEntity: { "@id": `${siteUrl}/fotografos/#service` },
+      breadcrumb: { "@id": `${siteUrl}/fotografos/#breadcrumb` },
+      dateModified: new Date().toISOString(),
+    },
+    {
       "@type": "Service",
+      "@id": `${siteUrl}/fotografos/#service`,
       name: "Desarrollo web para fotógrafos",
       serviceType: "Diseño y desarrollo de sitios web para fotógrafos",
       url: `${siteUrl}/fotografos`,
       description: pageDescription,
-      areaServed: "Argentina",
-      provider: {
-        "@type": "ProfessionalService",
-        name: "Huella Online",
-        url: siteUrl,
+      image: `${siteUrl}${ogImage.url}`,
+      category: "Diseño y desarrollo web",
+      areaServed: {
+        "@type": "Country",
+        name: "Argentina",
       },
+      provider: { "@id": `${siteUrl}/#organization` },
       offers: {
         "@type": "AggregateOffer",
         priceCurrency: "ARS",
         lowPrice: "225000",
         highPrice: "500000",
         offerCount: "3",
-      },
-      review: {
-        "@type": "Review",
-        reviewRating: {
-          "@type": "Rating",
-          ratingValue: "5",
-          bestRating: "5",
-        },
-        author: {
-          "@type": "Person",
-          name: "Cristian",
-        },
-        itemReviewed: {
-          "@type": "Service",
-          name: "Sitio web para Lumos Fotografía",
-        },
-        reviewBody:
-          "Fue tremenda experiencia. Alan es una persona que está para ayudarte y explicarte con toda la paciencia del mundo. Finalmente te ayuda a lograr eso que tanto pensaste que querías: tu propia página web. Súper recomendable Huella Online.",
+        offers: [
+          {
+            "@type": "Offer",
+            name: "Portfolio Esencial",
+            price: "225000",
+            priceCurrency: "ARS",
+          },
+          {
+            "@type": "Offer",
+            name: "Estudio",
+            price: "300000",
+            priceCurrency: "ARS",
+          },
+          {
+            "@type": "Offer",
+            name: "Marca Completa",
+            price: "500000",
+            priceCurrency: "ARS",
+          },
+        ],
       },
     },
     {
+      "@type": "Review",
+      "@id": `${siteUrl}/fotografos/#review`,
+      itemReviewed: { "@id": `${siteUrl}/fotografos/#service` },
+      author: {
+        "@type": "Person",
+        name: "Cristian",
+      },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      reviewBody:
+        "Fue tremenda experiencia. Alan es una persona que está para ayudarte y explicarte con toda la paciencia del mundo. Finalmente te ayuda a lograr eso que tanto pensaste que querías: tu propia página web. Súper recomendable Huella Online.",
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${siteUrl}/fotografos/#faq`,
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    },
+    {
       "@type": "BreadcrumbList",
+      "@id": `${siteUrl}/fotografos/#breadcrumb`,
       itemListElement: [
         {
           "@type": "ListItem",
@@ -151,12 +221,10 @@ export default function FotografosPage() {
 
       <FotografosHero />
       <FotografosProblem />
-      <FotografosShowcase />
       <FotografosTour />
-      <FotografosFeatures />
-      <FotografosProcess />
       <FotografosPricing />
       <FotografosFaq faqs={faqs} />
+      <FotografosShowcase />
       <FotografosCta />
       <FotografosMarquee />
 

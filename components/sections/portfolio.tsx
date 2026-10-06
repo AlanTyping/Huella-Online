@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Handshake, MessageCircle, BarChart3 } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Handshake, MessageCircle, BarChart3 } from "lucide-react";
 
 interface Project {
   client: string;
@@ -14,6 +15,7 @@ interface Project {
   date: string;
   metrics?: { value: string; label: string }[];
   integrations?: { name: string; color: string; type: "mercadopago" | "gumroad" | "whatsapp" | "analytics" }[];
+  serviceLink?: { href: string; label: string };
 }
 
 function MercadoPagoIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
@@ -56,7 +58,7 @@ const clientProjects: Project[] = [
     summary:
       "Un sitio web diseñado para capturar la esencia de cada momento. Portfolio digital de fotografía profesional con un diseño enfocado en la imagen y la experiencia visual.",
     image: "/images/lumosfotografia.webp",
-    link: "#",
+    link: "https://lumosfotografia.com",
     services: ["Portfolio", "Diseño Web"],
     metrics: [
       { value: "Galería", label: "Inmersiva (Lightbox)" },
@@ -67,6 +69,10 @@ const clientProjects: Project[] = [
       { name: "WhatsApp", color: "#25D366", type: "whatsapp" },
       { name: "Analytics", color: "#000000", type: "analytics" },
     ],
+    serviceLink: {
+      href: "/fotografos",
+      label: "Ver el servicio para fotógrafos",
+    },
   },
   {
     client: "Vicky Aphalo",
@@ -242,6 +248,18 @@ function ProjectCard({
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
             </span>
           </a>
+
+          {project.serviceLink && (
+            <Link
+              href={project.serviceLink.href}
+              className="group/svc inline-flex w-fit items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-brand-secondary transition-colors hover:text-white"
+            >
+              {project.serviceLink.label}
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-secondary/15 text-brand-secondary transition-all duration-300 group-hover/svc:scale-105 group-hover/svc:bg-brand-secondary group-hover/svc:text-white">
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/svc:translate-x-0.5" />
+              </span>
+            </Link>
+          )}
         </div>
       </div>
     </motion.div>

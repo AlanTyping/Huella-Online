@@ -50,7 +50,7 @@ const features = [
 
 export function FotografosFeatures() {
   return (
-    <section id="servicios" className="bg-ink py-24 text-bone lg:py-32">
+    <section id="servicios" className="scroll-mt-24 bg-ink py-24 text-bone lg:py-32">
       <div className="mx-auto w-full max-w-7xl px-6 md:px-8">
         <div className="max-w-2xl">
           <h2 className="font-display text-4xl leading-tight tracking-tight sm:text-5xl lg:text-6xl">

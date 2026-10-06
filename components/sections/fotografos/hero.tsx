@@ -13,12 +13,12 @@ export function FotografosHero() {
       {/* Foto a sangre */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/lumos/hero-lumos.webp"
+          src="/images/lumos/xi.webp"
           alt="Sesión de fotos de Lumos Fotografía"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="origin-top scale-110 object-cover object-[60%_16%]"
         />
 
         {/* Solo lo justo para que el texto respire */}

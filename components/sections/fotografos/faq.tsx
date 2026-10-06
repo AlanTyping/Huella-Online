@@ -13,7 +13,7 @@ export function FotografosFaq({ faqs }: { faqs: FaqItem[] }) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-paper py-24 text-ink lg:py-32">
+    <section id="faq" className="scroll-mt-24 bg-paper py-24 text-ink lg:py-32">
       <div className="mx-auto w-full max-w-7xl px-6 md:px-8">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">

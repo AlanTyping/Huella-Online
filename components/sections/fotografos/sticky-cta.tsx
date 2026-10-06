@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { WhatsAppIcon } from "@/components/ui/social-links";
 import { fotografoWhatsappHref } from "./contact";
 
@@ -23,14 +24,17 @@ export function FotografosStickyCta() {
         }`}
       >
         <div className="flex items-center gap-3">
-          <div className="flex flex-col leading-tight">
+          <Link href="#precios" className="flex flex-col leading-tight">
             <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-400">
               Tu web en pocas semanas
             </span>
-            <span className="text-sm font-black text-white">
+            <span className="flex items-center gap-1.5 text-sm font-black text-white">
               Desde $225.000
+              <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-brand-secondary">
+                Ver planes
+              </span>
             </span>
-          </div>
+          </Link>
 
           <a
             href={fotografoWhatsappHref}

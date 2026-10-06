@@ -17,13 +17,22 @@ export function Navbar() {
   const pathname = usePathname();
   // En /fotografos hay secciones claras: el navbar necesita fondo para no
   // perder contraste. En el resto del sitio se mantiene el glass translúcido.
-  const needsSolidBackdrop = pathname?.startsWith("/fotografos") ?? false;
+  const isFotografos = pathname?.startsWith("/fotografos") ?? false;
+  const needsSolidBackdrop = isFotografos;
 
-  const navLinks = [
-    { href: "#portfolio", label: "Proyectos" },
-    { href: "#sobre-mi", label: "Desarrollador" },
-    { href: "#faq", label: "FAQ" },
-  ];
+  // /fotografos no tiene sección "Desarrollador" (#sobre-mi): ese link estaba
+  // roto. Lo reemplazamos por Precios para dar acceso directo a los planes.
+  const navLinks = isFotografos
+    ? [
+        { href: "#portfolio", label: "Proyectos" },
+        { href: "#precios", label: "Precios" },
+        { href: "#faq", label: "FAQ" },
+      ]
+    : [
+        { href: "#portfolio", label: "Proyectos" },
+        { href: "#sobre-mi", label: "Desarrollador" },
+        { href: "#faq", label: "FAQ" },
+      ];
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";

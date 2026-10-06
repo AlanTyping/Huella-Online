@@ -29,7 +29,10 @@ const steps = [
 
 export function FotografosProcess() {
   return (
-    <section id="proceso" className="bg-paper py-24 text-ink lg:py-32">
+    <section
+      id="proceso"
+      className="scroll-mt-24 border-t border-ink/10 bg-paper py-24 text-ink lg:py-32"
+    >
       <div className="mx-auto w-full max-w-7xl px-6 md:px-8">
         <div className="max-w-2xl">
           <h2 className="font-display text-4xl leading-tight tracking-tight sm:text-5xl lg:text-6xl">

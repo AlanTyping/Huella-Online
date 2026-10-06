@@ -21,9 +21,15 @@ const review =
 
 export function FotografosShowcase() {
   return (
-    <section id="portfolio" className="bg-ink py-24 text-bone md:py-32">
+    <section
+      id="portfolio"
+      className="scroll-mt-24 bg-ink py-24 text-bone md:py-32"
+    >
       <div className="mx-auto w-full max-w-7xl px-6 md:px-8">
         <div className="max-w-3xl">
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-brand-secondary">
+            Proyecto · De Lumos Fotografía
+          </p>
           <h2 className="font-display text-4xl leading-tight tracking-tight sm:text-5xl lg:text-6xl">
             Un portafolio que se siente como una galería.
           </h2>

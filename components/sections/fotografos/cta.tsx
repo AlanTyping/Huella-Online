@@ -12,7 +12,7 @@ export function FotografosCta() {
   return (
     <section
       id="contacto"
-      className="border-t border-bone/10 bg-ink py-24 text-bone lg:py-32"
+      className="scroll-mt-24 border-t border-bone/10 bg-ink py-24 text-bone lg:py-32"
     >
       <div className="mx-auto w-full max-w-7xl px-6 md:px-8">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">

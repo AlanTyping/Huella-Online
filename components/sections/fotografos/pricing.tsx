@@ -71,7 +71,7 @@ export function FotografosPricing() {
   return (
     <section
       id="precios"
-      className="relative overflow-hidden bg-ink py-24 text-bone lg:py-32"
+      className="relative scroll-mt-24 overflow-hidden bg-ink py-24 text-bone lg:py-32"
     >
       {/* Glow de color para romper el negro plano */}
       <div

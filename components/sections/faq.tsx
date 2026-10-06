@@ -29,7 +29,7 @@ export function FAQ({ faqs }: FAQProps) {
         <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(255,165,0,0.12),transparent_65%)] blur-xl" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 md:px-6">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 md:px-8">
 
         {/* HEADER */}
         <motion.div

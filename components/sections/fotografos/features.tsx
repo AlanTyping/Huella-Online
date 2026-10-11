@@ -23,9 +23,9 @@ const features = [
     icon: Gauge,
   },
   {
-    title: "Tu trabajo protegido",
+    title: "Tu trabajo, cuidado",
     description:
-      "Aplicamos marca de agua y bloqueamos la descarga directa cuando lo necesitás, cuidando tus derechos de autor.",
+      "Optimizamos cada imagen y mantenemos tus galerías al día para que tu trabajo se vea siempre impecable y actualizado.",
     icon: ShieldCheck,
   },
   {
@@ -74,7 +74,7 @@ export function FotografosFeatures() {
                   <h3 className="font-display text-xl tracking-tight text-bone">
                     {feature.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-bone/55">
+                  <p className="mt-2 text-sm leading-relaxed text-bone/65">
                     {feature.description}
                   </p>
                 </div>

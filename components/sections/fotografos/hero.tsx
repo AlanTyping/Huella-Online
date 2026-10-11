@@ -1,25 +1,53 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import { getImageProps } from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/social-links";
 import { fotografoWhatsappHref } from "./contact";
+
+const imageCommon = {
+  alt: "Sesión de fotos de Lumos Fotografía",
+  sizes: "100vw",
+  quality: 80,
+};
+
+// Art direction: XV años en mobile, sesión vertical en desktop.
+const {
+  props: { srcSet: desktopSrcSet },
+} = getImageProps({
+  ...imageCommon,
+  width: 1920,
+  height: 1280,
+  src: "/images/lumos/xi.webp",
+});
+
+const {
+  props: { srcSet: mobileSrcSet, ...mobileRest },
+} = getImageProps({
+  ...imageCommon,
+  width: 877,
+  height: 1025,
+  src: "/images/lumos/galeria-xv.webp",
+});
 
 export function FotografosHero() {
   return (
     <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-ink pt-28 pb-32 text-bone lg:pt-32 lg:pb-28">
       {/* Foto a sangre */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/lumos/xi.webp"
-          alt="Sesión de fotos de Lumos Fotografía"
-          fill
-          priority
-          sizes="100vw"
-          className="origin-top scale-110 object-cover object-[60%_16%]"
-        />
+        <picture className="block h-full w-full">
+          <source media="(min-width: 768px)" srcSet={desktopSrcSet} />
+          <source srcSet={mobileSrcSet} />
+          <img
+            {...mobileRest}
+            alt={imageCommon.alt}
+            fetchPriority="high"
+            decoding="async"
+            className="h-full w-full origin-top object-cover object-center md:scale-110 md:object-[60%_16%]"
+          />
+        </picture>
 
         {/* Solo lo justo para que el texto respire */}
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-transparent" />

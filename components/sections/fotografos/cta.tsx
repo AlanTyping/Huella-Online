@@ -49,7 +49,7 @@ export function FotografosCta() {
 
             <a
               href={mailHref}
-              className="text-sm text-bone/50 underline-offset-4 transition-colors hover:text-bone hover:underline"
+              className="text-sm text-bone/70 underline-offset-4 transition-colors hover:text-bone hover:underline"
             >
               o escribinos un mail
             </a>

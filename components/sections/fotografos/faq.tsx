@@ -20,10 +20,6 @@ export function FotografosFaq({ faqs }: { faqs: FaqItem[] }) {
             <h2 className="font-display text-4xl leading-tight tracking-tight sm:text-5xl">
               Preguntas frecuentes.
             </h2>
-            <p className="mt-5 max-w-sm text-base leading-relaxed text-graphite">
-              Si te queda alguna duda, escribinos y te respondemos en menos de
-              24 horas.
-            </p>
           </div>
 
           <div className="lg:col-span-8">
@@ -35,6 +31,8 @@ export function FotografosFaq({ faqs }: { faqs: FaqItem[] }) {
                     type="button"
                     onClick={() => setOpen(isOpen ? null : index)}
                     aria-expanded={isOpen}
+                    aria-controls={`faq-panel-${index}`}
+                    id={`faq-trigger-${index}`}
                     className="flex w-full items-center justify-between gap-6 py-6 text-left"
                   >
                     <span className="font-display text-xl tracking-tight sm:text-2xl">
@@ -52,6 +50,9 @@ export function FotografosFaq({ faqs }: { faqs: FaqItem[] }) {
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
+                        id={`faq-panel-${index}`}
+                        role="region"
+                        aria-labelledby={`faq-trigger-${index}`}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}

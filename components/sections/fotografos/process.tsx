@@ -23,7 +23,7 @@ const steps = [
     number: "04",
     title: "Publicamos",
     description:
-      "Conectamos tu dominio, publicamos y te capacitamos para que puedas actualizar tus galerías cuando quieras.",
+      "Conectamos tu dominio, publicamos y te explicamos cómo vamos a mantener y actualizar tus galerías de aquí en adelante.",
   },
 ];
 

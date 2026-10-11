@@ -63,11 +63,6 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    question: "¿Cuánto cuesta mi sitio?",
-    answer:
-      "Los proyectos arrancan desde $225.000 y llegan hasta $500.000 según el alcance: cantidad de galerías, secciones e integraciones. En la primera reunión te armamos un presupuesto claro y sin sorpresas, y podés pagarlo en dos partes: 50% para empezar y 50% al publicar.",
-  },
-  {
     question: "¿Por qué necesito una web si ya tengo Instagram?",
     answer:
       "Instagram es ideal para el día a día, pero no te da un espacio propio ni control sobre tu trabajo. Una web te da autoridad, te posiciona en Google y te permite mostrar tus mejores fotos en máxima calidad, sin depender de un algoritmo.",
@@ -78,19 +73,14 @@ const faqs = [
       "Sí. Optimizamos cada imagen para que se vea nítida y profesional sin sacrificar la velocidad del sitio. Usamos formatos modernos y carga progresiva para que la experiencia sea fluida incluso desde el celular.",
   },
   {
-    question: "¿Pueden proteger mis fotos de la copia?",
-    answer:
-      "Aplicamos marca de agua, bloqueamos la descarga directa cuando lo necesitás y te asesoramos sobre derechos de autor. La prioridad es que tu trabajo quede protegido.",
-  },
-  {
     question: "¿Puedo actualizar el sitio yo mismo?",
     answer:
-      "Sí. Te entregamos el proyecto con una guía clara y una capacitación 1:1 para que puedas sumar fotos y actualizar tus galerías sin depender de nadie.",
+      "Las fotos se almacenan dentro del proyecto mismo, por lo que sumar o cambiar imágenes entra dentro del servicio de mantenimiento. Nos encargamos de actualizar tus galerías, optimizar cada imagen y mantener todo funcionando como corresponde.",
   },
   {
     question: "¿Cuánto tiempo tarda mi sitio?",
     answer:
-      "Entre 2 y 4 semanas, según la cantidad de galerías y secciones que necesites. Trabajamos con un calendario claro desde la primera reunión.",
+      "Entre 4 y 8 semanas, según las características del sitio y la comunicación con el cliente. Trabajamos con un calendario claro desde la primera reunión.",
   },
   {
     question: "¿Trabajan con fotógrafos de todo el país?",
@@ -100,7 +90,7 @@ const faqs = [
   {
     question: "¿De quién es el dominio y el hosting?",
     answer:
-      "El dominio es 100% tuyo y te acompañamos para registrarlo a tu nombre. Publicamos el sitio en Vercel, cuyo plan gratuito alcanza de sobra para la mayoría de los portfolios; solo si tu web supera ese límite evaluaríamos un plan pago.",
+      "El dominio y el hosting quedan 100% a tu nombre: te acompañamos para registrarlos y son tuyos. Publicamos el sitio en Vercel, cuyo plan gratuito alcanza de sobra para la mayoría de los portfolios; solo si tu web supera ese límite evaluaríamos otras opciones. El código fuente queda en manos del desarrollador, que es lo que nos permite darle mantenimiento al sitio a lo largo del tiempo.",
   },
 ];
 

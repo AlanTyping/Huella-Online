@@ -20,10 +20,6 @@ export function FotografosFaq({ faqs }: { faqs: FaqItem[] }) {
             <h2 className="font-display text-4xl leading-tight tracking-tight sm:text-5xl">
               Preguntas frecuentes.
             </h2>
-            <p className="mt-5 max-w-sm text-base leading-relaxed text-graphite">
-              Si te queda alguna duda, escribinos y te respondemos en menos de
-              24 horas.
-            </p>
           </div>
 
           <div className="lg:col-span-8">

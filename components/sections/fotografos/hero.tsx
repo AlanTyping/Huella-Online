@@ -12,13 +12,24 @@ export function FotografosHero() {
     <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-ink pt-28 pb-32 text-bone lg:pt-32 lg:pb-28">
       {/* Foto a sangre */}
       <div className="absolute inset-0 z-0">
+        {/* Mobile: galería de XV años como fondo */}
+        <Image
+          src="/images/lumos/galeria-xv.webp"
+          alt="Galería de fotos de XV Años de Lumos Fotografía"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center md:hidden"
+        />
+
+        {/* Desktop */}
         <Image
           src="/images/lumos/xi.webp"
           alt="Sesión de fotos de Lumos Fotografía"
           fill
           priority
           sizes="100vw"
-          className="origin-top scale-110 object-cover object-[60%_16%]"
+          className="hidden origin-top scale-110 object-cover object-[60%_16%] md:block"
         />
 
         {/* Solo lo justo para que el texto respire */}

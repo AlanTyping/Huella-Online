@@ -62,7 +62,7 @@ const included = [
   },
   { emoji: "🔒", text: "Certificado SSL y conexión segura HTTPS" },
   { emoji: "🚀", text: "Publicación y configuración inicial" },
-  { emoji: "🎓", text: "Capacitación 1:1 para gestionar tu sitio" },
+  { emoji: "🖼️", text: "Mantenimiento y actualización de tus galerías" },
   { emoji: "🤝", text: "Soporte post-lanzamiento" },
   { emoji: "💬", text: "Integración con tus redes sociales" },
 ];
@@ -71,7 +71,7 @@ export function FotografosPricing() {
   return (
     <section
       id="precios"
-      className="relative scroll-mt-24 overflow-hidden bg-ink py-24 text-bone lg:py-32"
+      className="relative scroll-mt-24 overflow-hidden border-t border-bone/10 bg-ink py-24 text-bone lg:py-32"
     >
       {/* Glow de color para romper el negro plano */}
       <div
@@ -122,11 +122,11 @@ export function FotografosPricing() {
               </div>
 
               <div className="relative mt-6 flex items-baseline gap-2">
-                <span className="text-xs text-bone/50">desde</span>
+                <span className="text-xs text-bone/65">desde</span>
                 <span className="font-display text-5xl tracking-tight text-bone">
                   ${plan.price}
                 </span>
-                <span className="text-xs text-bone/50">ARS</span>
+                <span className="text-xs text-bone/65">ARS</span>
               </div>
 
               <p className="relative mt-4 text-sm leading-relaxed text-bone/60">
@@ -168,11 +168,12 @@ export function FotografosPricing() {
               </span>
               <div>
                 <p className="font-display text-2xl tracking-tight text-bone">
-                  Hosting gratuito
+                  Hosting incluido
                 </p>
                 <p className="mt-1 text-sm leading-relaxed text-bone/70">
-                  No pagás alojamiento para tu web. Nosotros nos ocupamos de
-                  configurarlo y dejarlo funcionando.
+                  Publicamos tu sitio en Vercel con su plan gratuito, que alcanza
+                  para la mayoría de los portfolios. El dominio y el hosting
+                  quedan a tu nombre y nosotros los dejamos configurados.
                 </p>
               </div>
             </div>
@@ -202,7 +203,7 @@ export function FotografosPricing() {
           </div>
         </div>
 
-        <p className="mt-8 text-xs leading-relaxed text-bone/45">
+        <p className="mt-8 text-xs leading-relaxed text-bone/60">
           Precios en pesos argentinos (ARS). El valor final se define según el
           alcance del proyecto. Financiación en 2 pagos: 50% para comenzar y 50%
           al publicar.

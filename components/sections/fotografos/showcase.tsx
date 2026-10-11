@@ -114,7 +114,7 @@ export function FotografosShowcase() {
             </div>
             <div>
               <p className="font-medium text-bone">Cristian</p>
-              <p className="text-sm text-bone/50">Lumos Fotografía</p>
+              <p className="text-sm text-bone/60">Lumos Fotografía</p>
             </div>
             <a
               href={lumosInstagram}

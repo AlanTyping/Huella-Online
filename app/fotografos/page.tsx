@@ -4,6 +4,8 @@ import { FotografosProblem } from "@/components/sections/fotografos/problem";
 import { FotografosShowcase } from "@/components/sections/fotografos/showcase";
 import { FotografosTour } from "@/components/sections/fotografos/tour";
 import { FotografosPricing } from "@/components/sections/fotografos/pricing";
+import { FotografosProcess } from "@/components/sections/fotografos/process";
+import { FotografosTestimonials } from "@/components/sections/fotografos/testimonials";
 import { FotografosStickyCta } from "@/components/sections/fotografos/sticky-cta";
 import { FotografosFaq } from "@/components/sections/fotografos/faq";
 import { FotografosCta } from "@/components/sections/fotografos/cta";
@@ -75,7 +77,22 @@ const faqs = [
   {
     question: "¿Puedo actualizar el sitio yo mismo?",
     answer:
-      "Las fotos se almacenan dentro del proyecto mismo, por lo que sumar o cambiar imágenes entra dentro del servicio de mantenimiento. Nos encargamos de actualizar tus galerías, optimizar cada imagen y mantener todo funcionando como corresponde.",
+      "Las fotos se almacenan dentro del proyecto mismo, por lo que sumar o cambiar imágenes forma parte del mantenimiento. Nos enviás el material y nosotros lo publicamos, optimizamos y dejamos todo en su lugar, así tu web se mantiene prolija y funcionando sin que tengas que tocar nada técnico.",
+  },
+  {
+    question: "¿El mantenimiento tiene un costo?",
+    answer:
+      "Las actualizaciones de galerías y el mantenimiento se acuerdan como un servicio aparte, con un plan a tu medida según la frecuencia con la que renovás tu contenido. Lo definimos juntos en la primera reunión para que sepas exactamente qué incluye y cuánto sale.",
+  },
+  {
+    question: "¿Qué pasa si no me gusta el diseño?",
+    answer:
+      "Trabajamos por etapas y con instancias de revisión: te mostramos avances y ajustamos hasta que el resultado refleje lo que buscás. La idea es que llegues al lanzamiento conforme, no que te enteres recién al final.",
+  },
+  {
+    question: "¿Quién escribe los textos y aporta las fotos?",
+    answer:
+      "Vos aportás las fotos y la información de tus servicios; nosotros te guiamos con la estructura y los textos para que el mensaje sea claro y atractivo. Si necesitás una mano extra con el contenido, también podemos ayudarte a redactarlo.",
   },
   {
     question: "¿Cuánto tiempo tarda mi sitio?",
@@ -108,7 +125,7 @@ const structuredData = {
       about: { "@id": `${siteUrl}/fotografos/#service` },
       mainEntity: { "@id": `${siteUrl}/fotografos/#service` },
       breadcrumb: { "@id": `${siteUrl}/fotografos/#breadcrumb` },
-      dateModified: new Date().toISOString(),
+      dateModified: "2026-10-11",
     },
     {
       "@type": "Service",
@@ -166,7 +183,7 @@ const structuredData = {
         bestRating: "5",
       },
       reviewBody:
-        "Fue tremenda experiencia. Alan es una persona que está para ayudarte y explicarte con toda la paciencia del mundo. Finalmente te ayuda a lograr eso que tanto pensaste que querías: tu propia página web. Súper recomendable Huella Online.",
+        "Fue tremenda experiencia. Al principio no voy a negar que desconfié, pero con el paso del tiempo comprendí que realmente estaba trabajando con un profesional. Alan está para ayudarte y explicarte con toda la paciencia del mundo hasta que lo entiendas. Finalmente te ayuda a lograr eso que tanto pensaste que querías: tu propia página web. Súper recomendable Huella Online.",
     },
     {
       "@type": "FAQPage",
@@ -211,10 +228,12 @@ export default function FotografosPage() {
 
       <FotografosHero />
       <FotografosProblem />
+      <FotografosShowcase />
       <FotografosTour />
+      <FotografosProcess />
+      <FotografosTestimonials />
       <FotografosPricing />
       <FotografosFaq faqs={faqs} />
-      <FotografosShowcase />
       <FotografosCta />
       <FotografosMarquee />
 

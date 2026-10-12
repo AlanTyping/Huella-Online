@@ -150,6 +150,15 @@ const structuredData = {
             areaServed: "Buenos Aires",
           },
         },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Páginas web para fotógrafos",
+            serviceType: "Diseño y desarrollo de páginas web para fotógrafos",
+            areaServed: "Argentina",
+          },
+        },
       ],
     },
   ],
@@ -162,7 +171,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="es"
+      lang="es-AR"
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth`}
     >
       <GoogleTagManager gtmId="GTM-5788G68V" />

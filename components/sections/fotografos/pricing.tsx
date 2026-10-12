@@ -82,7 +82,7 @@ export function FotografosPricing() {
       <div className="relative mx-auto w-full max-w-7xl px-6 md:px-8">
         <div className="max-w-2xl">
           <h2 className="font-display text-4xl leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Planes a tu medida.
+            Planes de páginas web para fotógrafos.
           </h2>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-bone/60">
             Desde <span className="text-brand-secondary">$225.000</span> hasta{" "}

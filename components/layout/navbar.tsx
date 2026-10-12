@@ -15,10 +15,15 @@ import {
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  // En /fotografos hay secciones claras: el navbar necesita fondo para no
-  // perder contraste. En el resto del sitio se mantiene el glass translúcido.
+  // En /fotografos hay un fondo claro: el navbar necesita fondo para no perder
+  // contraste. En el resto del sitio (incluidos /blog y /servicios, que son
+  // oscuros) se mantiene el glass translúcido.
   const isFotografos = pathname?.startsWith("/fotografos") ?? false;
+  const isHome = pathname === "/";
   const needsSolidBackdrop = isFotografos;
+
+  // Los enlaces de sección apuntan al home cuando no estamos en él.
+  const section = (hash: string) => (isHome ? hash : `/${hash}`);
 
   // /fotografos no tiene sección "Desarrollador" (#sobre-mi): ese link estaba
   // roto. Lo reemplazamos por Precios para dar acceso directo a los planes.
@@ -29,9 +34,10 @@ export function Navbar() {
         { href: "#faq", label: "FAQ" },
       ]
     : [
-        { href: "#portfolio", label: "Proyectos" },
-        { href: "#sobre-mi", label: "Desarrollador" },
-        { href: "#faq", label: "FAQ" },
+        { href: section("#portfolio"), label: "Proyectos" },
+        { href: section("#sobre-mi"), label: "Desarrollador" },
+        { href: "/servicios", label: "Servicios" },
+        { href: section("#faq"), label: "FAQ" },
       ];
 
   useEffect(() => {
@@ -59,7 +65,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}

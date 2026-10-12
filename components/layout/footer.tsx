@@ -61,6 +61,21 @@ function EditorialFooter() {
                   FAQ
                 </Link>
               </li>
+              <li>
+                <Link href="/" className="transition-colors hover:text-bone">
+                  Inicio
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="transition-colors hover:text-bone">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/servicios" className="transition-colors hover:text-bone">
+                  Servicios
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -148,6 +163,16 @@ export function Footer() {
                 <li>
                   <Link href="#faq" className="hover:text-white transition-colors">
                     FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/servicios" className="hover:text-white transition-colors">
+                    Servicios
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog" className="hover:text-white transition-colors">
+                    Blog
                   </Link>
                 </li>
                 <li>

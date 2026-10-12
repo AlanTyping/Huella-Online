@@ -162,7 +162,7 @@ export function FotografosTour() {
       <div className="relative mx-auto w-full max-w-7xl px-6 md:px-8">
         <div className="max-w-2xl">
           <h2 className="font-display text-4xl leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Tu sitio, paso a paso.
+            Tu página web para fotógrafos, paso a paso.
           </h2>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-graphite">
             Recorré las secciones que puede tener tu web, con ejemplos reales

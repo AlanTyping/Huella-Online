@@ -61,11 +61,11 @@ export function FotografosHero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-5xl font-light leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
+            className="font-display text-4xl font-light leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
           >
-            Tu portafolio
+            Páginas web
             <br />
-            sin límites
+            para fotógrafos
             <span
               aria-hidden="true"
               className="inline-block align-[-0.04em] text-[0.85em]"

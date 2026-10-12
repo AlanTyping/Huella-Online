@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FotografosHero } from "@/components/sections/fotografos/hero";
 import { FotografosProblem } from "@/components/sections/fotografos/problem";
+import { FotografosSeoContent } from "@/components/sections/fotografos/seo-content";
 import { FotografosShowcase } from "@/components/sections/fotografos/showcase";
 import { FotografosTour } from "@/components/sections/fotografos/tour";
 import { FotografosPricing } from "@/components/sections/fotografos/pricing";
@@ -9,12 +10,13 @@ import { FotografosTestimonials } from "@/components/sections/fotografos/testimo
 import { FotografosStickyCta } from "@/components/sections/fotografos/sticky-cta";
 import { FotografosFaq } from "@/components/sections/fotografos/faq";
 import { FotografosCta } from "@/components/sections/fotografos/cta";
-import { FotografosMarquee } from "@/components/sections/fotografos/marquee";
+import { LEDMarquee } from "@/components/ui/led-marquee";
 
 const siteUrl = "https://huellaonline.com";
-const pageTitle = "Páginas web para fotógrafos | Huella Online";
+const pageTitle =
+  "Páginas web para fotógrafos en Argentina | Huella Online";
 const pageDescription =
-  "Diseñamos webs para fotógrafos: galerías inmersivas, carga ultrarrápida y una imagen profesional que convierte visitas en clientes. Desde $225.000.";
+  "Creamos páginas web y portfolios para fotógrafos: galerías inmersivas, carga ultrarrápida y diseño que convierte visitas en clientes. Desde $225.000, en 4 a 8 semanas.";
 
 const ogImage = {
   url: "/images/lumosfotografia.webp",
@@ -28,11 +30,16 @@ export const metadata: Metadata = {
   description: pageDescription,
   keywords: [
     "páginas web para fotógrafos",
+    "web para fotógrafos",
     "diseño web para fotógrafos",
     "sitio web para fotógrafos",
     "portfolio web para fotógrafos",
+    "página web para fotógrafo profesional",
     "web para fotógrafos Argentina",
+    "web para fotógrafos Buenos Aires",
     "página web estudio de fotografía",
+    "web para fotógrafos de bodas",
+    "cuánto cuesta una página web para fotógrafos",
   ],
   alternates: {
     canonical: "/fotografos",
@@ -125,6 +132,7 @@ const structuredData = {
       about: { "@id": `${siteUrl}/fotografos/#service` },
       mainEntity: { "@id": `${siteUrl}/fotografos/#service` },
       breadcrumb: { "@id": `${siteUrl}/fotografos/#breadcrumb` },
+      datePublished: "2026-08-01",
       dateModified: "2026-10-11",
     },
     {
@@ -228,6 +236,7 @@ export default function FotografosPage() {
 
       <FotografosHero />
       <FotografosProblem />
+      <FotografosSeoContent />
       <FotografosShowcase />
       <FotografosTour />
       <FotografosProcess />
@@ -235,7 +244,7 @@ export default function FotografosPage() {
       <FotografosPricing />
       <FotografosFaq faqs={faqs} />
       <FotografosCta />
-      <FotografosMarquee />
+      <LEDMarquee />
 
       <FotografosStickyCta />
     </div>

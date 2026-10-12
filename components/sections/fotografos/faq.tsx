@@ -18,7 +18,7 @@ export function FotografosFaq({ faqs }: { faqs: FaqItem[] }) {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <h2 className="font-display text-4xl leading-tight tracking-tight sm:text-5xl">
-              Preguntas frecuentes.
+              Preguntas frecuentes sobre páginas web para fotógrafos.
             </h2>
           </div>
 

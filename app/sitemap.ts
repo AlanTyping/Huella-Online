@@ -47,6 +47,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+    {
+      // Herramienta gratuita: es una puerta de entrada al sitio.
+      url: 'https://huellaonline.com/organizacion',
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     ...serviceUrls,
     ...categoryUrls,
     ...postUrls,

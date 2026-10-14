@@ -57,10 +57,138 @@
   }
 }
 
+/* ---------------------------------------------------------------------------
+ * Organizador (/organizacion) — sistema "Cupertino"
+ * Paleta clara tipo iOS: blanco, naranja (#ff9500) y azul (#007aff).
+ * Estas variables viven en :root pero SÓLO se consumen desde las utilidades
+ * `cu-*`, que a su vez se usan únicamente dentro del route group `(app)`.
+ * ------------------------------------------------------------------------ */
+
+/* Tipografías + tokens expuestos a Tailwind (`@theme inline` inyecta el var()
+ * tal cual, así que respetan el scope y el modo claro/oscuro). */
+@theme inline {
+  --font-cupertino: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "SF Pro Display", "Segoe UI", var(--font-inter), Roboto, Helvetica, Arial,
+    sans-serif;
+
+  --color-cu-bg: var(--cu-bg);
+  --color-cu-surface: var(--cu-surface);
+  --color-cu-surface-2: var(--cu-surface-2);
+  --color-cu-border: var(--cu-border);
+  --color-cu-text: var(--cu-text);
+  --color-cu-text-2: var(--cu-text-2);
+  --color-cu-text-3: var(--cu-text-3);
+  --color-cu-orange: var(--cu-orange);
+  --color-cu-orange-soft: var(--cu-orange-soft);
+  --color-cu-blue: var(--cu-blue);
+  --color-cu-blue-soft: var(--cu-blue-soft);
+  --color-cu-green: var(--cu-green);
+  --color-cu-red: var(--cu-red);
+
+  --shadow-cu-soft: var(--cu-shadow-soft);
+  --radius-cu: 1.25rem;
+}
+
+:root {
+  /* Modo claro (default) */
+  --cu-bg: #ffffff;
+  --cu-surface: #f5f5f7;
+  --cu-surface-2: #ececef;
+  --cu-border: rgba(0, 0, 0, 0.08);
+  --cu-text: #1d1d1f;
+  --cu-text-2: #5c5c61;
+  --cu-text-3: #7c7c80;
+  --cu-orange: #ff9500;
+  --cu-orange-soft: rgba(255, 149, 0, 0.12);
+  --cu-blue: #007aff;
+  --cu-blue-soft: rgba(0, 122, 255, 0.1);
+  --cu-green: #34c759;
+  --cu-red: #ff3b30;
+  --cu-shadow-soft:
+    0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+:root[data-cu="dark"] {
+  --cu-bg: #000000;
+  --cu-surface: #1c1c1e;
+  --cu-surface-2: #2c2c2e;
+  --cu-border: rgba(255, 255, 255, 0.1);
+  --cu-text: #f5f5f7;
+  --cu-text-2: rgba(235, 235, 245, 0.65);
+  --cu-text-3: rgba(235, 235, 245, 0.5);
+  --cu-orange: #ff9f0a;
+  --cu-orange-soft: rgba(255, 159, 10, 0.16);
+  --cu-blue: #0a84ff;
+  --cu-blue-soft: rgba(10, 132, 255, 0.18);
+  --cu-green: #30d158;
+  --cu-red: #ff453a;
+  --cu-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* Cuando el organizador está montado, el documento entero adopta su tema:
+ * así el fondo del overscroll y el color-scheme nativo coinciden. */
+html[data-cu] {
+  background-color: var(--cu-bg);
+  color-scheme: light;
+}
+
+html[data-cu="dark"] {
+  color-scheme: dark;
+}
+
+/* Color de fondo personalizado (Ajustes).
+ * El hex elegido viaja como `--cu-bg` inline en el <html>; acá derivamos las
+ * superficies, bordes y textos a partir de su luminancia (el módulo
+ * `lib/organizacion/background.ts` marca `data-cu-bg` según corresponda).
+ * Van después de las reglas `[data-cu]` a propósito: misma especificidad, así
+ * que el orden decide y el fondo propio gana sobre el claro/oscuro del tema. */
+:root[data-cu-bg="light"] {
+  --cu-surface: color-mix(in srgb, var(--cu-bg) 93%, #000);
+  --cu-surface-2: color-mix(in srgb, var(--cu-bg) 85%, #000);
+  --cu-border: rgba(0, 0, 0, 0.1);
+  --cu-text: #1d1d1f;
+  --cu-text-2: rgba(29, 29, 31, 0.66);
+  --cu-text-3: rgba(29, 29, 31, 0.48);
+  --cu-shadow-soft:
+    0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+:root[data-cu-bg="dark"] {
+  --cu-surface: color-mix(in srgb, var(--cu-bg) 89%, #fff);
+  --cu-surface-2: color-mix(in srgb, var(--cu-bg) 80%, #fff);
+  --cu-border: rgba(255, 255, 255, 0.14);
+  --cu-text: #f5f5f7;
+  --cu-text-2: rgba(245, 245, 247, 0.66);
+  --cu-text-3: rgba(245, 245, 247, 0.5);
+  --cu-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+html[data-cu] body {
+  background-color: var(--cu-bg);
+  color: var(--cu-text);
+}
+
+html[data-cu] ::selection {
+  background-color: var(--cu-blue-soft);
+  color: var(--cu-text);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: var(--brand-navy-deep);
     --foreground: #f0f6fc;
+  }
+}
+
+/* Respeta a quien pidió menos movimiento en su sistema. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

@@ -20,6 +20,7 @@ import {
 } from "@/lib/organizacion/date";
 import type { CalendarEvent, FocusSession, Habit, Task } from "@/lib/organizacion/types";
 import { cn } from "@/lib/utils";
+import { HeroPanel } from "../hero";
 import { useStore } from "../store-provider";
 import { useCollection } from "../use-collection";
 import { QuickAddTask } from "../tasks/quick-add";
@@ -40,15 +41,15 @@ function StatCard({
   return (
     <Link
       href={href}
-      className="group flex flex-col gap-2 rounded-cu border border-cu-border bg-cu-surface p-4 transition hover:bg-cu-surface-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cu-bg"
+      className="g-panel group flex flex-col gap-2 p-4 transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cu-bg"
     >
       <span className="flex items-center justify-between">
-        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-cu-bg text-cu-text-2">
+        <span className="g-inset flex h-9 w-9 items-center justify-center text-cu-text-2">
           {icon}
         </span>
         <ArrowRight className="h-4 w-4 text-cu-text-3 transition group-hover:translate-x-0.5 group-hover:text-cu-text-2" />
       </span>
-      <span className="text-[24px] leading-none font-semibold tabular-nums text-cu-text">
+      <span className="g-hud text-[22px] leading-none tabular-nums text-cu-text">
         {value}
       </span>
       <span className="text-[12px] text-cu-text-2">{label}</span>
@@ -114,10 +115,10 @@ function Section({
   return (
     <section className="space-y-3">
       <div className="flex items-center justify-between">
-        <h2 className="text-[15px] font-semibold text-cu-text">{title}</h2>
+        <h2 className="g-hud text-[11px] uppercase text-cu-text-2">{title}</h2>
         <Link
           href={href}
-          className="rounded-full px-2 py-1 text-[12px] text-cu-text-2 transition hover:bg-cu-surface-2 hover:text-cu-text"
+          className="g-hud rounded-md px-2 py-1 text-[9px] text-cu-text-3 uppercase transition hover:bg-cu-surface-2 hover:text-cu-text"
         >
           Ver todo
         </Link>
@@ -195,6 +196,8 @@ export function HoyDashboard() {
         </p>
       </header>
 
+      <HeroPanel />
+
       <QuickAddTask defaultDueDate={today} />
 
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
@@ -225,13 +228,11 @@ export function HoyDashboard() {
       </div>
 
       {everythingClear && !loadingTasks ? (
-        <Card className="flex flex-col items-center gap-2 py-10 text-center">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-cu-orange-soft text-cu-orange">
+        <Card className="flex flex-col items-center gap-3 py-10 text-center">
+          <span className="g-inset flex h-12 w-12 items-center justify-center text-cu-orange">
             <Sparkles className="h-5 w-5" />
           </span>
-          <p className="text-[15px] font-semibold text-cu-text">
-            Todo despejado
-          </p>
+          <p className="g-hud text-[12px] text-cu-text">Todo despejado</p>
           <p className="max-w-xs text-[13px] text-cu-text-2">
             No tenés tareas, hábitos ni eventos pendientes para hoy. Aprovechá
             para adelantar algo o descansar.
@@ -241,7 +242,7 @@ export function HoyDashboard() {
 
       {pendingToday.length > 0 ? (
         <Section title="Tus tareas de hoy" href="/organizacion/tareas">
-          <div className="rounded-cu border border-cu-border bg-cu-surface p-1.5">
+          <div className="g-panel p-1.5">
             <div className="flex flex-col">
               {pendingToday.slice(0, 5).map((task) => (
                 <TaskRow key={task.id} task={task} />
@@ -257,7 +258,7 @@ export function HoyDashboard() {
 
       {habitsToday.length > 0 ? (
         <Section title="Hábitos de hoy" href="/organizacion/habitos">
-          <div className="rounded-cu border border-cu-border bg-cu-surface p-1.5">
+          <div className="g-panel p-1.5">
             <div className="flex flex-col">
               {habitsToday.map((habit) => (
                 <HabitQuickRow key={habit.id} habit={habit} />
@@ -269,7 +270,7 @@ export function HoyDashboard() {
 
       {eventsToday.length > 0 ? (
         <Section title="Agenda de hoy" href="/organizacion/agenda">
-          <div className="rounded-cu border border-cu-border bg-cu-surface p-1.5">
+          <div className="g-panel p-1.5">
             {eventsToday.map((event) => (
               <div
                 key={event.id}

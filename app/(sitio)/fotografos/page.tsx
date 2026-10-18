@@ -240,8 +240,8 @@ export default function FotografosPage() {
       <FotografosShowcase />
       <FotografosTour />
       <FotografosProcess />
-      <FotografosTestimonials />
       <FotografosPricing />
+      <FotografosTestimonials />
       <FotografosFaq faqs={faqs} />
       <FotografosCta />
       <LEDMarquee />

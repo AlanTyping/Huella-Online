@@ -53,7 +53,7 @@ function FocusStats({ sessions }: { sessions: FocusSession[] }) {
   }, [sessions, today]);
 
   return (
-    <div className="rounded-cu border border-cu-border bg-cu-surface p-5">
+    <div className="g-panel p-5">
       <div className="flex items-baseline justify-between">
         <p className="text-[13px] font-semibold tracking-wide text-cu-text-2 uppercase">
           Hoy
@@ -218,7 +218,7 @@ export function FocusView() {
         </p>
       </header>
 
-      <div className="flex flex-col items-center gap-6 rounded-cu border border-cu-border bg-cu-surface px-6 py-8">
+      <div className="g-panel flex flex-col items-center gap-6 px-6 py-8">
         <div className="relative">
           <svg width="200" height="200" viewBox="0 0 200 200">
             <circle
@@ -251,7 +251,7 @@ export function FocusView() {
             >
               {formatClock(remainingMs)}
             </span>
-            <span className="text-[12px] text-cu-text-3">
+            <span className="g-hud text-[9px] text-cu-text-3 uppercase">
               {plannedMinutes} min planificados
             </span>
           </div>
@@ -313,7 +313,7 @@ export function FocusView() {
           <select
             value={taskId ?? ""}
             onChange={(event) => chooseTask(event.target.value || null)}
-            className="h-11 w-full rounded-2xl border border-cu-border bg-cu-bg px-4 text-[15px] text-cu-text outline-none focus:border-cu-orange"
+            className="g-inset h-11 w-full px-4 text-[13px] text-cu-text outline-none focus:border-cu-orange"
           >
             <option value="">Sin tarea asociada</option>
             {pendingTasks.map((task) => (
@@ -338,7 +338,7 @@ export function FocusView() {
             <Spinner />
           </div>
         ) : sessions.length === 0 ? (
-          <div className="rounded-cu border border-cu-border bg-cu-surface">
+          <div className="g-panel">
             <EmptyState
               icon={<Timer className="h-5 w-5" />}
               title="Todavía no hay sesiones"
@@ -346,7 +346,7 @@ export function FocusView() {
             />
           </div>
         ) : (
-          <div className="rounded-cu border border-cu-border bg-cu-surface p-1.5">
+          <div className="g-panel p-1.5">
             {sessions.slice(0, 8).map((session) => {
               const task = tasks.find((item) => item.id === session.taskId);
               const minutes = Math.round(session.focusedSeconds / 60);

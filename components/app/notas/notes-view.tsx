@@ -50,14 +50,14 @@ function Composer() {
         event.preventDefault();
         void save();
       }}
-      className="rounded-cu border border-cu-border bg-cu-surface p-3"
+      className="g-panel p-3"
     >
       <textarea
         value={text}
         onChange={(event) => setText(event.target.value)}
         rows={3}
         placeholder="Volcá lo que tengas en la cabeza…"
-        className="w-full resize-none rounded-2xl bg-cu-bg px-4 py-3 text-[15px] text-cu-text outline-none transition placeholder:text-cu-text-3 focus:ring-4 focus:ring-cu-orange-soft"
+        className="g-inset w-full resize-none px-4 py-3 text-[14px] text-cu-text outline-none transition placeholder:text-cu-text-3 focus:border-cu-orange focus:ring-4 focus:ring-cu-orange-soft"
       />
       <div className="mt-2 flex items-center justify-between gap-3">
         <p className="text-[11px] text-cu-text-3">
@@ -100,19 +100,19 @@ function NoteCard({ note }: { note: Note }) {
 
   if (editing) {
     return (
-      <div className="rounded-cu border border-cu-orange/40 bg-cu-surface p-4">
+      <div className="g-panel border-cu-orange/40 p-4">
         <Input
           value={title}
           onChange={(event) => setTitle(event.target.value)}
           placeholder="Título"
-          className="h-9 border-transparent bg-cu-bg text-[15px] font-semibold"
+          className="h-10 font-semibold"
         />
         <textarea
           value={body}
           onChange={(event) => setBody(event.target.value)}
           rows={5}
           placeholder="Detalle…"
-          className="mt-2 w-full resize-none rounded-2xl bg-cu-bg px-4 py-3 text-[14px] text-cu-text outline-none transition placeholder:text-cu-text-3 focus:ring-4 focus:ring-cu-orange-soft"
+          className="g-inset mt-2 w-full resize-none px-4 py-3 text-[13px] text-cu-text outline-none transition placeholder:text-cu-text-3 focus:border-cu-orange focus:ring-4 focus:ring-cu-orange-soft"
         />
         <div className="mt-3 flex justify-end gap-2">
           <Button
@@ -149,7 +149,7 @@ function NoteCard({ note }: { note: Note }) {
   return (
     <div
       className={cn(
-        "group rounded-cu border border-cu-border bg-cu-surface p-4 transition",
+        "g-panel group p-4 transition",
         busy && "opacity-60",
       )}
     >
@@ -260,7 +260,7 @@ export function NotesView() {
       ) : error ? (
         <p className="py-8 text-center text-[14px] text-cu-red">{error}</p>
       ) : visible.length === 0 ? (
-        <div className="rounded-cu border border-cu-border bg-cu-surface">
+        <div className="g-panel">
           <EmptyState
             icon={<NotebookPen className="h-5 w-5" />}
             title={notes.length === 0 ? "Todavía no hay notas" : "Sin resultados"}

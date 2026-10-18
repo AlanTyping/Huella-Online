@@ -33,7 +33,7 @@
   /* Paleta editorial / dúo-tone (usada en /fotografos) */
   --color-ink: #0a0a0b;
   --color-ink-soft: #141417;
-  --color-paper: #efebe4;
+  --color-paper: #ffffff;
   --color-paper-soft: #e6e0d5;
   --color-bone: #f5f2ec;
   --color-graphite: #55555a;
@@ -70,6 +70,12 @@
   --font-cupertino: -apple-system, BlinkMacSystemFont, "SF Pro Text",
     "SF Pro Display", "Segoe UI", var(--font-inter), Roboto, Helvetica, Arial,
     sans-serif;
+
+  /* Tipografías del "modo juego": HUD en pixel blocks y cuerpo en pixel legible.
+   * El sufijo `-src` evita que el token del tema y la variable que inyecta
+   * next/font colisionen. */
+  --font-pixel: var(--font-pixel-src), "Courier New", monospace;
+  --font-retro: var(--font-retro-src), "Courier New", monospace;
 
   --color-cu-bg: var(--cu-bg);
   --color-cu-surface: var(--cu-surface);
@@ -218,4 +224,391 @@ body {
 ::selection {
   background-color: #ffffff;
   color: var(--brand-navy-deep);
+}
+
+/* ==========================================================================
+ * Organizador — capa "quest log" (RPG)
+ * --------------------------------------------------------------------------
+ * El aspecto de juego se arma con bordes, biseles, sombras duras (sin blur) y
+ * tipografía pixel, NO con colores fijos: todo parte de los tokens `--cu-*`,
+ * así el modo claro/oscuro y el color de fondo personalizado siguen mandando.
+ * Van en @layer components para que las utilidades de Tailwind puedan pisarlas.
+ * ======================================================================== */
+
+@layer components {
+  /* Ventana de consola: superficie elevada con bisel y sombra dura. */
+  .g-panel {
+    background-color: var(--cu-surface);
+    border: 2px solid var(--cu-border);
+    border-radius: 12px;
+    box-shadow:
+      inset 0 3px 0 rgba(255, 255, 255, 0.35),
+      inset 0 -3px 0 rgba(0, 0, 0, 0.12),
+      0 4px 0 color-mix(in srgb, var(--cu-text) 18%, transparent);
+  }
+
+  /* Ranura hundida: inputs, pozos de listas, slots. */
+  .g-inset {
+    background-color: var(--cu-bg);
+    border: 2px solid var(--cu-border);
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 0 color-mix(in srgb, var(--cu-text) 12%, transparent);
+  }
+
+  .g-divider {
+    border-top: 2px dashed var(--cu-border);
+  }
+
+  /* Botón con relieve 3D que se presiona. */
+  .g-btn {
+    --g-edge: color-mix(in srgb, var(--cu-text) 22%, transparent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    box-shadow: 0 4px 0 0 var(--g-edge);
+    transition:
+      transform 90ms ease,
+      box-shadow 90ms ease,
+      filter 120ms ease,
+      background-color 120ms ease;
+  }
+
+  .g-btn:hover:not(:disabled) {
+    filter: brightness(1.05);
+  }
+
+  .g-btn:active:not(:disabled) {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 0 var(--g-edge);
+  }
+
+  .g-btn:disabled {
+    opacity: 0.5;
+    box-shadow: 0 0 0 0 transparent;
+  }
+
+  .g-btn-primary {
+    background-color: var(--cu-orange);
+    border-color: color-mix(in srgb, var(--cu-orange) 60%, #000);
+    color: #ffffff;
+    --g-edge: color-mix(in srgb, var(--cu-orange) 50%, #000);
+  }
+
+  .g-btn-blue {
+    background-color: var(--cu-blue);
+    border-color: color-mix(in srgb, var(--cu-blue) 60%, #000);
+    color: #ffffff;
+    --g-edge: color-mix(in srgb, var(--cu-blue) 50%, #000);
+  }
+
+  .g-btn-surface {
+    background-color: var(--cu-surface-2);
+    border-color: var(--cu-border);
+    color: var(--cu-text);
+    --g-edge: color-mix(in srgb, var(--cu-text) 22%, transparent);
+  }
+
+  .g-btn-danger {
+    background-color: color-mix(in srgb, var(--cu-red) 16%, var(--cu-surface));
+    border-color: color-mix(in srgb, var(--cu-red) 45%, transparent);
+    color: var(--cu-red);
+    --g-edge: color-mix(in srgb, var(--cu-red) 30%, transparent);
+  }
+
+  .g-btn-ghost {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--cu-text-2);
+    box-shadow: none;
+  }
+
+  .g-btn-ghost:hover:not(:disabled) {
+    background-color: var(--cu-surface-2);
+    color: var(--cu-text);
+  }
+
+  .g-btn-ghost:active:not(:disabled) {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+
+  /* Ficha / etiqueta de menú. */
+  .g-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border: 2px solid var(--cu-border);
+    border-radius: 8px;
+    background-color: var(--cu-bg);
+    color: var(--cu-text-2);
+    transition:
+      background-color 120ms ease,
+      color 120ms ease,
+      border-color 120ms ease,
+      transform 90ms ease;
+  }
+
+  .g-chip:hover:not(:disabled) {
+    color: var(--cu-text);
+    border-color: color-mix(in srgb, var(--cu-text) 30%, transparent);
+  }
+
+  .g-chip[data-active="true"],
+  .g-chip[aria-pressed="true"] {
+    background-color: var(--cu-text);
+    border-color: var(--cu-text);
+    color: var(--cu-bg);
+    box-shadow: 0 3px 0 0 color-mix(in srgb, var(--cu-text) 22%, transparent);
+  }
+
+  /* Barra de XP / progreso: pozo con relleno segmentado. */
+  .g-bar {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--cu-bg);
+    border: 2px solid var(--cu-border);
+    border-radius: 999px;
+    box-shadow: inset 2px 2px 0 color-mix(in srgb, var(--cu-text) 14%, transparent);
+  }
+
+  .g-bar-fill {
+    height: 100%;
+    background-color: var(--cu-orange);
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 8px,
+      rgba(0, 0, 0, 0.22) 8px,
+      rgba(0, 0, 0, 0.22) 10px
+    );
+    animation: g-bar-in 800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    transition: width 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .g-bar-fill-green {
+    background-color: var(--cu-green);
+  }
+
+  .g-bar-fill-blue {
+    background-color: var(--cu-blue);
+  }
+
+  /* Texto de HUD: pixel blocks apretados. */
+  .g-hud {
+    font-family: var(--font-pixel-src), "Courier New", monospace;
+    letter-spacing: 0;
+    line-height: 1.5;
+  }
+
+  /* Cursor del menú de selección. */
+  .g-cursor {
+    animation: g-blink 1.1s steps(1) infinite;
+  }
+}
+
+@keyframes g-blink {
+  0%,
+  55% {
+    opacity: 1;
+  }
+  56%,
+  100% {
+    opacity: 0.12;
+  }
+}
+
+@keyframes g-bar-in {
+  from {
+    width: 0;
+  }
+}
+
+/* ==========================================================================
+ * Organizador — paisaje del mundo (fondo pixel animado)
+ * --------------------------------------------------------------------------
+ * Un overworld estilo Mario/Pokémon dibujado en SVG (ver `world-backdrop.tsx`)
+ * y fijo detrás de todo. Las paletas se eligen con `data-cu-scene` en <html>.
+ * Encima, el contenido va sobre un "tablero" translúcido (`.g-scrim`) para que
+ * el texto siga legible sea cual sea el fondo.
+ * ======================================================================== */
+
+:root {
+  /* Paleta por defecto: colina de día. */
+  --world-sky-top: #7ec8f5;
+  --world-sky-bottom: #d9f0ff;
+  --world-sun: #ffe062;
+  --world-star: transparent;
+  --world-cloud: #ffffff;
+  --world-hill-far: #8fd6a0;
+  --world-hill-near: #57bd74;
+  --world-grass: #4caf62;
+  --world-grass-light: #7fd48f;
+  --world-dirt: #a9743f;
+  --world-dirt-dark: #7d5230;
+  --world-tree: #2f9e57;
+  --world-tree-dark: #1f7340;
+  --world-trunk: #6b4423;
+}
+
+:root[data-cu-scene="atardecer"] {
+  --world-sky-top: #ff9e6d;
+  --world-sky-bottom: #ffd6a0;
+  --world-sun: #ff5a3c;
+  --world-cloud: #ffe6d6;
+  --world-hill-far: #a86b52;
+  --world-hill-near: #7d4a3a;
+  --world-grass: #6f8f45;
+  --world-grass-light: #93a95c;
+  --world-dirt: #6f4a33;
+  --world-dirt-dark: #4f3324;
+  --world-tree: #4a6b32;
+  --world-tree-dark: #345024;
+  --world-trunk: #4a3220;
+}
+
+:root[data-cu-scene="noche"] {
+  --world-sky-top: #0a1633;
+  --world-sky-bottom: #1b2b52;
+  --world-sun: #f5f3d0;
+  --world-star: #ffffff;
+  --world-cloud: #33406b;
+  --world-hill-far: #1e4b52;
+  --world-hill-near: #163d43;
+  --world-grass: #1d5c3a;
+  --world-grass-light: #2c7a4c;
+  --world-dirt: #33261c;
+  --world-dirt-dark: #241a13;
+  --world-tree: #17512f;
+  --world-tree-dark: #0f3a22;
+  --world-trunk: #2c1e14;
+}
+
+.g-world {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: var(--world-sky-bottom);
+}
+
+.g-world svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* "Liso" apaga el paisaje y deja el color de fondo plano. */
+:root[data-cu-scene="liso"] .g-world {
+  display: none;
+}
+
+.world-sky {
+  fill: url(#world-sky-grad);
+}
+
+.world-sky-stop-top {
+  stop-color: var(--world-sky-top);
+}
+
+.world-sky-stop-bottom {
+  stop-color: var(--world-sky-bottom);
+}
+
+.world-sun {
+  fill: var(--world-sun);
+}
+
+.world-star {
+  fill: var(--world-star);
+  animation: world-twinkle 3.2s ease-in-out infinite;
+}
+
+.world-cloud {
+  fill: var(--world-cloud);
+}
+
+.world-hill-far {
+  fill: var(--world-hill-far);
+}
+
+.world-hill-near {
+  fill: var(--world-hill-near);
+}
+
+.world-grass {
+  fill: var(--world-grass);
+}
+
+.world-grass-light {
+  fill: var(--world-grass-light);
+}
+
+.world-dirt {
+  fill: var(--world-dirt);
+}
+
+.world-dirt-dark {
+  fill: var(--world-dirt-dark);
+}
+
+.world-tree {
+  fill: var(--world-tree);
+}
+
+.world-tree-dark {
+  fill: var(--world-tree-dark);
+}
+
+.world-trunk {
+  fill: var(--world-trunk);
+}
+
+.world-stars {
+  display: none;
+}
+
+:root[data-cu-scene="noche"] .world-stars {
+  display: block;
+}
+
+.world-cloud-a {
+  animation: world-drift 80s linear infinite;
+}
+
+.world-cloud-b {
+  animation: world-drift 120s linear infinite;
+  animation-delay: -40s;
+}
+
+.world-cloud-c {
+  animation: world-drift 100s linear infinite;
+  animation-delay: -70s;
+}
+
+/* Tablero translúcido sobre el que flota el contenido. */
+.g-scrim {
+  background-color: color-mix(in srgb, var(--cu-bg) 68%, transparent);
+  backdrop-filter: blur(3px);
+}
+
+@keyframes world-drift {
+  from {
+    transform: translateX(-120px);
+  }
+  to {
+    transform: translateX(420px);
+  }
+}
+
+@keyframes world-twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
 }

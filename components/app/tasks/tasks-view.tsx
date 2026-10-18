@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 import { useStore } from "../store-provider";
 import { useUndo } from "../undo";
 import { useCollection } from "../use-collection";
-import { Button, Chip, EmptyState, Input, Spinner } from "../ui";
+import { Button, Chip, EmptyState, Input, Spinner, Bar } from "../ui";
 import { QuickAddTask } from "./quick-add";
 
 const PRIORITY_META: Record<
@@ -92,13 +92,13 @@ export function TaskRow({ task }: { task: Task }) {
 
   if (editing) {
     return (
-      <div className="rounded-2xl border border-cu-orange/40 bg-cu-bg p-3">
+      <div className="g-inset border-cu-orange/40 p-3">
         <Input
           value={title}
           onChange={(event) => setTitle(event.target.value)}
           placeholder="Título"
           aria-label="Título de la tarea"
-          className="h-9 border-transparent bg-cu-surface text-[15px] font-semibold"
+          className="h-10 font-semibold"
         />
         <textarea
           value={notes}
@@ -106,7 +106,7 @@ export function TaskRow({ task }: { task: Task }) {
           rows={3}
           placeholder="Detalle, pasos, links…"
           aria-label="Detalle de la tarea"
-          className="mt-2 w-full resize-none rounded-2xl bg-cu-surface px-4 py-3 text-[14px] text-cu-text outline-none transition placeholder:text-cu-text-3 focus:ring-4 focus:ring-cu-orange-soft"
+          className="g-inset mt-2 w-full resize-none px-4 py-3 text-[13px] text-cu-text outline-none transition placeholder:text-cu-text-3 focus:border-cu-orange focus:ring-4 focus:ring-cu-orange-soft"
         />
         <div className="mt-3 flex flex-wrap items-center gap-2">
           {(Object.keys(PRIORITY_META) as Priority[]).map((value) => (
@@ -130,7 +130,7 @@ export function TaskRow({ task }: { task: Task }) {
             value={dueDate}
             onChange={(event) => setDueDate(event.target.value)}
             aria-label="Fecha límite"
-            className="h-8 rounded-full border border-cu-border bg-cu-bg px-3 text-[13px] text-cu-text outline-none focus:border-cu-orange"
+            className="g-inset h-8 px-3 text-[12px] text-cu-text outline-none focus:border-cu-orange"
           />
         </div>
         <div className="mt-3 flex justify-end gap-2">
@@ -304,13 +304,12 @@ export function TasksView({
 
       {total > 0 ? (
         <div className="flex items-center gap-3">
-          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-cu-surface-2">
-            <div
-              className="h-full rounded-full bg-cu-orange transition-all"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-          <span className="text-[12px] tabular-nums text-cu-text-2">
+          <Bar
+            value={progress}
+            className="flex-1"
+            label="Progreso de misiones"
+          />
+          <span className="g-hud text-[10px] tabular-nums text-cu-text-2">
             {doneCount}/{total}
           </span>
         </div>
@@ -335,7 +334,7 @@ export function TasksView({
       ) : error ? (
         <p className="py-8 text-center text-[14px] text-cu-red">{error}</p>
       ) : visible.length === 0 ? (
-        <div className="rounded-cu border border-cu-border bg-cu-surface">
+        <div className="g-panel">
           <EmptyState
             icon={<Inbox className="h-5 w-5" />}
             title={
@@ -353,7 +352,7 @@ export function TasksView({
           />
         </div>
       ) : (
-        <div className="rounded-cu border border-cu-border bg-cu-surface p-1.5">
+        <div className="g-panel p-1.5">
           <div className="flex flex-col">
             {visible.map((task) => (
               <TaskRow key={task.id} task={task} />

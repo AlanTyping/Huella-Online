@@ -101,15 +101,18 @@ export function QuickCapture() {
         onClick={() => setOpen(true)}
         aria-label="Captura rápida"
         title="Captura rápida (Ctrl+K)"
-        className="fixed right-5 bottom-5 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-cu-orange text-white shadow-[0_10px_28px_rgba(255,149,0,0.35)] transition hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cu-bg md:hidden"
+        className={cn(
+          "g-btn g-btn-primary fixed right-5 bottom-5 z-40 h-14 w-14",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cu-bg md:hidden",
+        )}
       >
-        <Plus className="h-5 w-5" strokeWidth={2.5} />
+        <Plus className="h-6 w-6" strokeWidth={2.5} />
       </button>
 
       {open ? (
         <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/25 p-4 pt-[12vh] backdrop-blur-sm">
           <div className="absolute inset-0" onClick={() => setOpen(false)} />
-          <div className="relative w-full max-w-lg overflow-hidden rounded-cu border border-cu-border bg-cu-bg shadow-cu-soft">
+          <div className="g-panel relative w-full max-w-lg overflow-hidden">
             <div className="flex items-center gap-2 border-b border-cu-border px-4 py-3">
               {KINDS.map((option) => {
                 const Icon = option.icon;
@@ -121,11 +124,8 @@ export function QuickCapture() {
                     onClick={() => setKind(option.value)}
                     aria-pressed={active}
                     className={cn(
-                      "inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] font-medium transition",
+                      "g-chip g-hud h-8 gap-1.5 px-3 text-[9px] uppercase",
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-orange",
-                      active
-                        ? "bg-cu-text text-cu-bg"
-                        : "bg-cu-surface-2 text-cu-text-2 hover:text-cu-text",
                     )}
                   >
                     <Icon className="h-3.5 w-3.5" />
@@ -162,7 +162,7 @@ export function QuickCapture() {
                       ? "Primera línea = título, después el detalle…"
                       : "¿Qué tenés ese día?"
                 }
-                className="w-full resize-none rounded-2xl bg-cu-surface px-4 py-3 text-[15px] text-cu-text outline-none transition placeholder:text-cu-text-3 focus:ring-4 focus:ring-cu-orange-soft"
+                className="g-inset w-full resize-none px-4 py-3 text-[14px] text-cu-text outline-none transition placeholder:text-cu-text-3 focus:border-cu-orange focus:ring-4 focus:ring-cu-orange-soft"
               />
 
               {kind === "task" ? (
@@ -208,7 +208,7 @@ export function QuickCapture() {
                     value={date}
                     onChange={(event) => setDate(event.target.value)}
                     aria-label="Fecha"
-                    className="h-8 rounded-full border border-cu-border bg-cu-bg px-3 text-[13px] text-cu-text outline-none focus:border-cu-orange"
+                    className="g-inset h-8 px-3 text-[12px] text-cu-text outline-none focus:border-cu-orange"
                   />
                 </div>
               ) : null}
@@ -222,9 +222,8 @@ export function QuickCapture() {
                   onClick={() => void save()}
                   disabled={!text.trim() || saving}
                   className={cn(
-                    "inline-flex h-9 items-center gap-2 rounded-full bg-cu-orange px-4 text-[14px] font-medium text-white transition",
-                    "hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cu-bg",
-                    "disabled:opacity-40",
+                    "g-btn g-btn-primary g-hud h-9 gap-2 px-4 text-[10px]",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cu-bg",
                   )}
                 >
                   {saving ? (

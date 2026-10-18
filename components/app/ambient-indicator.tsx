@@ -30,7 +30,7 @@ export function AmbientIndicator({ compact }: { compact?: boolean }) {
   }
 
   return (
-    <div className="flex items-center gap-2 rounded-2xl border border-cu-border bg-cu-surface px-3 py-2">
+    <div className="g-panel flex items-center gap-2 px-3 py-2">
       <Music
         className={cn(
           "h-4 w-4 shrink-0",

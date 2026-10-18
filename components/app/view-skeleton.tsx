@@ -8,11 +8,11 @@ export function ViewSkeleton({ className }: { className?: string }) {
         <div className="h-8 w-44 animate-pulse rounded-full bg-cu-surface-2" />
         <div className="h-4 w-72 max-w-full animate-pulse rounded-full bg-cu-surface-2" />
       </div>
-      <div className="h-24 animate-pulse rounded-cu bg-cu-surface" />
+      <div className="h-24 animate-pulse rounded-xl bg-cu-surface" />
       <div className="space-y-2">
-        <div className="h-14 animate-pulse rounded-cu bg-cu-surface" />
-        <div className="h-14 animate-pulse rounded-cu bg-cu-surface" />
-        <div className="h-14 animate-pulse rounded-cu bg-cu-surface" />
+        <div className="h-14 animate-pulse rounded-xl bg-cu-surface" />
+        <div className="h-14 animate-pulse rounded-xl bg-cu-surface" />
+        <div className="h-14 animate-pulse rounded-xl bg-cu-surface" />
       </div>
     </div>
   );

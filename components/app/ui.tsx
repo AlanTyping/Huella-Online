@@ -2,22 +2,12 @@
 
 import { cn } from "@/lib/utils";
 
-/** Tarjeta base estilo iOS: superficie suave, borde sutil, esquinas grandes. */
-export function Card({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
-  return (
-    <div
-      className={cn(
-        "rounded-cu border border-cu-border bg-cu-surface p-5",
-        className,
-      )}
-      {...props}
-    />
-  );
+/** Ventana de consola: superficie elevada, bisel y sombra dura. */
+export function Card({ className, ...props }: React.ComponentProps<"div">) {
+  return <div className={cn("g-panel p-5", className)} {...props} />;
 }
 
+/** Rótulo de HUD: pixel, chico y en mayúsculas. */
 export function SectionTitle({
   children,
   className,
@@ -26,12 +16,7 @@ export function SectionTitle({
   className?: string;
 }) {
   return (
-    <h2
-      className={cn(
-        "text-[13px] font-semibold tracking-wide text-cu-text-2 uppercase",
-        className,
-      )}
-    >
+    <h2 className={cn("g-hud text-[11px] uppercase text-cu-text-2", className)}>
       {children}
     </h2>
   );
@@ -41,18 +26,16 @@ type ButtonVariant = "primary" | "blue" | "surface" | "ghost" | "danger";
 type ButtonSize = "sm" | "md";
 
 const buttonVariants: Record<ButtonVariant, string> = {
-  primary:
-    "bg-cu-orange text-white hover:brightness-105 active:brightness-95 shadow-[0_6px_16px_rgba(255,149,0,0.25)]",
-  blue: "bg-cu-blue text-white hover:brightness-105 active:brightness-95 shadow-[0_6px_16px_rgba(0,122,255,0.22)]",
-  surface:
-    "bg-cu-surface text-cu-text border border-cu-border hover:bg-cu-surface-2",
-  ghost: "text-cu-text-2 hover:bg-cu-surface hover:text-cu-text",
-  danger: "bg-cu-red/10 text-cu-red hover:bg-cu-red/15",
+  primary: "g-btn g-btn-primary",
+  blue: "g-btn g-btn-blue",
+  surface: "g-btn g-btn-surface",
+  ghost: "g-btn g-btn-ghost",
+  danger: "g-btn g-btn-danger",
 };
 
 const buttonSizes: Record<ButtonSize, string> = {
-  sm: "h-8 px-3 text-[13px] rounded-full",
-  md: "h-10 px-4 text-[15px] rounded-full",
+  sm: "h-9 gap-1.5 px-3 text-[10px]",
+  md: "h-11 gap-2 px-4 text-[11px]",
 };
 
 export function Button({
@@ -69,8 +52,9 @@ export function Button({
     <button
       type={type}
       className={cn(
-        "inline-flex items-center justify-center gap-2 font-medium transition select-none",
-        "disabled:pointer-events-none disabled:opacity-50",
+        "g-hud font-normal select-none",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cu-bg",
+        "disabled:pointer-events-none",
         buttonSizes[size],
         buttonVariants[variant],
         className,
@@ -88,7 +72,7 @@ export function IconButton({
     <button
       type="button"
       className={cn(
-        "inline-flex h-9 w-9 items-center justify-center rounded-full text-cu-text-2 transition hover:bg-cu-surface-2 hover:text-cu-text",
+        "g-btn g-btn-ghost h-9 w-9 shrink-0",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cu-bg",
         "disabled:pointer-events-none disabled:opacity-40",
         className,
@@ -98,14 +82,11 @@ export function IconButton({
   );
 }
 
-export function Input({
-  className,
-  ...props
-}: React.ComponentProps<"input">) {
+export function Input({ className, ...props }: React.ComponentProps<"input">) {
   return (
     <input
       className={cn(
-        "h-11 w-full rounded-2xl border border-cu-border bg-cu-bg px-4 text-[15px] text-cu-text",
+        "g-inset h-11 w-full px-4 text-[14px] text-cu-text",
         "placeholder:text-cu-text-3 outline-none transition",
         "focus:border-cu-orange focus:ring-4 focus:ring-cu-orange-soft",
         className,
@@ -123,17 +104,52 @@ export function Chip({
   return (
     <button
       type="button"
+      data-active={active ? "true" : undefined}
       className={cn(
-        "inline-flex h-8 items-center rounded-full px-3 text-[13px] font-medium transition",
+        "g-chip g-hud h-8 px-3 text-[10px] uppercase",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cu-bg",
         "disabled:pointer-events-none disabled:opacity-40",
-        active
-          ? "bg-cu-text text-cu-bg"
-          : "bg-cu-surface-2 text-cu-text-2 hover:text-cu-text",
         className,
       )}
       {...props}
     />
+  );
+}
+
+type BarVariant = "orange" | "blue" | "green";
+
+/** Barra de XP / progreso con relleno segmentado. */
+export function Bar({
+  value,
+  variant = "orange",
+  className,
+  label,
+}: {
+  /** Porcentaje 0–100. */
+  value: number;
+  variant?: BarVariant;
+  className?: string;
+  label?: string;
+}) {
+  const pct = Math.max(0, Math.min(100, Math.round(value)));
+  return (
+    <div
+      role="progressbar"
+      aria-valuenow={pct}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-label={label}
+      className={cn("g-bar h-3", className)}
+    >
+      <div
+        className={cn(
+          "g-bar-fill",
+          variant === "blue" && "g-bar-fill-blue",
+          variant === "green" && "g-bar-fill-green",
+        )}
+        style={{ width: `${pct}%` }}
+      />
+    </div>
   );
 }
 
@@ -151,14 +167,14 @@ export function EmptyState({
   return (
     <div className="flex flex-col items-center gap-3 px-6 py-14 text-center">
       {icon ? (
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-cu-surface-2 text-cu-text-2">
+        <div className="g-inset flex h-14 w-14 items-center justify-center text-cu-text-2">
           {icon}
         </div>
       ) : null}
       <div className="space-y-1">
-        <p className="text-[15px] font-semibold text-cu-text">{title}</p>
+        <p className="g-hud text-[12px] text-cu-text">{title}</p>
         {description ? (
-          <p className="mx-auto max-w-xs text-[13px] text-cu-text-2">
+          <p className="mx-auto max-w-xs text-[14px] text-cu-text-2">
             {description}
           </p>
         ) : null}

@@ -3,24 +3,28 @@
 const steps = [
   {
     number: "01",
+    emoji: "💬",
     title: "Charlamos",
     description:
       "Una reunión de 15 minutos para entender tu estilo, tus servicios y el tipo de clientes que querés atraer.",
   },
   {
     number: "02",
+    emoji: "🎨",
     title: "Diseñamos",
     description:
       "Armamos la estructura y la propuesta visual de tu portfolio, pensada para que tus fotos sean las protagonistas.",
   },
   {
     number: "03",
+    emoji: "🛠️",
     title: "Construimos",
     description:
       "Desarrollamos el sitio, optimizamos cada imagen y dejamos todo listo para que cargue rápido en cualquier dispositivo.",
   },
   {
     number: "04",
+    emoji: "🚀",
     title: "Publicamos",
     description:
       "Conectamos tu dominio, publicamos y te explicamos cómo vamos a mantener y actualizar tus galerías de aquí en adelante.",
@@ -51,6 +55,9 @@ export function FotografosProcess() {
                 {step.number}
               </span>
               <h3 className="mt-5 font-display text-2xl tracking-tight">
+                <span aria-hidden="true" className="mr-2">
+                  {step.emoji}
+                </span>
                 {step.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-graphite">

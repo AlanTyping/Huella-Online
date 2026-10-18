@@ -15,9 +15,11 @@ import {
   normalizeHex,
   PASTEL_PRESETS,
 } from "@/lib/organizacion/background";
+import { SCENES } from "@/lib/organizacion/world";
 import { cn } from "@/lib/utils";
 import { useBackground } from "../background";
 import { useTheme, type ThemeChoice } from "../theme";
+import { useWorld } from "../world";
 import { Button, Card, Input, SectionTitle } from "../ui";
 
 const THEME_OPTIONS: { value: ThemeChoice; label: string; icon: LucideIcon }[] = [
@@ -41,14 +43,41 @@ function ThemeControl() {
             onClick={() => setTheme(option.value)}
             aria-pressed={active}
             className={cn(
-              "inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-[13px] font-medium transition",
+              "g-chip g-hud h-10 gap-2 px-3.5 text-[10px] uppercase",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cu-bg",
-              active
-                ? "border-cu-orange bg-cu-orange-soft text-cu-text"
-                : "border-cu-border bg-cu-bg text-cu-text-2 hover:text-cu-text",
             )}
           >
             <Icon className="h-4 w-4" />
+            {option.label}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function SceneControl() {
+  const { scene, setScene } = useWorld();
+
+  return (
+    <div className="flex flex-wrap gap-2">
+      {SCENES.map((option) => {
+        const active = scene === option.id;
+        return (
+          <button
+            key={option.id}
+            type="button"
+            onClick={() => setScene(option.id)}
+            aria-pressed={active}
+            className={cn(
+              "g-chip g-hud h-11 gap-2 px-3 text-[10px] uppercase",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cu-bg",
+            )}
+          >
+            <span
+              className="h-4 w-6 shrink-0 rounded-sm border border-cu-border"
+              style={{ background: option.preview }}
+            />
             {option.label}
           </button>
         );
@@ -78,7 +107,7 @@ function Swatch({
     >
       <span
         className={cn(
-          "flex h-12 w-12 items-center justify-center rounded-2xl border transition",
+          "flex h-12 w-12 items-center justify-center rounded-lg border transition",
           "group-focus-visible:ring-2 group-focus-visible:ring-cu-orange group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-cu-bg",
           active
             ? "border-cu-orange ring-2 ring-cu-orange"
@@ -148,7 +177,7 @@ function BackgroundControl() {
           value={background ?? "#ffffff"}
           onChange={(event) => select(event.target.value)}
           aria-label="Selector de color personalizado"
-          className="h-11 w-14 shrink-0 cursor-pointer rounded-2xl border border-cu-border bg-cu-bg p-1"
+          className="h-11 w-14 shrink-0 cursor-pointer rounded-lg border border-cu-border bg-cu-bg p-1"
         />
         {/* No controlado a propósito: la `key` lo reinicia al hex guardado cada
             vez que cambia el fondo, sin necesidad de un efecto de sincronía. */}
@@ -225,13 +254,24 @@ export function SettingsView() {
           <ThemeControl />
         </section>
 
-        <div className="h-px bg-cu-border" />
+        <div className="g-divider" />
+
+        <section className="space-y-3">
+          <SectionTitle>Mundo</SectionTitle>
+          <p className="text-[13px] text-cu-text-2">
+            El paisaje que se ve detrás del tablero. Elegí <em>Liso</em> para
+            dejarlo solo con el color de fondo.
+          </p>
+          <SceneControl />
+        </section>
+
+        <div className="g-divider" />
 
         <section className="space-y-3">
           <SectionTitle>Color de fondo</SectionTitle>
           <p className="text-[13px] text-cu-text-2">
-            Elegí un pastel o armá el tuyo con el selector o un código
-            hexadecimal.
+            Tiñe el tablero. Elegí un pastel o armá el tuyo con el selector o un
+            código hexadecimal.
           </p>
           <BackgroundControl />
         </section>

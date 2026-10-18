@@ -15,7 +15,7 @@ export function AmbientControl() {
   const { soundId, sound, phase, volume, play, stop, setVolume } = useAmbient();
 
   return (
-    <div className="rounded-cu border border-cu-border bg-cu-surface p-4">
+    <div className="g-panel p-4">
       <div className="flex items-center justify-between gap-3">
         <h2 className="text-[13px] font-semibold tracking-wide text-cu-text-2 uppercase">
           Sonido ambiente

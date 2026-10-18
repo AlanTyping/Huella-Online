@@ -47,7 +47,7 @@ function EventForm({ date }: { date: string }) {
   return (
     <form
       onSubmit={submit}
-      className="rounded-cu border border-cu-border bg-cu-surface p-3"
+      className="g-panel p-3"
     >
       <div className="flex flex-wrap items-center gap-2">
         <Input
@@ -55,21 +55,21 @@ function EventForm({ date }: { date: string }) {
           onChange={(event) => setTitle(event.target.value)}
           placeholder="¿Qué tenés ese día?"
           aria-label="Nuevo evento"
-          className="h-10 min-w-40 flex-1 border-transparent bg-cu-bg"
+          className="h-10 min-w-40 flex-1"
         />
         <input
           type="time"
           value={startTime}
           onChange={(event) => setStartTime(event.target.value)}
           aria-label="Hora de inicio"
-          className="h-10 rounded-2xl border border-cu-border bg-cu-bg px-3 text-[14px] text-cu-text outline-none focus:border-cu-orange"
+          className="g-inset h-10 px-3 text-[12px] text-cu-text outline-none focus:border-cu-orange"
         />
         <input
           type="time"
           value={endTime}
           onChange={(event) => setEndTime(event.target.value)}
           aria-label="Hora de fin"
-          className="h-10 rounded-2xl border border-cu-border bg-cu-bg px-3 text-[14px] text-cu-text outline-none focus:border-cu-orange"
+          className="g-inset h-10 px-3 text-[12px] text-cu-text outline-none focus:border-cu-orange"
         />
         <Button
           type="submit"
@@ -194,7 +194,7 @@ export function AgendaView() {
         </div>
       </header>
 
-      <div className="rounded-cu border border-cu-border bg-cu-surface p-3">
+      <div className="g-panel p-3">
         <div className="mb-1 grid grid-cols-7 gap-1">
           {WEEKDAY_INITIALS.map((initial, index) => (
             <span
@@ -271,7 +271,7 @@ export function AgendaView() {
         ) : error ? (
           <p className="py-6 text-center text-[14px] text-cu-red">{error}</p>
         ) : dayEvents.length === 0 ? (
-          <div className="rounded-cu border border-cu-border bg-cu-surface">
+          <div className="g-panel">
             <EmptyState
               icon={<Calendar className="h-5 w-5" />}
               title="Sin eventos"
@@ -279,7 +279,7 @@ export function AgendaView() {
             />
           </div>
         ) : (
-          <div className="rounded-cu border border-cu-border bg-cu-surface p-1.5">
+          <div className="g-panel p-1.5">
             <div className="flex flex-col">
               {dayEvents.map((event) => (
                 <EventRow key={event.id} event={event} />

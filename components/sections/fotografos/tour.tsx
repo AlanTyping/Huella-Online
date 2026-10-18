@@ -1,9 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+} from "framer-motion";
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { FotografosInlineCta } from "./inline-cta";
 
@@ -110,7 +115,7 @@ function BrowserFrame({
 }) {
   return (
     <figure
-      className={`group overflow-hidden rounded-xl border border-ink/10 bg-white shadow-[0_24px_60px_-35px_rgba(10,10,11,0.55)] transition-colors duration-300 hover:border-brand-secondary/40 ${className}`}
+      className={`group overflow-hidden rounded-xl border border-ink/10 bg-white shadow-[0_24px_60px_-35px_rgba(10,10,11,0.55)] transition-colors duration-300 hover:border-ink/50 ${className}`}
     >
       <div className="flex items-center gap-1.5 border-b border-ink/10 bg-ink/[0.03] px-4 py-2.5">
         <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
@@ -147,6 +152,19 @@ function BrowserFrame({
 export function FotografosTour() {
   const [active, setActive] = useState(0);
   const current = steps[active];
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+
+  // La línea se dibuja a medida que la sección entra en pantalla.
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 80%", "end 60%"],
+  });
+  const lineProgress = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 24,
+    restDelta: 0.001,
+  });
 
   return (
     <section
@@ -242,11 +260,24 @@ export function FotografosTour() {
         </div>
 
         {/* DESKTOP: timeline central con pasos alternados */}
-        <div className="relative mt-20 hidden flex-col gap-24 lg:flex lg:gap-32">
-          {/* Línea central que conecta los pasos */}
+        <div
+          ref={timelineRef}
+          className="relative mt-20 hidden flex-col gap-24 lg:flex lg:gap-32"
+        >
+          {/* Línea base que conecta los pasos */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-brand-secondary/40 to-transparent"
+            className="pointer-events-none absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-ink/10"
+          />
+          {/* Línea que se dibuja al scrollear */}
+          <motion.div
+            aria-hidden="true"
+            style={
+              prefersReducedMotion
+                ? { x: "-50%" }
+                : { scaleY: lineProgress, x: "-50%" }
+            }
+            className="pointer-events-none absolute inset-y-0 left-1/2 w-px origin-top bg-ink"
           />
 
           {steps.map((step, index) => {
@@ -264,8 +295,16 @@ export function FotografosTour() {
                 className="relative grid items-center gap-16 lg:grid-cols-2"
               >
                 {/* Nodo del paso sobre la línea */}
-                <span className="absolute left-1/2 top-1/2 z-10 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-brand-secondary font-display text-sm font-semibold text-ink shadow-[0_10px_24px_-12px_rgba(255,165,0,0.9)] ring-4 ring-paper">
-                  {number}
+                <span className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
+                  <motion.span
+                    initial={{ scale: 0.4, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true, margin: "-40% 0px -40% 0px" }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                    className="flex h-11 w-11 items-center justify-center rounded-full bg-ink font-display text-sm font-semibold text-white shadow-[0_10px_24px_-12px_rgba(10,10,11,0.9)] ring-4 ring-paper"
+                  >
+                    {number}
+                  </motion.span>
                 </span>
 
                 <div className={flipped ? "lg:order-2" : ""}>

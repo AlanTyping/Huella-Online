@@ -38,7 +38,7 @@ export function BrowserFrame({
 }: BrowserFrameProps) {
   return (
     <figure
-      className={`group overflow-hidden rounded-xl border border-ink/10 bg-white shadow-[0_24px_60px_-35px_rgba(10,10,11,0.55)] transition-colors duration-300 hover:border-brand-secondary/40 ${className}`}
+      className={`group overflow-hidden rounded-xl border border-ink/10 bg-white shadow-[0_24px_60px_-35px_rgba(10,10,11,0.55)] transition-colors duration-300 hover:border-ink/50 ${className}`}
     >
       <div className="flex items-center gap-1.5 border-b border-ink/10 bg-ink/[0.03] px-4 py-2.5">
         <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />

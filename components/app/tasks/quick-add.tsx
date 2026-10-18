@@ -61,7 +61,7 @@ export function QuickAddTask({
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-cu border border-cu-border bg-cu-surface p-3"
+      className="g-panel p-3"
     >
       <div className="flex items-center gap-2">
         <Input
@@ -69,16 +69,15 @@ export function QuickAddTask({
           onChange={(event) => setTitle(event.target.value)}
           placeholder="¿Qué necesitás hacer?"
           aria-label="Nueva tarea"
-          className="h-10 border-transparent bg-cu-bg"
+          className="h-10"
         />
         <button
           type="submit"
           disabled={!title.trim() || saving}
           aria-label="Agregar tarea"
           className={cn(
-            "flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cu-orange text-white transition",
-            "hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cu-surface",
-            "disabled:opacity-40",
+            "g-btn g-btn-primary h-10 w-10 shrink-0",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cu-surface",
           )}
         >
           {saving ? (

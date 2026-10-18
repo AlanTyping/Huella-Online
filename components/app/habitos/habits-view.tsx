@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { Check, Flame, Plus, Trash2 } from "lucide-react";
 import { addDaysISO, todayISO, WEEKDAY_INITIALS } from "@/lib/organizacion/date";
+import { currentStreak } from "@/lib/organizacion/game";
 import type { Habit } from "@/lib/organizacion/types";
 import { cn } from "@/lib/utils";
 import { useStore } from "../store-provider";
@@ -12,17 +13,6 @@ import { Chip, EmptyState, IconButton, Input, Spinner } from "../ui";
 
 /** Lunes a domingo. */
 const WEEK_ORDER = [1, 2, 3, 4, 5, 6, 0];
-
-function currentStreak(habit: Habit): number {
-  let cursor = todayISO();
-  if (!habit.logs[cursor]) cursor = addDaysISO(cursor, -1);
-  let streak = 0;
-  while (habit.logs[cursor]) {
-    streak += 1;
-    cursor = addDaysISO(cursor, -1);
-  }
-  return streak;
-}
 
 function lastDays(count: number): string[] {
   const today = todayISO();
@@ -65,7 +55,7 @@ function Composer() {
   return (
     <form
       onSubmit={submit}
-      className="rounded-cu border border-cu-border bg-cu-surface p-3"
+      className="g-panel p-3"
     >
       <div className="flex items-center gap-2">
         <Input
@@ -73,13 +63,13 @@ function Composer() {
           onChange={(event) => setName(event.target.value)}
           placeholder="¿Qué hábito querés sostener?"
           aria-label="Nuevo hábito"
-          className="h-10 border-transparent bg-cu-bg"
+          className="h-10"
         />
         <button
           type="submit"
           disabled={!name.trim() || saving}
           aria-label="Agregar hábito"
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cu-orange text-white transition hover:brightness-105 disabled:opacity-40"
+          className="g-btn g-btn-primary h-10 w-10 shrink-0"
         >
           {saving ? (
             <Spinner className="h-4 w-4 border-white/40 border-t-white" />
@@ -115,7 +105,7 @@ function HabitCard({ habit }: { habit: Habit }) {
   const todayIndex = new Date().getDay();
   const activeToday = habit.weekdays.includes(todayIndex);
   const doneToday = Boolean(habit.logs[today]);
-  const streak = currentStreak(habit);
+  const streak = currentStreak(habit.logs);
   const days = lastDays(7);
 
   async function toggleDay(date: string) {
@@ -133,7 +123,7 @@ function HabitCard({ habit }: { habit: Habit }) {
   return (
     <div
       className={cn(
-        "rounded-cu border border-cu-border bg-cu-surface p-4 transition",
+        "g-panel p-4 transition",
         busy && "opacity-60",
       )}
     >
@@ -246,7 +236,7 @@ export function HabitsView() {
       ) : error ? (
         <p className="py-8 text-center text-[14px] text-cu-red">{error}</p>
       ) : ordered.length === 0 ? (
-        <div className="rounded-cu border border-cu-border bg-cu-surface">
+        <div className="g-panel">
           <EmptyState
             icon={<Flame className="h-5 w-5" />}
             title="Todavía no hay hábitos"

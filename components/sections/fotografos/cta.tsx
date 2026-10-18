@@ -18,7 +18,7 @@ export function FotografosCta() {
   return (
     <section
       id="contacto"
-      className="scroll-mt-24 border-t border-bone/10 bg-ink py-24 text-bone lg:py-32"
+      className="scroll-mt-24 border-t border-bone/10 bg-ink py-16 text-bone sm:py-20 lg:py-32"
     >
       <div className="mx-auto w-full max-w-7xl px-6 md:px-8">
         <div className="relative overflow-hidden rounded-2xl border border-bone/10 bg-ink-soft p-8 sm:p-12 lg:p-16">
@@ -66,7 +66,7 @@ export function FotografosCta() {
                 href={fotografoWhatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 rounded-md bg-whatsapp px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-whatsapp-hover [&>svg]:h-5 [&>svg]:w-5"
+                className="inline-flex items-center justify-center gap-3 rounded-md bg-whatsapp px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-whatsapp-hover active:scale-[0.99] [&>svg]:h-5 [&>svg]:w-5"
               >
                 <WhatsAppIcon />
                 Escribir por WhatsApp
@@ -74,7 +74,7 @@ export function FotografosCta() {
 
               <Link
                 href="/brief"
-                className="inline-flex items-center justify-center gap-3 rounded-md border border-bone/25 bg-bone/[0.03] px-8 py-4 text-base font-medium text-bone/80 transition-colors hover:border-bone/50 hover:text-bone [&>svg]:h-5 [&>svg]:w-5"
+                className="inline-flex items-center justify-center gap-3 rounded-md border border-bone/25 bg-bone/[0.03] px-8 py-4 text-base font-medium text-bone/80 transition-colors hover:border-bone/50 hover:text-bone active:scale-[0.99] [&>svg]:h-5 [&>svg]:w-5"
               >
                 <ClipboardList className="h-5 w-5" />
                 Completar formulario

@@ -228,7 +228,7 @@ const structuredData = {
 
 export default function FotografosPage() {
   return (
-    <div className="flex flex-col pb-20 md:pb-0">
+    <div className="flex flex-col">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -244,7 +244,7 @@ export default function FotografosPage() {
       <FotografosTestimonials />
       <FotografosFaq faqs={faqs} />
       <FotografosCta />
-      <LEDMarquee />
+      <LEDMarquee tone="ink" />
 
       <FotografosStickyCta />
     </div>

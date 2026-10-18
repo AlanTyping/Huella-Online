@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { getImageProps } from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
@@ -37,6 +37,16 @@ export function FotografosHero() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
+  const [enableParallax, setEnableParallax] = useState(false);
+
+  // El parallax se reserva para desktop: en mobile suma trabajo de scroll.
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 1024px)");
+    const update = () => setEnableParallax(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
 
   // Parallax: la foto de fondo se mueve más lento que el contenido al scrollear.
   const { scrollYProgress } = useScroll({
@@ -66,7 +76,11 @@ export function FotografosHero() {
       >
         <motion.div
           aria-hidden="true"
-          style={prefersReducedMotion ? undefined : { y: backgroundY }}
+          style={
+            enableParallax && !prefersReducedMotion
+              ? { y: backgroundY }
+              : undefined
+          }
           className="absolute inset-0"
         >
           <picture className="block h-full w-full">
@@ -112,7 +126,7 @@ export function FotografosHero() {
             initial={{ opacity: 0, y: 24 }}
             animate={imageLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-4xl font-light leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+            className="font-display text-[2.5rem] font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
           >
             Páginas web
             <br />
@@ -146,7 +160,7 @@ export function FotografosHero() {
               href={fotografoWhatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 rounded-md bg-white px-8 py-4 text-base font-semibold text-ink transition-colors hover:bg-bone [&>svg]:h-5 [&>svg]:w-5"
+              className="inline-flex items-center justify-center gap-3 rounded-md bg-white px-8 py-4 text-base font-semibold text-ink transition-colors hover:bg-bone active:scale-[0.99] [&>svg]:h-5 [&>svg]:w-5"
             >
               <WhatsAppIcon />
               Quiero mi sitio
@@ -154,7 +168,7 @@ export function FotografosHero() {
 
             <Link
               href="#precios"
-              className="group inline-flex items-center justify-center gap-2 rounded-md border border-bone/25 px-7 py-4 text-base font-medium text-bone/80 backdrop-blur-sm transition-colors hover:border-bone/50 hover:text-bone"
+              className="group inline-flex items-center justify-center gap-2 rounded-md border border-bone/25 px-7 py-4 text-base font-medium text-bone/80 backdrop-blur-sm transition-colors hover:border-bone/50 hover:text-bone active:scale-[0.99]"
             >
               Ver precios
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

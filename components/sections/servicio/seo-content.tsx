@@ -22,7 +22,7 @@ export function ServiceSeoContent({
   outro,
 }: ServiceSeoContentProps) {
   return (
-    <section className="scroll-mt-24 border-t border-ink/10 bg-paper py-24 text-ink lg:py-32">
+    <section className="scroll-mt-24 border-t border-ink/10 bg-white py-24 text-ink lg:py-32">
       <div className="mx-auto w-full max-w-7xl px-6 md:px-8">
         <div className="max-w-3xl">
           <h2 className="font-display text-4xl leading-tight tracking-tight sm:text-5xl">

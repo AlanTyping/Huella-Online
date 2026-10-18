@@ -35,7 +35,7 @@ export function FotografosProcess() {
   return (
     <section
       id="proceso"
-      className="scroll-mt-24 border-t border-ink/10 bg-paper py-24 text-ink lg:py-32"
+      className="scroll-mt-24 border-t border-ink/10 bg-white py-16 text-ink sm:py-20 lg:py-32"
     >
       <div className="mx-auto w-full max-w-7xl px-6 md:px-8">
         <div className="max-w-2xl">

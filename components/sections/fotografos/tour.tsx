@@ -129,7 +129,7 @@ function BrowserFrame({
 
       <div
         className={`overflow-hidden ${
-          aspect ? `relative ${aspect} bg-paper-soft/40` : ""
+          aspect ? `relative ${aspect} bg-ink/[0.04]` : ""
         }`}
       >
         <Image
@@ -152,6 +152,7 @@ function BrowserFrame({
 export function FotografosTour() {
   const [active, setActive] = useState(0);
   const current = steps[active];
+  const currentIsPortrait = current.height > current.width;
   const timelineRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
@@ -169,7 +170,7 @@ export function FotografosTour() {
   return (
     <section
       id="recorrido"
-      className="relative scroll-mt-24 overflow-hidden border-t border-ink/10 bg-paper py-24 text-ink lg:py-32"
+      className="relative scroll-mt-24 overflow-hidden border-t border-ink/10 bg-white py-16 text-ink sm:py-20 lg:py-32"
     >
       {/* Mancha de color para dar profundidad */}
       <div
@@ -191,49 +192,68 @@ export function FotografosTour() {
             href={lumosSite}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-graphite"
+            className="group mt-5 inline-flex min-h-11 items-center gap-2 py-1 text-sm font-semibold text-ink transition-colors hover:text-graphite"
           >
             Ver el sitio en vivo
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
         </div>
 
-        {/* MÓVIL: panel con navegación por flechas */}
+        {/* MÓVIL: panel deslizable con navegación por flechas */}
         <div className="mt-16 lg:hidden">
-          <BrowserFrame
-            image={current.image}
-            alt={current.alt}
-            width={current.width}
-            height={current.height}
-            sizes="100vw"
-            aspect="aspect-[4/3]"
-          />
+          <motion.div
+            key={active}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.12}
+            onDragEnd={(_, info) => {
+              if (info.offset.x < -60 || info.velocity.x < -400) {
+                setActive((value) => Math.min(steps.length - 1, value + 1));
+              } else if (info.offset.x > 60 || info.velocity.x > 400) {
+                setActive((value) => Math.max(0, value - 1));
+              }
+            }}
+            className="cursor-grab active:cursor-grabbing"
+          >
+            <BrowserFrame
+              image={current.image}
+              alt={current.alt}
+              width={current.width}
+              height={current.height}
+              sizes="100vw"
+              aspect={currentIsPortrait ? "aspect-[4/5]" : "aspect-[4/3]"}
+            />
 
-          <h3 className="mt-8 font-display text-3xl tracking-tight">
-            {current.title}
-          </h3>
-          <p className="mt-4 text-base leading-relaxed text-graphite">
-            {current.description}
+            <h3 className="mt-8 font-display text-3xl tracking-tight">
+              {current.title}
+            </h3>
+            <p className="mt-4 text-base leading-relaxed text-graphite">
+              {current.description}
+            </p>
+
+            {current.href && (
+              <Link
+                href={current.href}
+                className="group mt-5 inline-flex min-h-11 items-center gap-2 py-1 text-sm font-semibold text-brand-secondary transition-colors hover:text-ink"
+              >
+                Ver precios
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            )}
+          </motion.div>
+
+          <p className="mt-6 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-ink/40">
+            Deslizá para cambiar de paso
           </p>
 
-          {current.href && (
-            <Link
-              href={current.href}
-              className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-secondary transition-colors hover:text-ink"
-            >
-              Ver precios
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          )}
-
           {/* Controles */}
-          <div className="mt-12 flex items-center justify-between gap-4 border-t border-ink/10 pt-8">
+          <div className="mt-6 flex items-center justify-between gap-4 border-t border-ink/10 pt-6">
             <button
               type="button"
               onClick={() => setActive((value) => Math.max(0, value - 1))}
               disabled={active === 0}
               aria-label="Paso anterior"
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink/40 disabled:pointer-events-none disabled:opacity-30"
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink/40 active:scale-95 disabled:pointer-events-none disabled:opacity-30"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -252,7 +272,7 @@ export function FotografosTour() {
               }
               disabled={active === steps.length - 1}
               aria-label="Paso siguiente"
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink/40 disabled:pointer-events-none disabled:opacity-30"
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink/40 active:scale-95 disabled:pointer-events-none disabled:opacity-30"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
@@ -301,7 +321,7 @@ export function FotografosTour() {
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true, margin: "-40% 0px -40% 0px" }}
                     transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                    className="flex h-11 w-11 items-center justify-center rounded-full bg-ink font-display text-sm font-semibold text-white shadow-[0_10px_24px_-12px_rgba(10,10,11,0.9)] ring-4 ring-paper"
+                    className="flex h-11 w-11 items-center justify-center rounded-full bg-ink font-display text-sm font-semibold text-white shadow-[0_10px_24px_-12px_rgba(10,10,11,0.9)] ring-4 ring-white"
                   >
                     {number}
                   </motion.span>
@@ -332,7 +352,7 @@ export function FotografosTour() {
                   {step.href && (
                     <Link
                       href={step.href}
-                      className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-secondary transition-colors hover:text-ink"
+                      className="group mt-5 inline-flex min-h-11 items-center gap-2 py-1 text-sm font-semibold text-brand-secondary transition-colors hover:text-ink"
                     >
                       Ver precios
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

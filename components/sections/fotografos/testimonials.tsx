@@ -8,7 +8,7 @@ import { fotografoWhatsappHref } from "./contact";
 
 export function FotografosTestimonials() {
   return (
-    <section className="relative overflow-hidden border-t border-bone/10 bg-ink py-20 text-bone lg:py-28">
+    <section className="relative overflow-hidden border-t border-bone/10 bg-ink py-16 text-bone lg:py-28">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,165,0,0.12),transparent_65%)] blur-[140px]" />
       </div>
@@ -91,7 +91,7 @@ export function FotografosTestimonials() {
                   href="https://www.vickyaphalo.site/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-bone/5 text-bone/60 transition-colors hover:bg-brand-secondary hover:text-ink"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-bone/5 text-bone/60 transition-colors hover:bg-brand-secondary hover:text-ink"
                   title="Ver el sitio de Vicky Aphalo"
                 >
                   <ExternalLink className="h-4 w-4" />

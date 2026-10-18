@@ -41,7 +41,7 @@ export function ServiceTour({
   return (
     <section
       id="recorrido"
-      className="relative scroll-mt-24 overflow-hidden border-t border-ink/10 bg-paper py-24 text-ink lg:py-32"
+      className="relative scroll-mt-24 overflow-hidden border-t border-ink/10 bg-white py-24 text-ink lg:py-32"
     >
       <div
         aria-hidden="true"
@@ -152,7 +152,7 @@ export function ServiceTour({
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="relative grid items-center gap-16 lg:grid-cols-2"
               >
-                <span className="absolute left-1/2 top-1/2 z-10 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-brand-secondary font-display text-sm font-semibold text-ink shadow-[0_10px_24px_-12px_rgba(255,165,0,0.9)] ring-4 ring-paper">
+                <span className="absolute left-1/2 top-1/2 z-10 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-brand-secondary font-display text-sm font-semibold text-ink shadow-[0_10px_24px_-12px_rgba(255,165,0,0.9)] ring-4 ring-white">
                   {number}
                 </span>
 

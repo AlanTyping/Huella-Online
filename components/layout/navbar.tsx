@@ -11,6 +11,7 @@ import {
   whatsappHref,
   WhatsAppIcon,
 } from "@/components/ui/social-links";
+import { fotografoWhatsappHref } from "@/components/sections/fotografos/contact";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +22,13 @@ export function Navbar() {
   const isFotografos = pathname?.startsWith("/fotografos") ?? false;
   const isHome = pathname === "/";
   const needsSolidBackdrop = isFotografos;
+
+  // En las páginas de servicio el CTA "Empezar" lleva a la sección de contacto
+  // ("Empecemos por una charla de 15 minutos"), no al formulario.
+  const isServicePage = ["/fotografos", "/maestros", "/gimnasios", "/arquitectura"].some(
+    (path) => pathname?.startsWith(path),
+  );
+  const startHref = isServicePage ? "#contacto" : "/brief";
 
   // Los enlaces de sección apuntan al home cuando no estamos en él.
   const section = (hash: string) => (isHome ? hash : `/${hash}`);
@@ -78,7 +86,7 @@ export function Navbar() {
           ))}
 
           <Link
-            href="/brief"
+            href={startHref}
             className="rounded bg-white px-6 py-2.5 text-[11px] font-black text-black hover:text-white uppercase tracking-tighter transition-all hover:scale-[1.03] hover:bg-[#ffa500]"
           >
             Empezar
@@ -113,7 +121,9 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 240 }}
-              className="absolute inset-0 flex h-full flex-col bg-blue-950 p-8"
+              className={`absolute inset-0 flex h-full flex-col p-8 ${
+                isFotografos ? "bg-ink" : "bg-blue-950"
+              }`}
             >
               {/* top */}
               <div className="flex items-center justify-between mb-14">
@@ -149,13 +159,19 @@ export function Navbar() {
 
                 <div className="my-6 h-[1px] w-full bg-white/10" />
 
-                <Link
-                  href="/brief"
+                <a
+                  href={isFotografos ? fotografoWhatsappHref : "/brief"}
+                  target={isFotografos ? "_blank" : undefined}
+                  rel={isFotografos ? "noopener noreferrer" : undefined}
                   onClick={() => setIsOpen(false)}
-                  className="inline-flex w-fit rounded-lg bg-blue-600 px-7 py-4 text-lg font-black text-white uppercase tracking-tighter transition-all duration-300 hover:bg-blue-500 hover:scale-[1.03] active:scale-95 shadow-[0_0_20px_rgba(37,99,235,0.2)]"
+                  className={`inline-flex w-fit rounded-lg px-7 py-4 text-lg font-black uppercase tracking-tighter transition-all duration-300 active:scale-95 ${
+                    isFotografos
+                      ? "bg-brand-secondary text-ink hover:bg-brand-accent"
+                      : "bg-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.2)] hover:scale-[1.03] hover:bg-blue-500"
+                  }`}
                 >
-                  Quiero mi web
-                </Link>
+                  {isFotografos ? "Quiero mi sitio" : "Quiero mi web"}
+                </a>
               </nav>
 
               {/* footer */}

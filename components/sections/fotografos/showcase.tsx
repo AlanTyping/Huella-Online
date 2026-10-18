@@ -23,7 +23,7 @@ export function FotografosShowcase() {
   return (
     <section
       id="portfolio"
-      className="scroll-mt-24 bg-ink py-24 text-bone md:py-32"
+      className="scroll-mt-24 bg-ink py-16 text-bone md:py-24 lg:py-32"
     >
       <div className="mx-auto w-full max-w-7xl px-6 md:px-8">
         <div className="max-w-3xl">
@@ -55,7 +55,7 @@ export function FotografosShowcase() {
               aria-label="Ver el sitio de Lumos Fotografía"
               className="group block overflow-hidden rounded-sm border border-bone/10 bg-ink-soft"
             >
-              <div className="relative aspect-[16/10] w-full">
+              <div className="relative aspect-[4/3] w-full sm:aspect-[16/10]">
                 <Image
                   src="/images/lumosfotografia.webp"
                   alt="Portfolio web de Lumos Fotografía creado por Huella Online"
@@ -83,7 +83,7 @@ export function FotografosShowcase() {
               href={lumosSite}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-bone transition-colors hover:text-brand-secondary"
+              className="group mt-6 inline-flex min-h-11 items-center gap-2 py-1 text-sm font-semibold text-bone transition-colors hover:text-brand-secondary"
             >
               Ver el sitio en vivo
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

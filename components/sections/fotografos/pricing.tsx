@@ -71,7 +71,7 @@ export function FotografosPricing() {
   return (
     <section
       id="precios"
-      className="relative scroll-mt-24 overflow-hidden border-t border-bone/10 bg-ink py-24 text-bone lg:py-32"
+      className="relative scroll-mt-24 overflow-hidden border-t border-bone/10 bg-ink py-16 text-bone sm:py-20 lg:py-32"
     >
       {/* Glow de color para romper el negro plano */}
       <div
@@ -150,7 +150,7 @@ export function FotografosPricing() {
                 href={fotografoWhatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative mt-8 inline-flex items-center justify-center gap-2.5 rounded-md bg-bone px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-bone/85 [&>svg]:h-4 [&>svg]:w-4"
+                className="relative mt-8 inline-flex items-center justify-center gap-2.5 rounded-md bg-bone px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-bone/85 active:scale-[0.99] [&>svg]:h-4 [&>svg]:w-4"
               >
                 <WhatsAppIcon />
                 Empezar

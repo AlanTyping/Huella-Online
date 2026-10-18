@@ -51,7 +51,7 @@ export function BrowserFrame({
       </div>
 
       {aspect ? (
-        <div className={`relative ${aspect} bg-paper-soft/40`}>
+        <div className={`relative ${aspect} bg-ink/[0.04]`}>
           <Image
             src={image}
             alt={alt}

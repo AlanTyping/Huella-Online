@@ -134,7 +134,7 @@ export function ServiceLanding({ config }: { config: ServicePageConfig }) {
       </section>
 
       {/* PROBLEM */}
-      <section className="bg-paper py-24 text-ink lg:py-32">
+      <section className="bg-white py-24 text-ink lg:py-32">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-8">
           <div className="max-w-2xl">
             <h2 className="font-display text-4xl leading-tight tracking-tight sm:text-5xl lg:text-6xl">
@@ -187,7 +187,7 @@ export function ServiceLanding({ config }: { config: ServicePageConfig }) {
                     key={item.gain}
                     className="flex items-start gap-4 border-b border-ink/10 py-5"
                   >
-                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-ink text-paper">
+                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-ink text-white">
                       <Check className="h-3 w-3" />
                     </span>
                     <span className="text-base font-bold leading-snug text-ink">
@@ -250,7 +250,7 @@ export function ServiceLanding({ config }: { config: ServicePageConfig }) {
       </section>
 
       {/* SHOWCASE */}
-      <section className="bg-paper py-24 text-ink lg:py-32">
+      <section className="bg-white py-24 text-ink lg:py-32">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-brand-secondary">
@@ -620,7 +620,7 @@ function FaqSection({ faqs }: { faqs: ServicePageConfig["faqs"] }) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="scroll-mt-24 bg-paper py-24 text-ink lg:py-32">
+    <section id="faq" className="scroll-mt-24 bg-white py-24 text-ink lg:py-32">
       <div className="mx-auto w-full max-w-7xl px-6 md:px-8">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">

@@ -30,7 +30,7 @@ const comparisons = [
 
 export function FotografosProblem() {
   return (
-    <section className="relative overflow-hidden bg-paper py-24 text-ink lg:py-32">
+    <section className="relative overflow-hidden bg-white py-16 text-ink sm:py-20 lg:py-32">
       {/* Onda + cámara con flash: cruza la sección y se acentúa a la derecha */}
       <div
         aria-hidden="true"
@@ -42,11 +42,11 @@ export function FotografosProblem() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 md:px-8">
         <div className="grid items-start gap-14 lg:grid-cols-12 lg:gap-16">
           {/* Contenido */}
-          <div className="relative bg-paper lg:col-span-7">
+          <div className="relative bg-white lg:col-span-7">
             {/* Suaviza el borde derecho del fondo blanco sobre la decoración */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-y-0 -right-16 hidden w-16 bg-gradient-to-r from-paper to-transparent lg:block"
+              className="pointer-events-none absolute inset-y-0 -right-16 hidden w-16 bg-gradient-to-r from-white to-transparent lg:block"
             />
             <div className="max-w-2xl">
               <h2 className="font-display text-4xl leading-tight tracking-tight sm:text-5xl lg:text-6xl">
@@ -59,7 +59,40 @@ export function FotografosProblem() {
               </p>
             </div>
 
-            <div className="mt-16 grid gap-10 sm:grid-cols-2 sm:gap-x-12">
+            {/* Mobile: comparación ítem por ítem para no perder el contraste */}
+            <div className="mt-12 sm:hidden">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-ink/15 pb-4 text-[11px] font-semibold uppercase tracking-[0.16em]">
+                <span className="flex items-center gap-2 text-graphite">
+                  <X className="h-4 w-4 text-ink/30" />
+                  Solo Instagram
+                </span>
+                <span className="flex items-center gap-2 text-ink">
+                  <Check className="h-4 w-4" />
+                  Con Huella
+                </span>
+              </div>
+
+              <ul>
+                {comparisons.map((item) => (
+                  <li key={item.pain} className="border-b border-ink/10 py-4">
+                    <div className="flex items-start gap-3">
+                      <X className="mt-0.5 h-4 w-4 shrink-0 text-ink/30" />
+                      <span className="text-sm leading-snug text-graphite">
+                        {item.pain}
+                      </span>
+                    </div>
+                    <div className="mt-2 flex items-start gap-3">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-ink" />
+                      <span className="text-sm font-bold leading-snug text-ink">
+                        {item.gain}
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-16 hidden gap-10 sm:grid sm:grid-cols-2 sm:gap-x-12">
               {/* Solo Instagram */}
               <div>
                 <h3 className="flex items-center gap-3 border-b border-ink/15 pb-4 font-display text-2xl text-graphite">
@@ -103,7 +136,7 @@ export function FotografosProblem() {
                       key={item.gain}
                       className="flex items-start gap-4 border-b border-ink/10 py-5"
                     >
-                      <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-ink text-paper">
+                      <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-ink text-white">
                         <Check className="h-3 w-3" />
                       </span>
                       <span className="text-base font-bold leading-snug text-ink">

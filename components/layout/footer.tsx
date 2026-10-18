@@ -14,7 +14,7 @@ const instagramHref = "https://www.instagram.com/huellaonline/";
 
 function EditorialFooter() {
   return (
-    <footer className="border-t border-bone/10 bg-ink py-20 text-bone">
+    <footer className="border-t border-bone/10 bg-ink pt-20 pb-[calc(5rem+env(safe-area-inset-bottom))] text-bone md:pb-20">
       <div className="mx-auto w-full max-w-7xl px-6 md:px-8">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-6">
@@ -40,7 +40,7 @@ function EditorialFooter() {
             <h4 className="font-display text-lg tracking-tight text-bone">
               Explorar
             </h4>
-            <ul className="mt-4 space-y-3 text-sm text-bone/60">
+            <ul className="mt-4 space-y-3 text-sm text-bone/60 [&>li>a]:inline-block [&>li>a]:py-1">
               <li>
                 <Link href="#portfolio" className="transition-colors hover:text-bone">
                   Casos
@@ -83,7 +83,7 @@ function EditorialFooter() {
             <h4 className="font-display text-lg tracking-tight text-bone">
               Hablemos
             </h4>
-            <ul className="mt-4 space-y-3 text-sm text-bone/60 [&>li>a>svg]:h-4 [&>li>a>svg]:w-4">
+            <ul className="mt-4 space-y-3 text-sm text-bone/60 [&>li>a>svg]:h-4 [&>li>a>svg]:w-4 [&>li>a]:py-1">
               <li>
                 <a
                   href={whatsappHref}

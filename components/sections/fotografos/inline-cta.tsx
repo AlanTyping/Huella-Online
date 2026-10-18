@@ -34,7 +34,7 @@ export function FotografosInlineCta({
           href={fotografoWhatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex shrink-0 items-center justify-center gap-3 rounded-md bg-whatsapp px-7 py-4 text-base font-semibold text-white transition-colors hover:bg-whatsapp-hover [&>svg]:h-5 [&>svg]:w-5"
+          className="inline-flex shrink-0 items-center justify-center gap-3 rounded-md bg-whatsapp px-7 py-4 text-base font-semibold text-white transition-colors hover:bg-whatsapp-hover active:scale-[0.99] [&>svg]:h-5 [&>svg]:w-5"
         >
           <WhatsAppIcon />
           Hablemos

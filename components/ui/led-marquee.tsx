@@ -1,10 +1,15 @@
 "use client";
 
-export function LEDMarquee() {
+export function LEDMarquee({ tone = "navy" }: { tone?: "navy" | "ink" }) {
   const text = "HUELLA ONLINE";
+  const isInk = tone === "ink";
 
   return (
-    <div className="relative w-full overflow-hidden bg-brand-primary-deep py-6 border-y border-white/[0.05] select-none">
+    <div
+      className={`relative w-full overflow-hidden py-6 border-y border-white/[0.05] select-none ${
+        isInk ? "bg-ink" : "bg-brand-primary-deep"
+      }`}
+    >
 
       {/* 🎛️ soft LED grid (sutil) */}
       <div
@@ -17,8 +22,16 @@ export function LEDMarquee() {
       />
 
       {/* 🌫️ vignette edges (profundidad real) */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-primary-deep to-transparent z-20" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand-primary-deep to-transparent z-20" />
+      <div
+        className={`absolute inset-y-0 left-0 w-32 bg-gradient-to-r to-transparent z-20 ${
+          isInk ? "from-ink" : "from-brand-primary-deep"
+        }`}
+      />
+      <div
+        className={`absolute inset-y-0 right-0 w-32 bg-gradient-to-l to-transparent z-20 ${
+          isInk ? "from-ink" : "from-brand-primary-deep"
+        }`}
+      />
 
       {/* 🟠 MARQUEE REAL INFINITO */}
       <div className="flex w-max animate-[scroll_100s_linear_infinite]">

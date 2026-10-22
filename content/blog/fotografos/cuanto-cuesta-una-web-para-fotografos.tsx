@@ -62,14 +62,14 @@ export function Content() {
       <H2>📊 Rangos de referencia en Argentina</H2>
       <P>
         Como orientación, un portfolio profesional bien hecho suele ubicarse en
-        un rango que va desde unos <strong>$225.000</strong> para un proyecto
+        un rango que va desde unos <strong>$199.999</strong> para un proyecto
         esencial, hasta alrededor de <strong>$500.000</strong> para una web más
         completa y personalizada. Los valores cambian con el tiempo y según cada
         estudio, así que tomalos como punto de partida, no como regla fija.
       </P>
       <P>
         Lo importante no es el número en sí, sino <strong>qué incluye</strong>.
-        Una web de $225.000 que carga lenta y no aparece en Google puede salir
+        Una web de $199.999 que carga lenta y no aparece en Google puede salir
         mucho más caras que una de $500.000 que te trae consultas todos los
         meses. Pensá en la inversión, no en el gasto.
       </P>

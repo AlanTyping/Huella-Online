@@ -190,7 +190,7 @@ export const arquitecturaConfig: ServicePageConfig = {
       {
         name: "Portfolio",
         emoji: "🚀",
-        price: "225.000",
+        price: "199.999",
         tagline:
           "Para arquitectos que quieren un portfolio profesional para mostrar sus proyectos y recibir consultas.",
         features: [

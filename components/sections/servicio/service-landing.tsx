@@ -13,6 +13,7 @@ import { ServiceInlineCta } from "./inline-cta";
 import { ServiceSeoContent } from "./seo-content";
 import { ServiceTour } from "./tour";
 import { ServiceTestimonials } from "./testimonials";
+import { arsInstallment, arsToUsd, usdInstallment } from "@/lib/pricing";
 import type { ServicePageConfig } from "@/content/service-pages/types";
 
 const whatsappNumber = "541138235395";
@@ -437,36 +438,52 @@ export function ServiceLanding({ config }: { config: ServicePageConfig }) {
                   )}
                 </div>
 
-                <div className="relative mt-6 flex items-baseline gap-2">
-                  <span className="text-xs text-bone/65">desde</span>
-                  <span className="font-display text-5xl tracking-tight text-bone">
-                    ${plan.price}
-                  </span>
-                  <span className="text-xs text-bone/65">ARS</span>
-                </div>
-
                 <p className="relative mt-4 text-sm leading-relaxed text-bone/60">
                   {plan.tagline}
                 </p>
 
-                <ul className="relative mt-8 flex flex-1 flex-col gap-3">
+                <ul className="relative mt-8 flex flex-1 flex-col gap-3.5">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
-                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-brand-secondary/15">
-                        <Check className="h-3 w-3 text-brand-secondary" />
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-secondary/20 ring-1 ring-brand-secondary/30">
+                        <Check className="h-3.5 w-3.5 text-brand-secondary" />
                       </span>
-                      <span className="text-sm leading-snug text-bone/80">
+                      <span className="text-[15px] leading-snug text-bone/90">
                         {feature}
                       </span>
                     </li>
                   ))}
                 </ul>
 
+                <div
+                  className={`relative mt-8 border-t pt-6 ${
+                    plan.highlighted ? "border-brand-secondary/25" : "border-bone/10"
+                  }`}
+                >
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <span className="text-xs uppercase tracking-wide text-bone/55">
+                      desde
+                    </span>
+                    <span className="font-display text-4xl tracking-tight text-bone sm:text-5xl">
+                      US$ {arsToUsd(plan.price)}
+                    </span>
+                    <span className="text-sm font-medium text-bone/50">
+                      ARS ${plan.price}
+                    </span>
+                  </div>
+                  <p className="mt-1.5 text-sm text-bone/55">
+                    hasta 10 cuotas de US${usdInstallment(plan.price)}{" "}
+                    <span className="text-xs font-medium text-bone/45">
+                      (${arsInstallment(plan.price)} ARS)
+                    </span>
+                  </p>
+                </div>
+
                 <a
                   href={wa}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative mt-8 inline-flex items-center justify-center gap-2.5 rounded-md bg-bone px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-bone/85 [&>svg]:h-4 [&>svg]:w-4"
+                  className="relative mt-6 inline-flex items-center justify-center gap-2.5 rounded-md bg-bone px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-bone/85 [&>svg]:h-4 [&>svg]:w-4"
                 >
                   <WhatsAppIcon />
                   Empezar

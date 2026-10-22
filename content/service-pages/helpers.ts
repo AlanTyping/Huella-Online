@@ -47,7 +47,7 @@ export function buildServiceStructuredData(config: ServicePageConfig) {
         offers: {
           "@type": "AggregateOffer",
           priceCurrency: "ARS",
-          lowPrice: "225000",
+          lowPrice: "199999",
           highPrice: "500000",
           offerCount: "3",
         },

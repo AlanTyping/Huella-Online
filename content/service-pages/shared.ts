@@ -8,4 +8,4 @@ export const includedItems = [
 ];
 
 export const pricingNote =
-  "Precios en pesos argentinos (ARS). El valor final se define según el alcance del proyecto. Financiación en 2 pagos: 50% para comenzar y 50% al publicar.";
+  "Precios en dólares (USD) con el equivalente en pesos argentinos (ARS) al tipo de cambio de $1.500. El valor final se define según el alcance del proyecto. Financiación: hasta 10 cuotas sin interés o 2 pagos (50% para comenzar y 50% al publicar).";

@@ -190,7 +190,7 @@ export const gimnasiosConfig: ServicePageConfig = {
       {
         name: "Presencia",
         emoji: "🚀",
-        price: "225.000",
+        price: "199.999",
         tagline:
           "Para gimnasios y entrenadores que quieren una presencia profesional y recibir consultas.",
         features: [

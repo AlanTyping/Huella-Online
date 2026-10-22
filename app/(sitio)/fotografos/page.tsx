@@ -16,7 +16,7 @@ const siteUrl = "https://huellaonline.com";
 const pageTitle =
   "Páginas web para fotógrafos en Argentina | Huella Online";
 const pageDescription =
-  "Creamos páginas web y portfolios para fotógrafos: galerías inmersivas, carga ultrarrápida y diseño que convierte visitas en clientes. Desde $225.000, en 4 a 8 semanas.";
+  "Creamos páginas web y portfolios para fotógrafos: galerías inmersivas, carga ultrarrápida y diseño que convierte visitas en clientes. Desde $199.999, en 4 a 8 semanas.";
 
 const ogImage = {
   url: "/images/lumosfotografia.webp",
@@ -152,14 +152,14 @@ const structuredData = {
       offers: {
         "@type": "AggregateOffer",
         priceCurrency: "ARS",
-        lowPrice: "225000",
+        lowPrice: "199999",
         highPrice: "500000",
         offerCount: "3",
         offers: [
           {
             "@type": "Offer",
             name: "Portfolio Esencial",
-            price: "225000",
+            price: "199999",
             priceCurrency: "ARS",
           },
           {

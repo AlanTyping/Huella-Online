@@ -86,7 +86,7 @@ export default function Image() {
             huellaonline.com/fotografos
           </div>
           <div style={{ fontSize: "28px", fontWeight: 700, color: "#ffa500" }}>
-            Desde $225.000
+            Desde $199.999
           </div>
         </div>
       </div>

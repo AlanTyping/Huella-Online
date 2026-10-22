@@ -32,7 +32,7 @@ export function FotografosStickyCta() {
               Tu web en 4 a 8 semanas
             </span>
             <span className="flex items-center gap-1.5 text-[15px] font-black text-white">
-              Desde $225.000
+              Desde US$133
               <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-secondary">
                 Ver planes
               </span>

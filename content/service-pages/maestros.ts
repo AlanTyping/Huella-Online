@@ -229,7 +229,7 @@ export const maestrosConfig: ServicePageConfig = {
       {
         name: "Esencial",
         emoji: "🚀",
-        price: "225.000",
+        price: "199.999",
         tagline:
           "Para docentes que quieren una presencia profesional para mostrar su propuesta y recibir consultas.",
         features: [
